@@ -1,0 +1,22 @@
+
+
+pagination-controls.pagination {
+    float: right;
+    margin: 0;
+}
+.last_img_sec {
+    width: 100px;
+    /* text-align: center; */
+}
+
+td.last_img_sec img {
+    width: 2vw;
+}
+
+.table td, .table th {
+    width: 14%;
+}
+.main_sec {
+    margin: 120px 0 0;
+    padding: 0;
+}

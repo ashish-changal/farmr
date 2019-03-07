@@ -1,0 +1,158 @@
+.firstRow{
+    background-color: #f6f6f6;
+}
+.more {
+    text-align: right;
+}
+body{
+    background-color: #e8e8e1;
+}
+.more a {
+    color: #53A318;;
+}
+.off {
+    top: 841px;
+    margin-left: 1px;
+    opacity: 0.9;    
+    border: none;
+    border-radius: 28px;
+    width: 82px;
+}
+/* .first_produce_sec {
+  
+    background-color: #fff;   
+    border: 36px solid #f6f6f6;
+} */
+.second{
+	padding: 30px 53px 38px 30px;
+    background-color: #fff;
+    border-left: 36px solid #f6f6f6;
+	border-top: 22px solid #f6f6f6;
+	
+}
+.third{
+	padding: 30px 53px 38px 30px;
+    background-color: #fff;
+    border-left: 36px solid #f6f6f6;
+	border-top: 22px solid #f6f6f6;;
+}
+
+.free {
+    background-color: #53A318;;
+    border-radius: 100%;
+    border: none;   
+    position: absolute;
+    height: 22px;
+    width: 22px;
+	right:0;
+}
+h5.discount {
+    color: #000;
+}
+.card-text{
+    text-decoration: line-through; 
+}
+h4.my-4{
+    font-size: 30px;
+    font-family: "Roboto";
+    font-weight: 600;
+    color: black;
+    margin: 0 17px;
+    text-align: center;
+}
+
+.Veg h2 {
+    font-size: 1.2vw;
+    font-family: roboto;
+}
+.outofstock
+{
+    margin-bottom: 0px;
+    font-size: 20px;
+    color: red;
+    font-weight: 600;
+}
+.card-body {
+    padding: 0;
+}
+.card-body h5 {
+    font-size: 1vw;
+}
+.card-img-top {
+    width: 5vw;
+    height: 5vw;
+   
+}
+.btn-success {
+    color: #fff;
+    background-color: #53A318;;
+    border-color: #53A318;;
+    font-size: 1vw;
+    font-family: roboto;
+    padding: .3vw .5vw;
+}
+.search_no_results.col-lg-12 h4 {
+    font-size: 1.8vw;
+    margin: 1vw;
+}
+.farms-card {
+  
+        border-radius: 7px;
+        padding: 12px 0;
+        text-align: center;
+        margin-top: 13px;
+        /* height: 16vw; */
+    
+}
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem!important;
+    text-align: center;
+}
+.first {
+    background-color: #fff;
+    border-left: 36px solid #f6f6f6;
+    border-top: 0px solid #e8e8e1;
+    border-right: 36px solid #f6f6f6;
+    border-bottom: 0px solid #e8e8e1;
+}
+.cart_butt {
+    background-color: #53A318;
+    color: #fff;
+    font-size: .9vw;
+    font-family: "Roboto";
+    border: none;
+    position: absolute;
+    bottom: 6px;
+    transform: translateX(-50%)
+}
+.btn-primary {
+    color: #fff;
+    background-color: #FF8203;
+    border-color: #FF8203;
+    font-family: "Roboto";
+    font-size: 1vw;
+}
+.card-body {
+    position: relative;
+}
+.produce_boder {
+    float: left;
+    width: 100%;
+    box-shadow: 0px 0px 1px 1px #00000047;
+    padding: 0 0 36px;
+}
+.first_produce_sec{
+    padding: 0 18px;
+}
+@media only screen and (max-width: 900px) {
+
+    .farms-card {
+            height: auto;
+    }
+    .card-body {
+        height: auto;
+    }
+    .card-body h5 {
+        font-size: 12px !important;
+    }
+}

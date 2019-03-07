@@ -1,0 +1,140 @@
+.produce_sec img {
+    width: 2vw;
+    height: 2vw;
+}
+
+.first_row {
+    margin: 160px 0 0;
+}
+.produce-modal input{
+    border: none;
+    border-bottom: 1px Solid #000;
+    border-radius: 0;
+    padding: 2px 0;
+    color: #212121;
+    font-size: 1vw;
+    font-weight: 700;
+    font-family: "Roboto";
+}
+
+
+.modal-footer {
+
+    border-top: none;
+    }
+.btn-lg{
+    background-color: #FF8203;
+    border-radius: #FF8203;
+}
+
+.addproduce{
+    color: #fff;
+    background-color: #FF8203;
+    border-color: #FF8203;
+    padding: 7px 14px;
+    font-size:1vw;
+    border-radius: 2px;
+    box-shadow: 0px 2px rgba(0, 0, 0, 0.24);
+    font-family: "Roboto";
+    font-weight: 500;
+}
+.btn-add-sec{
+    text-align: left;
+}
+.bell-icon{
+    text-align: left;
+    padding: 8px 0 0;
+}
+.bell-icon i {
+    color: #53A318;
+    font-size: 18px;
+    margin: 0 8px;
+}
+.edit-icon{
+    text-align: left;
+    padding: 0;
+}
+
+
+.mdi::before {
+    font-size: 1.2vw;
+    line-height: 14px;
+}
+
+
+.pageChange_sec {
+    float: right;
+
+
+}
+form.ng-untouched.ng-pristine.ng-valid {
+    padding: 9px;
+}
+
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    position: absolute;
+    right: 4px;
+    top: 0;
+}
+.produce_name_Sec {
+    margin: 17px 0;
+}
+
+.image-path {
+    width: 60%;
+    height: 14vw;
+}
+.Select {
+    font-size: 1vw;
+    font-family: roboto;
+    position: absolute;
+    top: 7vw;
+    background: #53A318;
+    padding: 6px 0;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+}
+
+
+.date {
+    margin-top: 32px;
+}
+
+
+.left_sec label {
+    font-size: 1vw;
+    font-family: roboto;
+    float: left;
+    margin: 0 17px 0 0;
+    position: relative;
+    }
+
+input.selection.ng-untouched.ng-pristine.ng-valid {
+    font-size: 1vw !important;
+}
+select.form-control.lb.ng-untouched.ng-pristine.ng-valid {
+    font-size: 1vw;
+}
+
+
+
+.chang_butt_img {
+    margin: 120px 0 0;
+}
+.modal-footer.butt {
+    width: 100%;
+    float: left;
+    }
+    .produce-modal {
+        width: 100%;
+        float: left;
+        padding: 0;
+        }
+        .btn-success.disabled, .btn-success:disabled{
+            border-color: #FF8203 !important;
+        }

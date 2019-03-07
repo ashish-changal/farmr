@@ -1,0 +1,13 @@
+.first {
+    margin: 10px !important;
+}
+
+td, th {
+    width: 14.2%;
+}
+.last-price {    
+    padding-right: 5% !important;
+    text-align: right !important;
+}
+
+

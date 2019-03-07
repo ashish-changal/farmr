@@ -1,0 +1,48 @@
+
+.first_row {
+    margin: 120px 0 0;
+}
+
+span.search_no_results h4 {
+    font-size: 1.8vw;
+    font-family: roboto;
+}
+
+.main_sec {
+    margin: 130px 0 0 !important;
+    padding: 0;
+}
+.date-field{
+    width: 15%;
+}
+th {
+    width: 80%;
+}
+span.search_no_results {
+    float: left;
+    width: 100%;
+    margin: 20px 0;
+}
+.trash-icon {
+    color: #ffffff;
+    cursor: pointer;
+}
+td{
+    width:80%;
+}
+th:first-child {
+    width: 5%;
+    text-align: center;
+}
+td:first-child {
+    width: 5%;
+    text-align: center;
+}
+input {
+    height: 16px;
+    width: auto;
+    margin: 0 auto;
+}
+.trash-icon::before {
+    font-size: 20px;
+}

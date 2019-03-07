@@ -1,0 +1,102 @@
+<!-- <div class="container-fluid"> -->
+<!-- <div class="row first_row"> -->
+<div class="row">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-12  producesales">
+		<h3 class="second_rowP">{{'dashboard.producesale' | translate }}</h3>
+		<div class="row produce-sales-options">
+			<li (click)="changeSalesView('day')">
+				<a style="cursor: pointer" [ngStyle]="{'color': salesChoice == 'day'?'green': '#00000069'}">{{'dashboard.daily' | translate }}</a>
+			</li>
+			<li (click)="changeSalesView('week')">
+				<a style="cursor: pointer" [ngStyle]="{'color': salesChoice == 'week'?'green': '#00000069'}">{{'dashboard.weekly' | translate }}</a>
+			</li>
+			<li (click)="changeSalesView('month')">
+				<a style="cursor: pointer" [ngStyle]="{'color': salesChoice == 'month'?'green': '#00000069'}">{{'dashboard.monthly' | translate }}</a>
+			</li>
+			<li (click)="changeSalesView('year')">
+				<a style="cursor: pointer" [ngStyle]="{'color': salesChoice == 'year'?'green': '#00000069'}">{{'dashboard.yearly' | translate }}</a>
+			</li>
+		</div>
+		<h4>{{produceSales | currency}}</h4>
+
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-12  produceF1">
+		<h3 class="second_rowP">{{'dashboard.customers' | translate }}</h3>
+		<a [routerLink]="['../customers']">
+			<h4 class="dolr">{{totaluser}}</h4>
+		</a>
+
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-12  produceF1">
+		<h3 class="second_rowP">{{'dashboard.ordersToFulfill' | translate }}</h3>
+		<a [routerLink]="['../transaction', 'unfulfilled']">
+			<h4 class="dolr">{{ordersTofulfill}}</h4>
+		</a>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 Transactions">
+		<div class="col-lg-12  Recent">
+			{{'dashboard.transactions' | translate }}
+		</div>
+		<table class="table">
+
+			<thead>
+				<tr>
+					<th class="first-col">{{'common.order' | translate }}</th>
+					<th>{{'common.date' | translate }}</th>
+					<th>{{'common.total' | translate }}</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr class="oder_sec" *ngFor="let order of orderlist | slice:0:10" (click)="openDetailTransaction(order.orderKey)">
+					<td class="first-col">{{order.orderNumber | uppercase }}</td>
+					<td class="orderdate">{{order.orderdate}}</td>
+					<td class="orderdate">{{order.amount | currency}}</td>
+					<td class="edt_img">
+						<img src="./assets/imgs/Group.png">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div *ngIf="orderlist?.length == 0">
+			<span class="search_no_results">
+				<h4>{{noTransaction}}</h4>
+			</span>
+		</div>
+		<div *ngIf="orderlist?.length > 15">
+			<a class="see-more" [routerLink]="['../transaction', 'default']">See more</a>
+		</div>
+	</div>
+
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 produce_sec">
+		<div class="col-lg-12  Recent">{{'dashboard.produce' | translate }}
+		</div>
+		<table class="table">
+			<thead>
+				<tr class=" translate">
+					<th class="first-col">{{'common.item' | translate }}</th>
+					<th>{{'farmproduce.available' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="Item_sec" *ngFor="let produce of produces | slice:0:15">
+					<td class="first-col">
+						<img class="grey_img" src="{{produce.image}}" alt="Photo of a Shiba Inu">{{produce.producename}}</td>
+					<td class="totalquantity_sec">{{produce.totalquantity}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<div *ngIf="produces?.length == 0">
+			<span class="search_no_results">
+				<h4>{{lowProduceInv}}</h4>
+			</span>
+		</div>
+		<div *ngIf="produces?.length > 15">
+			<a class="see-more" [routerLink]="['../produce']">See more</a>
+		</div>
+	</div>
+</div>
+<!-- </div> -->

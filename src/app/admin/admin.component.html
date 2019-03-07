@@ -1,0 +1,108 @@
+<div class="wrapper" > 
+    <nav id="sidebar">
+        <div class="logo_sec sidebar-header">
+            <button (click)="clickToggle()" clickToggle type="button" id="sidebarCollapseDesk" class="btn btn-info togglebtn">
+                <i class="mdi mdi-menu collaspe" aria-hidden="true"></i>
+            </button>
+            <img class="icon_img" *ngIf="hide !='show'" src="./assets/imgs/f-icon.png" />
+            <img *ngIf="hide=='show'" class="main_img" src="./assets/imgs/farmr-logos.png" />
+            <br>
+            <h3 *ngIf="hide=='show'" class="logo_sec_name">{{userName}}</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a routerLink="./dashboard" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-view-dashboard" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'dashboard' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'dashboard' ? '#53A318': '#828282'}">{{'sidemenu.dashboard' | translate}}</p>
+                </a>
+
+            </li>
+            <li>
+                <a routerLink="./farms" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-home dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'allfarms' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'allfarms' ? '#53A318': '#828282'}">{{'sidemenu.allfarms' | translate}}</p>
+                </a>
+            </li>
+            <li>
+                <a routerLink="./customers" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-account dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'customers' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'customers' ? '#53A318': '#828282'}">{{'sidemenu.customer' | translate}}</p>
+                </a>
+            </li>
+            <li>
+                <a routerLink="./rewards" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-currency-usd dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'rewards' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'rewards' ? '#53A318': '#828282'}">{{'sidemenu.rewards' | translate}}</p>
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="./pendingfarms" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-home-variant dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'pendingfarms' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'pendingfarms' ? '#53A318': '#828282'}">{{'sidemenu.pendingfarms' | translate}}</p>
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="./reports" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-clipboard-text dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'reports' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'reports' ? '#53A318': '#828282'}">{{'sidemenu.reports' | translate}}</p>
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="./app-settings" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-settings dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'app-settings' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'app-settings' ? '#53A318': '#828282'}">{{'sidemenu.app-settings' | translate}}</p>
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="./notifications" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-bell dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'notification' ? '#53A318': '#828282'}"><label class="notifyCount" *ngIf = "notificationCount>0">{{notificationCount}}</label></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'notification' ? '#53A318': '#828282'}">{{'sidemenu.notification' | translate}}</p>
+                </a>
+            </li>
+           
+            <li (click)="signout()">
+                <a routerLinkActive="active-link" class="dropdown-toggle pointer">
+                    <i class="mdi mdi-logout-variant logout" aria-hidden="true"></i>
+                    <p *ngIf="hide=='show'" class="logout">{{'sidemenu.logout' | translate}}</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+   <div id="content">
+        <div class="container-fluid">
+            <div class="row app-header">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-3 Titlepadding">
+                        <!-- <button (click)="clickToggle()" clickToggle type="button" id="sidebarCollapse" class="btn btn-info togglebtn">
+                            <i class="mdi mdi-menu collaspe" aria-hidden="true"></i>
+                        </button> -->
+                        <h1 class="page-header-title">{{pageTitle}}</h1>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-5 Search_butt searchBar">
+                        <div *ngIf="toggle$ | async">
+                            <input #val class="form-control"  placeholder="{{searchText$ | async}}" (keyup)="search(val.value)">
+                            <div class="search_bar_sec">
+                                <i class="mdi mdi-magnify magn" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-2 btn-add-sec">
+                        <button *ngIf="toggleButton$ | async" (click)="router.navigate(['/admin/farms/addnewfarm',0])" class="btn btn-lg btn-success">Add Farm</button>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-2 notifiy">
+                        <!-- <i class="mdi mdi-bell colo" aria-hidden="true" (click)="router.navigate(['/admin/notifications'])"></i> -->
+                    </div>
+                </div>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 col-12 main_sec">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+
+</div>

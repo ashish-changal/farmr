@@ -1,0 +1,108 @@
+img {
+    width: 100%;
+	}
+    .card-footer {
+        text-align: center;
+        padding: 11px 0;
+        padding: .75rem 1.25rem;
+        border-top: 1px solid rgba(0,0,0,.125);
+        background: none;
+    }
+    
+    .farm1_img_sec {
+        position: relative;
+    }
+    .miaway {
+        position: absolute;
+        bottom: 12px;
+        left: 8px;
+    }
+    .miaway .btn-danger {
+        color: #fff;
+        background-color: rgba(51,51,51,0.7);
+        border: none;
+        border-radius: 30px;
+        padding: .4vw 1vw;
+        font-size: .8vw;
+    }
+    .farms-card {
+        box-shadow: 1px 1px 1px 1px #ddd;
+        border-radius: 3px;
+    }
+    .btn-link {
+        font-family: "Roboto";
+        font-weight: 500;
+        color: #53A318;
+        background-color: transparent;
+        font-size: 1vw;
+        font-weight: bold;
+    }
+    .btn-light {
+        color: #333333;
+        font-size: 1vw;
+        font-weight: 500;
+        font-family: "Roboto";
+        line-height: 16px;
+        border: none;
+        background-color: #fff;
+    }
+    .badge-miles{
+        background:rgba(0, 0, 0, 0.7);
+    }
+    .heart_icon_sec {
+        position: absolute;
+        top:12px;
+        left: 7px;
+    }
+    .farm1_img_sec img {
+        height: 14vw;
+    }
+    .card-title {
+        margin-bottom: .75rem;
+        font-family: "Roboto";
+        font-weight: 600;
+        font-size: 1.2vw;
+    }
+    p.card-text {
+        font-size: 1vw;
+        font-family: "Roboto";
+        font-weight: 400;
+        color: #828282; 
+    }
+    .search_no_results {
+        text-align: center;
+        width: 100%;
+    }
+    .card-body {
+        padding: 13px;
+        height: auto !important;
+    }
+    .Orange_color {
+        color: #ff8203;
+      }
+      .btnmragim {
+        margin: 0 4px;
+    }
+    @media only screen and (max-width: 600px) {
+            .farm1_img_sec img {
+            height: auto;
+            }
+            .card-title {
+            font-size: 16px;
+            }
+            p.card-text {
+            font-size: 12px;
+            }
+            .btn-light {
+            font-size: 12px;
+
+            }
+            .btn-link {
+         
+                font-size: 12px;
+               
+            }
+            .btnmragim {
+                margin: 0;
+            }
+            }

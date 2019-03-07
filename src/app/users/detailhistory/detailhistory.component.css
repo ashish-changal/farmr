@@ -1,0 +1,149 @@
+.weal li {
+    list-style: none;
+    width: 30%;
+    float: left;
+}
+.weal {
+    margin: 7px 0 0;
+}
+
+.Summary {
+    padding: 0;
+}
+.Summary_sec {
+    padding: 0;
+    font-family: "Roboto";
+}
+img.grey_img {
+    width: 20px;
+    margin: 0 2px 0 0;
+}
+.coupon ul {
+    padding: 0 19px;
+}
+.coupon li {
+    width:91%;
+    text-align: right;
+}
+.produ_img_sec {
+    text-align: left !important;
+    }
+
+.coupon li:nth-child(2) {
+
+    padding: 9px 0;
+    margin: 13px 0;
+}
+.coupon h3 {
+   
+    text-transform: capitalize;
+    font-size: 1vw;
+    color: black;
+ 
+    font-family: "Roboto";
+}
+.dropdown {
+    float: right;
+}
+.samule_sec ul {
+    padding: 0 8px 7px;
+    box-shadow: 1px 2px 5px 1px #ddd;
+    margin: 18px 0;
+    font-family: "Roboto";
+    font-weight: 500;
+}
+li{
+    list-style: none;
+}
+.samule_sec h3 {
+    text-transform: capitalize;
+    font-weight: bold;
+    margin: 5px 0;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 1.3vw;
+
+}
+.samule_sec li {
+    margin: 13px 0;
+}
+.samule_sec h5 {
+    font-weight: normal !important;
+    padding: 5px 0;
+    font-size: 1vw;
+    font-family: "Roboto";
+  
+
+}
+.titel {
+    margin: 18px 0;
+    
+}
+.titel h3 {
+    font-weight: normal !important;
+    text-transform: capitalize;
+    font-family: "Roboto";
+    font-size: 1vw;
+    width: 100%;
+    float: left
+}
+.colo
+{
+    color: #53A318;
+}
+.near
+{
+    font-weight: 500;
+    font-family: "Roboto";
+    font-size: 24px;
+    color: black;
+}
+
+.samule_sec li {
+    margin: 0 0;
+    padding: 11px 30px 0 12px;
+}
+.refund li {
+    border: none !important;
+}
+.refund {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 13px 0;
+    margin: 40px 0;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #FF8203;
+    border-color: #FF8203;
+    font-size: .9vw;
+    font-family: roboto;
+}
+
+th {
+    width: 25%;
+}
+td {
+    width: 25%;
+}
+tr:last-child {
+    border-bottom: none;
+}
+.coupon {
+    float: left;
+    width: 100%;
+    margin: 20px 0;
+}
+.sing_butt {
+    background: #FF8203;
+    padding: .5vw 2vw;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 28px;
+    font-family: roboto;
+    font-size: 1vw;
+    font-weight: 400;
+    border: none;
+    margin: 2px 0 34px;
+}

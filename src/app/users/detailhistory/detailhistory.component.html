@@ -1,0 +1,85 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Summary">
+  <div [ngClass]="responseClass">
+    {{response}}
+  </div>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-12 left_sec Summary_sec">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-8 titel">
+      <!-- <h3>{{'detailtransaction.summary' | translate}}  </h3> -->
+      <h3><span class="Transaction_Number_sec">{{'common.ordernumber'| translate}} </span><label class="colam">:</label> <span class="Transaction_Number_sec">{{order.orderNumber | uppercase}}</span></h3>
+      <h3><span class="Transaction_Number_sec">{{'detailtransaction.orderdate'| translate}} </span> <label class="colam">:</label><span class="Transaction_Number_sec"></span>{{order.orderDate}}</h3>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="first-col">{{'common.image' | translate}}</th>
+          <th>{{'common.item' | translate}}</th>
+          <th>{{'common.quantity' | translate}}</th>
+          <th>{{'detailtransaction.price' | translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produce of order.produces">
+          <td class="first-col">
+            <img class="grey_img" [src]="produce.image"></td>
+          <td>{{produce.productname}}</td>
+          <td>{{produce.quantityDisp}}</td>
+          <td class="coupon-refund-td">{{produce.selectedQuantity * produce.price | currency}}</td>
+        </tr>
+        <tr class="cust-no-border">
+          <td class="cust-no-border"></td>
+          <td class="cust-no-border"></td>
+          <td class="cust-no-border"></td>
+          <td class="coupon-refund-td cust-no-border"><b>{{'detailtransaction.salestax' | translate}} {{order.salesTax | currency}}</b></td>
+        </tr>
+        <tr class="cust-no-border">
+          <td class="cust-no-border"></td>
+          <td class="cust-no-border"></td>
+          <td class="cust-no-border"></td>
+          <td class="coupon-refund-td cust-no-border"><b>{{'detailtransaction.total' | translate}} {{order.amount | currency}}</b></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="coupon">
+      <table class="table">
+        <tr *ngIf="order.discountAmount" class="cust-no-border">
+          <td class="cust-no-border" colspan="2"></td>
+          <td colspan="2" class="coupon-refund-td cust-no-border"><b>{{'detailtransaction.coupondisc' | translate}} {{order.discountAmount | currency}}</b></td>
+        </tr>
+        <tr *ngIf="order.refundAmount" class="cust-no-border">
+            <td class="cust-no-border" colspan="2"></td>
+            <td colspan="2" class="cust-no-border coupon-refund-td"><b>{{'detailtransaction.refunded' | translate}} {{order.refundAmount/100 | currency}}</b></td>
+          </tr>
+    </table>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-12 samule_sec left_sec">
+    <ul>
+      <li>
+        <h3>{{'detailtransaction.farminfo' | translate}}</h3>
+        <h5>{{order.farmName}}</h5>
+      </li>
+      <li>
+        <h3>{{'detailtransaction.farmaddress' | translate}}</h3>
+        <h5>{{order.farmAddress1}} <br>{{order.farmAddress2}}</h5>
+      </li>
+      <li>
+        <h3>{{'detailtransaction.pickup' | translate}}</h3>
+        <h5>{{order.pickup1}}<br>{{order.pickup2}}<br *ngIf="order.pickup3">{{order.pickup3}}<br></h5>
+      </li>
+      <li>
+        <h3>{{'detailtransaction.contactinfo' | translate}} </h3>
+        <h5>{{order.contactNumber}}</h5>
+      </li>
+      <li *ngIf="toggle">
+        <h3>{{'detailtransaction.transactionstatus' | translate}}</h3>
+        <h5>{{order.orderStatus}}</h5>
+      </li>
+      <li *ngIf="!toggle">
+        <h3>{{'detailtransaction.transactionaction' | translate}}</h3>
+        <button class="button sing_butt" (click)="cancelOrder()">{{'detailtransaction.cancelorderbtn'|translate}}</button>
+      </li>
+    </ul>
+  </div>
+</div>

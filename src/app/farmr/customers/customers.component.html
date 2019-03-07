@@ -1,0 +1,57 @@
+<div class="first">
+  
+ <h3>
+    <pagination-controls class="pagination" (pageChange)="p = $event" directionLinks="true" maxSize="3" autoHide="true" previousLabel=""
+     nextLabel=""></pagination-controls>
+  </h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="first-col">
+          <button (click)="sortByColumn('name',toggle.name)" class="header-btn" [disabled] = "customers?.length == 0">{{'farmrcustomers.name' | translate}}
+            <span class="header-icons" *ngIf = "toggle.name != 2">
+              <!-- <i [ngStyle]="{'color':toggle.name == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+              <i [ngStyle]="{'color':toggle.name == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+              <!-- <i  [ngStyle]="{'color':toggle.name == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+              <i  [ngStyle]="{'color':toggle.name == 0?'#fff':'#00000059'}" *ngIf="toggle.name == 0"  class="sort-by-asc"></i>
+              <i  [ngStyle]="{'color':toggle.name == 1?'#fff':'#00000059'}" *ngIf="toggle.name == 1"   class="sort-by-desc"></i>
+            </span>
+          </button>
+        </th>
+        <th>
+          <button (click)="sortByColumn('zipcode',toggle.zipcode)" class="header-btn" [disabled] = "customers?.length == 0">{{'farmrcustomers.zipcode' | translate}}
+            <span class="header-icons" *ngIf = "toggle.zipcode != 2">
+              <!-- <i [ngStyle]="{'color':toggle.zipcode == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+              <i [ngStyle]="{'color':toggle.zipcode == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+              <!-- <i  [ngStyle]="{'color':toggle.zipcode == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+              <i  [ngStyle]="{'color':toggle.zipcode == 0?'#fff':'#00000059'}" *ngIf="toggle.zipcode == 0"  class="sort-by-asc"></i>
+              <i  [ngStyle]="{'color':toggle.zipcode == 1?'#fff':'#00000059'}" *ngIf="toggle.zipcode == 1"   class="sort-by-desc"></i>
+            </span>
+          </button>
+        </th>
+        <th>
+          <button (click)="sortByColumn('totalspent',toggle.totalspent)" class="header-btn" [disabled] = "customers?.length == 0">{{'farmrcustomers.totalspent' | translate}}
+            <span class="header-icons" *ngIf = "toggle.totalspent != 2">
+              <!-- <i [ngStyle]="{'color':toggle.totalspent == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+              <i [ngStyle]="{'color':toggle.totalspent == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+              <!-- <i  [ngStyle]="{'color':toggle.totalspent == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+              <i  [ngStyle]="{'color':toggle.totalspent == 0?'#fff':'#00000059'}" *ngIf="toggle.totalspent == 0"  class="sort-by-asc"></i>
+              <i  [ngStyle]="{'color':toggle.totalspent == 1?'#fff':'#00000059'}" *ngIf="toggle.totalspent == 1"   class="sort-by-desc"></i>
+            </span>
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let customer of customers | paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
+        <td class="first-col">{{customer.name}}</td>
+        <td>{{customer.zipcode}}</td>
+        <td>{{customer.amount/100 | currency}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div align="center"
+    *ngIf="customers?.length == 0"><span class="search_no_results">
+          <h4>{{noDataFound}}</h4> 
+        </span></div>
+</div>

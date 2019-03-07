@@ -1,0 +1,254 @@
+<div class="row first-row">
+
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 left_sec">
+  </div>
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 left_sec">
+    <div class="row">
+
+      <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+          <h4>{{'settings.email' | translate}}</h4>
+          <input type="text" class="form-control" [disabled]="true" name="email" [value]="farmr.email">
+        </div>
+      </div>
+
+    </div>
+    <form role="form" #settingForm="ngForm">
+      <div class="row">
+
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group">
+            <h4>{{'settings.oldpassword' | translate}}
+              <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':oldpassword.invalid && (oldpassword.touched)? 'red' : 'black' }"></i>
+            </h4>
+            <div *ngIf="oldpassword.invalid && ( oldpassword.touched)" class="validation-error">
+              <div *ngIf="oldpassword.errors.required">
+                Required
+              </div>
+
+            </div>
+            <input type="password" [disabled]="isAuthenticate" class="form-control" #oldpassword='ngModel' name="oldpassword"
+              [(ngModel)]="farmr.oldpassword" required>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="!isAuthenticate">
+
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group sign_butt_container">
+            <button class="sing_butt btn btn-primary" [disabled]="settingForm.invalid" (click)="authenticate()">{{'settings.authbtn'
+              | translate}}</button>
+            <div [ngClass]="responseClass">
+              {{response}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div *ngIf="isAuthenticate">
+        <div class="row">
+
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'settings.newpassword' | translate}}{{'settings.optional' | translate}}
+              </h4>
+              <div *ngIf="password.invalid && (password.touched)" class="validation-error">
+                <div *ngIf="password.errors.minlength">
+                  Password should be minimum of 6 alphabets
+                </div>
+              </div>
+              <input type="password" class="form-control" #password='ngModel' name="password" [(ngModel)]="farmr.password"
+                minlength="6">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'signup.firstname' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':firstname.invalid && (firstname.touched)? 'red' : 'black' }"></i>
+              </h4>
+              <div *ngIf="firstname.invalid && ( firstname.touched)" class="validation-error">
+                <div *ngIf="firstname.errors.required">
+                  Required
+                </div>
+                <div *ngIf="firstname.errors.pattern">
+                  Special characters are not allowed
+                </div>
+              </div>
+              <input type="text" class="form-control" name="firstname" #firstname='ngModel' pattern="[A-Za-z\s]{0,20}"
+                [(ngModel)]="farmr.firstname" required>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'signup.lastname' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':lastname.invalid && (lastname.touched)? 'red' : 'black' }"></i>
+              </h4>
+              <div *ngIf="lastname.invalid && (lastname.touched)" class="validation-error">
+                <div *ngIf="lastname.errors.required">
+                  Required
+                </div>
+                <div *ngIf="lastname.errors.pattern">
+                  Special characters are not allowed
+                </div>
+              </div>
+              <input type="text" class="form-control" #lastname='ngModel' pattern="[A-Za-z\s]{0,20}" name="lastname"
+                [(ngModel)]="farmr.lastname" required>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'signup.phonenumber' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':phonenumber.invalid && (phonenumber.touched)? 'red' : 'black' }"></i>
+              </h4>
+              <div *ngIf="phonenumber.invalid && (phonenumber.touched)" class="validation-error">
+                <div *ngIf="phonenumber.errors.required">
+                  Required
+                </div>
+                <div *ngIf=" phonenumber.errors.minlength || phonenumber.errors.maxlength">
+                  Minimum 10 digits required
+                </div>
+              </div>
+              <input class="form-control" (keypress)="_keyPress($event)" name="phonenumber" #phonenumber='ngModel'
+                pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}" type="tel" mask="(***) ***-****" maxlength="14"
+                minlength="14" [(ngModel)]="farmr.phonenumber" required>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'signup.streetaddress1' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':streetaddress1.invalid && (streetaddress1.touched)? 'red' : 'black' }"></i>
+              </h4>
+              <div *ngIf="streetaddress1.invalid && (streetaddress1.touched)" class="validation-error">
+                <div *ngIf="streetaddress1.errors.required">
+                  Required
+                </div>
+                <div *ngIf="streetaddress1.errors.required">
+                  Invalid Street Address
+                </div>
+              </div>
+              <input type="text" class="form-control" #streetaddress1='ngModel' name="streetaddress1" [(ngModel)]="farmr.streetaddress1"
+                required pattern="^(?=.*[A-Za-z\s])(?=.*\d)[A-Za-z\d\s]{4,}$">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'signup.streetaddress2' | translate}}
+              </h4>
+              <input type="text" class="form-control" #streetaddress2='ngModel' name="streetaddress2" [(ngModel)]="farmr.streetaddress2">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'signup.city' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':city.invalid && (city.touched)? 'red' : 'black' }"></i>
+              </h4>
+              <div *ngIf="city.invalid && (city.touched) " class="validation-error">
+                <div *ngIf="city.errors.required">
+                  Required
+                </div>
+                <div *ngIf="city.errors.pattern">
+                  Special characters are not allowed
+                </div>
+              </div>
+              <div *ngIf="invalidFarmrCity" class="validation-error">
+                Please enter a valid city name
+              </div>
+              <input type="text" class="form-control" #city='ngModel' pattern="[A-Za-z\s]{0,20}" name="city"
+                [(ngModel)]="farmr.city" (change) = "setDefault()" (keyup)="autoComplete(farmr.city)" required>
+                <div *ngFor="let value of autoCityValues | slice:0:4" class="searchitems" (click)="selectItem(value, 'profile')">
+                  {{value}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'signup.state' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':state.invalid && (state.touched)? 'red' : 'black' }"></i>
+              </h4>
+              <select class="farmername form-control" #state='ngModel' name="state" [(ngModel)]="farmr.state">
+                <option value="" disabled="true" [selected]="!farmr.state">{{'signup.state' | translate}}</option>
+                <option *ngFor="let states of states">
+                  {{states}}
+                </option>
+              </select>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'signup.zipcode' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':zipcode.invalid && (zipcode.touched)? 'red' : 'black' }"></i>
+              </h4>
+              <div *ngIf="zipcode.invalid && ( zipcode.touched)" class="validation-error">
+                <div *ngIf="zipcode.errors.required">
+                  Required
+                </div>
+                <div *ngIf=" zipcode.errors.minlength || zipcode.errors.maxlength">
+                  Minimum 5 digits required
+                </div>
+              </div>
+              <input type="text" class="form-control" (keypress)="_keyPress($event)" name="zipcode" minlength="5"
+                maxlength="5" #zipcode='ngModel' [(ngModel)]="farmr.zipcode" required>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 cancel_btn">
+            <div class="form-group">
+              <button class="sing_butt btn btn-primary" (click)="cancel(settingForm)">{{'common.cancel' | translate}}</button>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 update_btn">
+            <div class="form-group">
+              <button class="sing_butt btn btn-primary" (click)="updateFarmr()" [disabled]="settingForm.invalid">{{'settings.updatebtn'
+                | translate}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 left_sec">
+  </div>
+</div>

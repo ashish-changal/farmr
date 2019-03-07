@@ -1,0 +1,244 @@
+<div class="wrapper">
+    <nav id="sidebar">
+        <div class="logo_sec sidebar-header">
+            <button (click)="clickToggle()" clickToggle type="button" id="sidebarCollapse" class="btn btn-info togglebtn">
+                <i class="mdi mdi-menu collaspe" aria-hidden="true"></i>
+            </button>
+            <img class="icon_img" *ngIf="hide !='show'" src="./assets/imgs/f-icon.png" />
+            <img *ngIf="hide=='show'" class="main_img" src="./assets/imgs/farmr-logos.png" />
+            <br>
+            <h3 *ngIf="hide=='show'" class="logo_sec_name">{{userName}}</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a routerLink="./nearbyfarms" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-map-marker" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'nearbyfarms' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'nearbyfarms' ? '#53A318': '#828282'}">{{'sidemenu.nearbyfarms' | translate}}</p>
+                </a>
+            </li>
+            <li>
+                <a routerLink="./profile" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-account dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'profile' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'profile' ? '#53A318': '#828282'}">{{'sidemenu.profile' | translate}}</p>
+                </a>
+
+            </li>
+            <li>
+                <a routerLink="./history" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-history dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'history' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'history' ? '#53A318': '#828282'}">{{'sidemenu.history' | translate}}</p>
+                </a>
+            </li>
+            <li>
+                <a routerLink="./rewards" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-currency-usd dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'rewards' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'rewards' ? '#53A318': '#828282'}">{{'sidemenu.rewards' | translate}}</p>
+                </a>
+            </li>
+
+
+            <li>
+                <a routerLink="./settings" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-settings dash" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'settings' ? '#53A318': '#828282'}"></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'settings' ? '#53A318': '#828282'}">{{'sidemenu.settings' | translate}}</p>
+                </a>
+            </li>
+            <li>
+                <a routerLink="./notifications" routerLinkActive="active-link" class="dropdown-toggle">
+                    <i class="mdi mdi-bell colo" aria-hidden="true" [ngStyle]="{'color':sidemenuText == 'notification' ? '#53A318': '#828282'}"><label *ngIf="notificationCount>0" class="notifyCount">{{notificationCount}}</label></i>
+                    <p *ngIf="hide=='show'" [ngStyle]="{'color':sidemenuText == 'notification' ? '#53A318': '#828282'}">{{'sidemenu.notification' | translate}}</p>
+                </a>
+            </li>
+
+            <li (click)="signout()">
+                <a routerLinkActive="active-link" class="dropdown-toggle pointer">
+                    <i class="mdi mdi-logout-variant logout" aria-hidden="true"></i>
+                    <p *ngIf="hide=='show'" class="logout">{{'sidemenu.logout' | translate}}</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row app-header ">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-3 pageTitle">
+                    <!-- <button (click)="clickToggle()" clickToggle type="button" id="sidebarCollapse" class="btn btn-info togglebtn">
+                                    <i class="mdi mdi-menu collaspe" aria-hidden="true"></i>
+                                </button> -->
+                    <h1 class="page-header-title"> {{pageTitle}}</h1>
+                </div>
+                <div id="searchbox" class="col-lg-5 col-md-5 col-sm-5 col-5 Search_butt">
+                    <div *ngIf="toggle$ | async">
+                        <input class="form-control" placeholder="{{searchText$ | async}}" [(ngModel)]="searchText" (keyup)="onChange()">
+                        <div class="search_bar_sec">
+                            <i class="mdi mdi-magnify magn" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2 cart_sec">
+                    <li>
+                        <p (click)="openCart()">
+                            {{cartCountNo}}
+                            <i class="mdi mdi-cart" aria-hidden="true"></i>
+                        </p>
+                    </li>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2 bell_sec">
+                    <!-- <i class="mdi mdi-bell colo" aria-hidden="true" (click)="router.navigate(['users/notifications'])"></i> -->
+                </div>
+            </div>
+
+            <div class="col-lg-12 main_sec">
+                <ngx-spinner bdOpacity=0.6 bdColor="#333" size="medium" color="#53A318" type="ball-spin"></ngx-spinner>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModal3" class="modal fade" role="dialog" *ngFor="let produce of cartItems.produces">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Empty Cart</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <p>Are sure you want to delete this item from your cart?</p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="removeItemcart(produce.producekey)">Yes</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Empty Cart</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <p>Are sure you want to Empty your cart?</p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="cardEmpty()">Yes</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content cart_produce_sec">
+            <div class="modal-header">
+                <div class="col-lg-12 chechoutBox">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+                            <h3>
+                                <p class="myCart" style="text-align: center">{{'usercart.heading' | translate}}</p>
+                            </h3>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6">
+                            <button class="Empty_btn" (click)="emptyMyCart()">Empty Cart</button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6 closeNavBTn">
+                            <button class=" Empty_btn" data-dismiss="modal" >X Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                    <div class="col-lg-12 checkoutSide">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 col-9 smithContent">
+                                <h4>
+                                    <p class="smith">{{cartItems.farmName}} </p>
+                                    <p class="wests">{{cartItems.farmAddress1}}
+                                        <br>{{cartItems.farmAddress2}}</p>
+                                </h4>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-3 smithContentd">
+                                <p class="smithPrice">Total:{{cartItems.totalAmount | currency}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 mid" *ngFor="let produce of cartItems.produces ">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-2  center_sec">
+
+                                <img class="card-img-top" [src]="produce.image" alt="">
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-4 productname ">
+                                <p class="prodt">
+
+                                    {{produce.productname}}
+                                </p>
+
+                                <div class="card-body Instruction">
+                                    {{produce.price | currency}}{{'usercart.separator' | translate}}{{produce.proddesc}}
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-4 plus">
+                                <div class="f11sss">
+                                    <div class="f3">
+                                        <div class="deletebtn" id="removebtn " *ngIf="produce.selectedQuantity == 1" (click)="removeItem(produce.producekey)">
+                                            <i class="mdi mdi-delete green"></i>
+                                        </div>
+                                        <div name="remove" id="ddd" *ngIf="produce.selectedQuantity > 1" (click)="remove(produce.producekey)">
+                                            <i class="mdi mdi-minus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="f5">
+
+                                        <p class="editno"> {{produce.selectedQuantity}}</p>
+                                    </div>
+
+                                    <div class="f2" name="add" id="removebtn" *ngIf="produce.unitQuantity <= produce.totalquantity" (click)="add(produce.producekey)">
+
+                                        <i class="mdi mdi-plus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-2  " id="finalprice">{{produce.price * produce.selectedQuantity | currency}}</div>
+
+                        </div>
+                        <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12 col-12 requested">
+                            <!-- <label class="produce-add" *ngIf="produce.unitQuantity > produce.totalquantity">Quantity requested can not exceed the availability.</label>  -->
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12 col-12">
+                    <div class="col-lg-6 col-md-6  col-sm-6 col-xs-6 col-6 leftbtnsec">
+                        <button type="button" data-dismiss="modal" class="btn btn-primary btn-block addmore" (click)="gotoFarmScreen()">{{'usercart.addmorebtn' | translate}}</button>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6  col-sm-6 col-xs-6 col-6 rightbtnsec">
+                        <button type="button" data-dismiss="modal" class="btn btn-primary btn-block CheckoutButton" (click)="Checkout(cartItems.farmkey)">{{'usercart.checkoutbtn' | translate}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

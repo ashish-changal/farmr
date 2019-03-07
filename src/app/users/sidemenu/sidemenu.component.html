@@ -1,0 +1,47 @@
+
+<div clss="logo_sec">
+   
+ <img class="main_img"  src="./assets/imgs/farmr-logos.png" />
+  <h3 class="logo_sec_name">{{userName}}</h3>
+</div>
+
+<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 col-12 d-md-flex sidebar" id="sidebar">
+  <ul class="nav flex-column flex-nowrap">
+    <li class="nav-item menu_img">
+        <a class="nav-link" routerLink="./nearbyfarms" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'nearbyfarms' ? '#53A318': '#828282'}">
+          <i class="mdi mdi-map-marker bright" aria-hidden="true"></i>{{'sidemenu.nearbyfarms' | translate}}</a>
+    </li>
+    <!-- <li class="nav-item menu_img">
+      <a class="nav-link">
+        <i class="mdi mdi-leaf bright" aria-hidden="true"></i>{{'sidemenu.pods' | translate}}</a>
+    </li> -->
+   
+    <li class="nav-item menu_img">
+      <a class="nav-link" routerLink="./profile" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'profile' ? '#53A318': '#828282'}">
+    <i class="mdi mdi-account bright" aria-hidden="true"></i>{{'sidemenu.profile' | translate}}</a>
+    </li>
+    <li class="nav-item menu_img">
+      <a class="nav-link" routerLink="./history" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'history' ? '#53A318': '#828282'}">
+        <i class="mdi mdi-history bright" aria-hidden="true"></i>{{'sidemenu.history' | translate}}</a>
+    </li>
+    <li class="nav-item menu_img">
+      <a class="nav-link" routerLink="./rewards" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'rewards' ? '#53A318': '#828282'}">
+        <i class="mdi mdi-wallet-giftcard bright" aria-hidden="true"></i>{{'sidemenu.rewards' | translate}}</a>
+    </li>
+    <li class="nav-item menu_img">
+      <a class="nav-link" routerLink="./settings" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'settings' ? '#53A318': '#828282'}">
+        <i class="mdi mdi-settings bright" aria-hidden="true"></i>{{'sidemenu.settings' | translate}}</a>
+    </li>
+    <li class="nav-item menu_img"  (click)="signout()" >
+        <a class="nav-link dash2" routerLinkActive="active-link" >
+          <i class="mdi mdi-logout-variant"></i>{{'sidemenu.logout' | translate}}</a>
+      </li>
+  </ul>
+</div>
+<div class="col pt-12">
+  <h2>
+    <a data-target="#sidebar" data-toggle="collapse" class="d-md-none">
+      <i class="fa fa-bars"></i>
+    </a>
+  </h2>
+</div>

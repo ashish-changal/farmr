@@ -1,0 +1,142 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+        <div role="listbox">
+          <div class="carousel-item details_img active" [ngStyle]="{'background-image': 'url('+item.image+')'}">
+
+            <button type="button" class="btn btn-danger">{{item.miles}} {{'common.miaway' | translate}}</button>
+          </div>
+          <div class="heart_icon_sec pointer" *ngIf="item.fav" (click)="changeFav(item.key,item.fav)">
+            <i class="mdi mdi-heart" [ngStyle]="{'color':'green'}"></i>
+          </div>
+          <div class="heart_icon_sec pointer" *ngIf="!item.fav" (click)="changeFav(item.key,item.fav)">
+            <i class="mdi mdi-heart" [ngStyle]="{'color':'white' }"></i>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="card-body">
+            <h3 class="card-title">
+              {{item.name}}
+            </h3>
+            <p class="card-text">{{item.address1}}
+              <br>{{item.address2}}</p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="card-body ico">
+            <li data-toggle="tooltip" title="Phone No.  {{item.phonenumber}}" class="col-lg-3 col-xs-3 col-sm-3 col-md-3 col-3" id="farm-number">
+              <p>
+                <i class="mdi mdi-phone"></i>
+                <br>{{'common.phone' | translate}}
+              </p>
+            </li>
+            <li class="col-lg-3 col-xs-3 col-sm-3 col-md-3 col-3 pointer" (click)="openWebsite()" data-toggle="tooltip" title="Website {{item.website}}" >
+              <p>
+                <i class="mdi mdi-compass"></i>
+
+                <br>{{'common.website' | translate}}</p>
+            </li>
+            <li class="col-lg-3 col-xs-3 col-sm-3 col-md-3 col-3" (click)="changeFav(item.key,item.fav)">
+              <p *ngIf="item.fav">
+                <i class="mdi mdi-heart pointer" [ngStyle]="{'color':'green'}"></i>
+                <br> {{'common.unfavorite' | translate}}
+              </p>
+              <p *ngIf="!item.fav">
+                <i class="mdi mdi-heart-outline unfav pointer" [ngStyle]="{'color':'green' }"></i>
+                <br> {{'common.favorite' | translate}}
+              </p>
+            </li>
+
+            <li class="col-lg-3 col-xs-3 col-sm-3 col-md-3 col-3 dropdown pointer">
+
+              <p>
+                <i class="mdi mdi-share-variant"></i>
+                <br>{{'common.share' | translate}}</p>
+              <div class="dropdown-content">
+                <share-button button="facebook" [showText]="false"></share-button>
+                <share-button button="twitter" [showText]="false"></share-button>  
+              </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- <div class="col-lg-12">
+            <h3 class="Available">
+              <b>{{'farmdetail.availableoptions' | translate}}</b>
+            </h3>
+          </div> -->
+        <div class="col-lg-12 col-md-12">
+          <div class="card h-100">
+            <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 LocalProduce">
+
+              <div class="col-lg-2 col-xs-2 col-sm-2 col-md-2 col-2 groww left_secc">
+
+                <img src="./assets/imgs/giff.png">
+              </div>
+
+              <div class="col-lg-8 col-xs-8 col-sm-8 col-md-8 col-8 left_secc Buy">
+                <div class="farmdetailsec ">
+                  <h4 class="card-titleLocal">{{'common.buylocalproduce' | translate}}</h4>
+                  <p class="card-text text">{{'common.buingproduce' | translate}}</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-xs-2 col-sm-2 col-md-2 col-2 groww1 left_secc">
+                <img src="./assets/imgs/Group.png" (click)="goToProduce(item.key)">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-12 col-md-12 mb-4 about-farm-sec">
+        <div class="card-body">
+          <h4 class="card-titles">
+            {{'farmdetail.aboutfarm' | translate}} {{item.name}}
+          </h4>
+          <p class="primarily">{{item.farmdescription}}</p>
+        </div>
+      </div>
+      <div class="col-lg-1 col-xs-1 col-sm-1 col-md-1 col-1 left_sec"></div>
+      <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+        <div class="col-lg-7 col-xs-7 col-sm-7 col-md-7 col-7 left_sec farm-sec">
+          <div class="card-body">
+            <h4 class="card-titless">{{'farmdetail.hours' | translate}}</h4>
+            <div class="hours" *ngFor="let day of item.hours">
+              <li>
+                <p>
+                  <span class="display-day">{{day.day}}</span>
+                  <label class="colame">:</label>
+                  <span class="display-day2"> {{day.hours}}</span>
+                </p>
+              </li>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3 col-3 left_sec">
+          <div class="card-body">
+            <h4 class="card-titles text-center">
+              {{'farmdetail.produceavailable' | translate}}
+            </h4>
+
+            <li class="primarily" *ngFor="let produce of item.stocks | slice:0:mySlice; let i=index;">
+              {{produce}}
+
+            </li>
+            <label *ngIf="item.stocks?.length==0">No produce available</label>
+            <label class="btn btn-link" (click)="openMore()" *ngIf="mySlice != item.stocks?.length && item.stocks?.length >15">More</label>
+            <label class="btn btn-link" *ngIf="mySlice > 15" (click)="showLess()">Less</label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

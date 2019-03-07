@@ -1,0 +1,467 @@
+<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12 dellver_sec">
+    <h5 class="tital">{{user.firstname}} {{user.lastname}}</h5>
+    <p class="conten">{{user.streetaddress1 | uppercase}}</p>
+    <p class="conten">{{user.streetaddress2 | uppercase}}</p>
+    <p class="conten">{{user.city | uppercase}} , {{user.state}} {{user.zipcode}}</p>
+    <p class="conten">{{user.phonenumber}}</p>
+</div>
+<div class="prof">
+    <form role="form" #profileForm="ngForm" (ngSubmit)="updateUserProfile(profileForm)">
+        <div class="row">
+
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                <div class="form-group">
+                    <h4>{{'userprofile.firstname' | translate}}
+                        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':firstname.invalid && (firstname.touched)? 'red' : 'black' }"></i>
+                    </h4>
+                    <div *ngIf="firstname.invalid && (firstname.touched)" class="validation-error">
+                        <div *ngIf="firstname.errors.required">
+                            Required
+                        </div>
+                        <div *ngIf="firstname.errors.pattern">
+                            Special characters are not allowed
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" [disabled]="disable == true" name="firstname" #firstname='ngModel'
+                        [(ngModel)]="user.firstname" pattern="[A-Za-z ]{0,20}" required>
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                <div class="form-group">
+                    <h4>{{'userprofile.lastname' | translate}}
+                        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':lastname.invalid && (lastname.touched)? 'red' : 'black' }"></i>
+                    </h4>
+                    <div *ngIf="lastname.invalid && (lastname.touched)" class="validation-error">
+                        <div *ngIf="lastname.errors.required">
+                            Required
+                        </div>
+                        <div *ngIf="lastname.errors.pattern">
+                            Special characters are not allowed
+                        </div>
+                    </div>
+                    <input type="text" [disabled]="disable == true" class="form-control" name="lastname" #lastname='ngModel'
+                        [(ngModel)]="user.lastname" pattern="[A-Za-z]{0,20}" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="space">
+            <div class="row">
+                <div class="col-md-12 left_sec">
+                    <h2>
+                        <label class="dropzonelabel">Mailing Address</label>
+                    </h2>
+                </div>
+                <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                    <div class="form-group">
+                        <h4 for="streetaddress1">{{'signup.streetaddress1' | translate}}
+                            <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':streetaddress1.invalid && (streetaddress1.touched)? 'red' : 'black' }"></i>
+                        </h4>
+                        <div *ngIf="streetaddress1.invalid && (streetaddress1.touched)" class="validation-error">
+                            <div *ngIf="streetaddress1.errors.required">
+                                Required
+                            </div>
+                            <div *ngIf="streetaddress1.errors.pattern">
+                                Invalid Street.
+                            </div>
+                        </div>
+                        <input type="streetaddress1" [disabled]="disable == true" class="form-control" placeholder=""
+                            #streetaddress1='ngModel' name="streetaddress1" [(ngModel)]="user.streetaddress1" required
+                            pattern="^(?=.*[A-Za-z\s])(?=.*\d)[A-Za-z\d\s]{4,}$">
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+
+                    <div class="form-group">
+                        <h4 for="streetaddress2">{{'signup.streetaddress2' | translate}}
+                        </h4>
+
+                        <input type="streetaddress2" [disabled]="disable == true" class="form-control" placeholder=""
+                            #streetaddress2='ngModel' name="streetaddress2" [(ngModel)]="user.streetaddress2">
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                    <div class="form-group">
+                        <h4>{{'signup.city' | translate}}
+                            <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':city.invalid && (city.touched)? 'red' : 'black' }"></i>
+                        </h4>
+                        <div *ngIf="city.invalid && ( city.touched)" class="validation-error">
+                            <div *ngIf="city.errors.required">
+                                Required
+                            </div>
+                            <div *ngIf="city.errors.pattern">
+                                Special characters are not allowed
+                            </div>
+                        </div>
+                        <div *ngIf = "invalidUserCity"  class="validation-error">
+                            Please enter a valid city name
+                          </div>
+                        <input type="text" [disabled]="disable == true" class="form-control" name="city" #city='ngModel'
+                            [(ngModel)]="user.city" pattern="[A-Za-z ]{0,20}" required (change) = "setDefault('profile')" (keyup)="autoComplete(user.city, 'profile')">
+                        <div *ngFor="let value of autoCityValues | slice:0:4" class="searchitems" (click)="selectItem(value, 'profile')">
+                            {{value}}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                    <div class="form-group">
+                        <h4>{{'signup.state' | translate}}
+                            <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':state.invalid && (state.touched)? 'red' : 'black' }"></i>
+                        </h4>
+                        <select class="farmername form-control" [disabled]="disable == true" name="state" #state='ngModel'
+                            [(ngModel)]="user.state">
+                            <label for="state">{{'signup.state' | translate}}</label>
+                            <option value="" disabled="true" [selected]="!user.state">{{'signup.state' | translate}}</option>
+                            <option *ngFor="let states of states">
+                                {{states}}
+                            </option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                    <div class="form-group">
+                        <h4>{{'common.zipcode' | translate}}
+                            <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':zipcode.invalid && (zipcode.touched)? 'red' : 'black' }"></i>
+                        </h4>
+                        <div *ngIf="zipcode.invalid && (zipcode.touched)" class="validation-error">
+                            <div *ngIf="zipcode.errors.required">
+                                Required
+                            </div>
+                            <div *ngIf="zipcode.errors.minlength || zipcode.errors.maxlength">
+                                Minimum 5 digits required
+                            </div>
+                        </div>
+                        <input type="text" (keypress)="_keyPress($event)" [disabled]="disable == true" minlength="5"
+                            maxlength="5" class="form-control" name="zipcode" #zipcode='ngModel' [(ngModel)]="user.zipcode"
+                            pattern="[0-9|\b]{0,5}" required>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6col-12">
+                <div class="form-group">
+                    <h4>{{'common.phonenumber' | translate}}
+                        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':phonenumber.invalid && (phonenumber.touched)? 'red' : 'black' }"></i>
+                    </h4>
+                    <div *ngIf="phonenumber.invalid && (phonenumber.touched) " class="validation-error">
+                        <div *ngIf="phonenumber.errors.required">
+                            This is required
+                        </div>
+                        <div *ngIf="phonenumber.errors.maxlength || phonenumber.errors.minlength">
+                            Minimum 10 digits required
+                        </div>
+                    </div>
+                    <input [disabled]="disable == true" (keypress)="_keyPress($event)" type="tel" mask="(***) ***-****"
+                        maxlength="14" minlength="14" class="form-control" name="phonenumber" #phonenumber='ngModel'
+                        [(ngModel)]="user.phonenumber" required>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                <div class="form-group">
+                    <h4>{{'userprofile.rewardpoints' | translate}}</h4>
+                    <input type="text" class="form-control" [disabled]="true" name="points" [ngModel]="user.points">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                <div class="form-group">
+                    <h4>{{'userprofile.defaultcard' | translate}}</h4>
+                    <select class="form-control" [disabled]="disable == true" [(ngModel)]="user.defaultcard" name="defaultcard">
+                        <option [value]="card.key" *ngFor="let card of user.cards">{{card.number}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 close_butt_sec">
+                <div class="form-group">
+                    <button type="button" class="sing_butt btn btn-danger" *ngIf="!disable" (click)="cancel()">Cancel</button>
+                    <button *ngIf="disable == false" [disabled]="profileForm.invalid" class="sing_butt btn btn-danger">{{'userprofile.updateprofilebtn'
+                        | translate}}</button>
+                    <button type="button" class="sing_butt btn btn-danger" *ngIf="disable" (click)="disable = !disable">Edit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row userprofile">
+        <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-4 col-12">
+            <div class="row">
+                <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12  form-group">
+                    <h3 class="details">{{'common.cards' | translate}}</h3>
+                    <div class="cards-main-sec">
+                        <div class="form-control cust" *ngFor="let card of user.cards" (change)="changeDefaultCard()">
+                            <label class="rad">
+                                <input type="radio" [disabled]="cardFeildenable == false" name="cardoption" [(ngModel)]="defaultCard"
+                                    [value]="card.key"><i></i>
+                                <div class="card-number" (click)="changeDefaultCard()">{{card.number}}</div>
+                            </label>
+                        </div>
+                        <div class="addnewcardbtn">
+                            <button class="btn btn-primary sing_butt" (click) = "openCardForm()">Add New</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-xs-8 col-sm-8 col-md-8 col-12 ">
+            <div *ngIf="toggle">
+                <form role="form" #cardForm='ngForm' (ngSubmit)="addCardDetail(cardForm)">
+                    <div class="row">
+                        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+                            <h3 class="details Update" *ngIf="!cardAdd">{{'userprofile.updatecarddetails'
+                                | translate}}</h3>
+                            <h3 class="details Update" *ngIf="cardAdd">{{'userprofile.addcarddetails' |
+                                translate}}</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                            <div class="form-group">
+                                <label>{{'addpaymentcard.inputcardnumber' | translate}}
+                                    <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':number.invalid && ( number.touched)? 'red' : 'black' }"></i>
+                                </label>
+                                <div *ngIf="number.invalid && ( number.touched)" class="validation-error">
+                                    <div *ngIf="number.errors.required">
+                                        Required
+                                    </div>
+                                    <div *ngIf="number.errors.maxlength || number.errors.minlength">
+                                        16 numeric value
+                                    </div>
+                                </div>
+                                <input type="text" [disabled]="cardFeildenable == false" type="tel" mask="****-****-****-****"
+                                    maxlength="19" minlength="19" (keypress)="_keyPress($event)" class="form-control"
+                                    [(ngModel)]="card.number" name="number" #number='ngModel' required>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                            <div class="form-group">
+                                <label>{{'addpaymentcard.inputname' | translate}}
+                                    <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':name.invalid && ( name.touched)? 'red' : 'black' }"></i>
+                                </label>
+                                <div *ngIf="name.invalid && (name.touched)" class="validation-error">
+                                    <div *ngIf="name.errors.required">
+                                        Required
+                                    </div>
+                                    <div *ngIf="name.errors.pattern">
+                                        Enter valid name
+                                    </div>
+                                </div>
+                                <input type="text" [disabled]="cardFeildenable == false" class="form-control"
+                                    [(ngModel)]="card.name" name="name" #name='ngModel' pattern="[A-Za-z ]{0,20}"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                            <div class="form-group">
+                                <label>{{'addpaymentcard.expMonth' | translate}}</label>
+                                <month-picker [month]="card.expMonth" [dis]="!cardFeildenable" (change)="selectMonth($event.target.value)"
+                                    required></month-picker>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                            <div class="form-group">
+                                <label>{{'addpaymentcard.expYear' | translate}}</label>
+                                <year-picker [year]="card.expYear" [dis]="!cardFeildenable" (change)="selectYear($event.target.value)"
+                                    required></year-picker>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                            <div class="form-group">
+                                <label>{{'addpaymentcard.inputcvc' | translate}}
+                                    <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':cvc.invalid && ( cvc.touched)? 'red' : 'black' }"></i>
+                                </label>
+                                <div *ngIf="cvc.invalid && (cvc.touched)" class="validation-error">
+                                    <div *ngIf="cvc.errors.required">
+                                        This is required
+                                    </div>
+                                    <div *ngIf="cvc.errors.pattern||cvc.errors.maxlength||cvc.errors.minlength">
+                                        3 digits are only
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" [disabled]="cardFeildenable == false"
+                                    [(ngModel)]="card.cvc" name="cvc" minlength="3" maxlength="3" #cvc='ngModel'
+                                    (keypress)="_keyPress($event)" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space">
+                        <div class="row">
+                            <div class="col-md-12 left_sec">
+                                <h2>
+                                    <label class="dropzonelabel">Billing Address</label>
+                                </h2>
+                            </div>
+                            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label>{{'signup.streetaddress1' | translate}}
+                                        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':address_line1.invalid && (address_line1.touched)? 'red' : 'black' }"></i>
+                                    </label>
+                                    <div *ngIf="address_line1.invalid && ( address_line1.touched)   " class="validation-error">
+                                        <div *ngIf="address_line1.errors.required">
+                                            Required
+                                        </div>
+                                        <div *ngIf="address_line1.errors.pattern">
+                                            Enter valid Address
+                                        </div>
+                                    </div>
+                                    <input type="text" [disabled]="cardFeildenable == false" class="form-control"
+                                        [(ngModel)]="card.address_line1" name="address_line1" #address_line1='ngModel'
+                                        pattern="^(?=.*[A-Za-z\s])(?=.*\d)[A-Za-z\d\s]{4,}$" maxlength="100" required>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <label>{{'signup.streetaddress2' | translate}}
+
+                                    </label>
+
+                                    <input type="text" [disabled]="cardFeildenable == false" class="form-control"
+                                        [(ngModel)]="card.address_line2" name="address_line2" #address_line2='ngModel'
+                                        pattern="([a-zA-Z0-9]| |/|\\|@|#|\|(|)|,|-|&)+" maxlength="100">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                                <div class="form-group">
+                                    <label>{{'addpaymentcard.inputcity' | translate}}
+                                        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':address_city.invalid && (address_city.touched)? 'red' : 'black' }"></i>
+                                    </label>
+                                    <div *ngIf="address_city.invalid && (address_city.touched)   " class="validation-error">
+                                        <div *ngIf="address_city.errors.required">
+                                            Required
+                                        </div>
+                                        <div *ngIf="address_city.errors.pattern">
+                                            Enter a valid city name
+                                        </div>
+                                    </div>
+                                    <div *ngIf = "invalidCardCity"  class="validation-error">
+                                        Please enter a valid city name
+                                    </div>
+                                    <input type="text" class="form-control" [(ngModel)]="card.address_city" name="address_city"
+                                        [disabled]="cardFeildenable == false" #address_city='ngModel' pattern="[A-Za-z ]{0,20}"
+                                        required (keyup)="autoComplete(card.address_city, 'card')" (change) = "setDefault('card')">
+                                    <div *ngFor="let value of autoCardCityValues | slice:0:4" class="searchitems" (click)="selectItem(value, 'card')">
+                                        {{value}}
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                                <div class="form-group">
+                                    <label>{{'addpaymentcard.inputstate' | translate}}
+                                        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':address_state.invalid && (address_state.touched)? 'red' : 'black' }"></i>
+                                    </label>
+                                    <select class="farmername form-control" [(ngModel)]="card.address_state" name="address_state"
+                                        [disabled]="cardFeildenable == false" #address_state='ngModel'>
+                                        <label for="state">{{'addpaymentcard.inputstate' | translate}}</label>
+                                        <option value="" disabled="true" [selected]="!card.address_state">{{'signup.state'
+                                            | translate}}</option>
+                                        <option *ngFor="let states of states">
+                                            {{states}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                                <div class="form-group">
+                                    <label>{{'addpaymentcard.inputzip' | translate}}
+                                        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':postal_code.invalid && (postal_code.touched)? 'red' : 'black' }"></i>
+                                    </label>
+                                    <div *ngIf="postal_code.invalid && (postal_code.touched)" class="validation-error">
+                                        <div *ngIf="postal_code.errors.required">
+                                            Required
+                                        </div>
+
+                                        <div *ngIf="postal_code.errors.minlength || postal_code.errors.maxlength">
+                                            Minimum 5 digits are required
+                                        </div>
+                                    </div>
+                                    <input type="text" [disabled]="cardFeildenable == false" class="form-control"
+                                        [(ngModel)]="card.postal_code" name="postal_code" #postal_code='ngModel'
+                                        (keypress)="_keyPress($event)" maxlength="5" minlength="5" required>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                            <div class="form-group">
+                                <label>{{'addpaymentcard.inputnickname' | translate}}</label>
+                                <input type="text" [disabled]="cardFeildenable == false" class="form-control"
+                                    [(ngModel)]="card.nickName" name="nickName">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-4">
+                        </div>
+                        <div class="col-lg-8 col-xs-8 col-sm-8 col-md-8 col-8 close_butt_sec">
+                            <button type="button" class="sing_butt btn btn-danger" *ngIf="cardFeildenable == true"
+                                (click)="cancelCard()">Cancel</button>
+                            <button type="button" class="sing_butt btn btn-danger" *ngIf="cardFeildenable == true && defaultCard != '' && defaultCard != undefined && user.cards?.length > 0"
+                                (click)="deleteConfirmCard()">Delete Card</button>
+                            <button type="button" class="sing_butt btn btn-danger" *ngIf="cardFeildenable == false && defaultCard != '' && defaultCard != undefined && user.cards?.length > 0"
+                                (click)="cardEditBtn()">Edit</button>
+                            <button type="submit" *ngIf="cardFeildenable == true && !cardAdd" [disabled]="cardForm.invalid"
+                                class="btn btn-primary sing_butt">{{'userprofile.updatecardbtn'
+                                | translate}}</button>
+                            <button type="submit" *ngIf="cardFeildenable == true && cardAdd" [disabled]="cardForm.invalid"
+                                class="btn btn-primary sing_butt">{{'checkout.addcardbtn'
+                                | translate}}</button>
+                            <div class="response-failed">
+                                {{response}}
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- <p>NEED TO SIGN UP AS A FARMER?</p> -->
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="deletecardmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Card</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <p>Are sure you want to delete the card?</p>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deleteCard()">Yes</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

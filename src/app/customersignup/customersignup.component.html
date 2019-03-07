@@ -1,0 +1,242 @@
+<div class="row">
+  <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 Rectangle">
+    <img class="Rectangle" src="./assets/imgs/Rectangle.jpg">
+  </div>
+
+  <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 Rectangle2">
+
+    <div class="row Account_sec">
+
+      <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-4">
+
+      </div>
+      <div class="col-lg-8 col-xs-8 col-sm-8 col-md-8 col-8 Already_sec">
+        <!-- <p class="Have_titel">{{'signup.accountexist' | translate}}</p>
+        <button type="button" [routerLink]="['/login']" class="btn btn-warning sing_butt">{{'signup.signin' | translate}}</button> -->
+
+      </div>
+    </div>
+    <div class="marketplace_logo_sec">
+      <img class="d-block img-fluid" src="./assets/imgs/farmr-hd.png">
+    </div>
+    <h3 class="Commerce">{{'signup.apptitle' | translate}}</h3>
+    <form role="form" #signupForm='ngForm' (ngSubmit)="signUp(signupForm)">
+      <div class="row">
+        <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+          <div class="form-group">
+            <label for="firstname">{{'signup.firstname' | translate}}
+              <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':firstname.invalid && (firstname.touched)? 'red' : 'black' }"></i>
+            </label>
+            <div *ngIf="firstname.invalid && (firstname.touched) " class="validation-error">
+              <div *ngIf="firstname.errors.required">
+                Required
+              </div>
+              <div *ngIf="firstname.errors.pattern">
+                Special characters are not allowed
+              </div>
+            </div>
+            <input type="text" class="form-control" pattern="[A-Za-z\s]{0,20}" placeholder="" name="firstname" #firstname="ngModel" [(ngModel)]="custsignup.firstname"
+              required>
+
+          </div>
+        </div>
+        <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+          <div class="form-group">
+            <label for="lastname">{{'signup.lastname' | translate}}
+              <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':lastname.invalid && (lastname.touched)? 'red' : 'black' }"></i>
+            </label>
+            <div *ngIf="lastname.invalid && (lastname.touched) " class="validation-error">
+              <div *ngIf="lastname.errors.required">
+                Required
+              </div>
+              <div *ngIf="lastname.errors.pattern">
+                Special characters are not allowed
+              </div>
+            </div>
+            <input type="text" class="form-control" placeholder="" name="lastname" pattern="[A-Za-z\s]{0,20}" #lastname='ngModel' [(ngModel)]="custsignup.lastname"
+              required>
+
+          </div>
+        </div>
+      </div>
+      <div class="space">
+        <div class="row">
+          <div class="col-md-12 left_sec">
+            <h2>
+              <label class="dropzonelabel">Mailing Address</label>
+            </h2>
+          </div>
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+            <div class="form-group">
+              <label for="street">{{'signup.streetaddress1' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':streetaddress1.invalid && (streetaddress1.touched)? 'red' : 'black' }"></i>
+              </label>
+              <div *ngIf="streetaddress1.invalid && (streetaddress1.touched) " class="validation-error">
+                <div *ngIf="streetaddress1.errors.required">
+                  Required
+                </div>
+                <div *ngIf="streetaddress1.errors.pattern">
+                    Invalid Street Address
+                  </div>
+              </div>
+              <input type="text" class="form-control" placeholder="" #streetaddress1='ngModel' name="streetaddress1" [(ngModel)]="custsignup.streetaddress1"
+                required pattern="^(?=.*[A-Za-z\s])(?=.*\d)[A-Za-z\d\s]{4,}$">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+            <div class="form-group">
+              <label for="streetaddress2">{{'signup.streetaddress2' | translate}}
+
+              </label>
+
+              <input type="streetaddress2" class="form-control" placeholder="" #streetaddress2='ngModel' name="streetaddress2" [(ngModel)]="custsignup.streetaddress2">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+            <div class="form-group">
+              <label for="city">{{'signup.city' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':city.invalid && (city.touched)? 'red' : 'black' }"></i>
+              </label>
+              <div *ngIf="city.invalid && (city.touched) " class="validation-error">
+                <div *ngIf="city.errors.required">
+                  Required
+                </div>
+                <div *ngIf="city.errors.pattern">
+                  Special characters are not allowed
+                </div>
+              </div>
+              <input type="text" class="form-control" placeholder="" name="city" pattern="[A-Za-z\s]{0,20}" [(ngModel)]="custsignup.city"
+                required #city='ngModel'>
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+
+            <div class="form-group">
+              <label for="state">{{'signup.state' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':state.invalid && (state.touched)? 'red' : 'black' }"></i>
+              </label>
+              <!-- <div *ngIf="state.invalid && (state.touched) " class="validation-error">
+              <div *ngIf="state.errors.required">
+                Required
+              </div>
+              <div *ngIf="state.errors.pattern">
+                Special characters are not allowed
+              </div>
+            </div>
+            <input type="text" class="form-control" placeholder="" name="state" pattern="[A-Za-z\s]{0,20}" #state='ngModel' [(ngModel)]="custsignup.state"
+              required> -->
+              <select class="farmername form-control" name="state" #state='ngModel' [(ngModel)]="custsignup.state">
+                <option value="" disabled="true" [selected]="!custsignup.state">{{'signup.state' | translate}}</option>
+                <option *ngFor="let states of states">
+                  {{states}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+
+
+
+            <div class="form-group">
+              <label for="email">{{'signup.zipcode' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':zipcode.invalid && (zipcode.touched)? 'red' : 'black' }"></i>
+              </label>
+              <div *ngIf="zipcode.invalid && (zipcode.touched) " class="validation-error">
+                <div *ngIf="zipcode.errors.required">
+                  Required
+                </div>
+                <div *ngIf="zipcode.errors.minlength || zipcode.errors.maxlength">
+                  Minimum 5 digits required
+                </div>
+              </div>
+              <input type="text" pattern="[1-9][0-9]*|0" class="form-control" placeholder="" name="zipcode" [(ngModel)]="custsignup.zipcode"
+                minlength="5" (keypress)="_keyPress($event)"  maxlength="5" required #zipcode='ngModel'>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+          <div class="form-group">
+            <label for="phonenumber">{{'signup.phonenumber' | translate}}
+              <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':phonenumber.invalid && (phonenumber.touched)? 'red' : 'black' }"></i>
+            </label>
+            <div *ngIf="phonenumber.invalid && (phonenumber.touched) " class="validation-error">
+              <div *ngIf="phonenumber.errors.required">
+                Required
+              </div>
+              <div *ngIf="phonenumber.errors.maxlength || phonenumber.errors.minlength">
+                Minimum 10 digits required
+              </div>
+            </div>
+            <input class="form-control" type="tel" mask="(***) ***-****" maxlength="14" minlength="14" placeholder="" name="phonenumber"
+              #phonenumber='ngModel' (keypress)="_keyPress($event)" [(ngModel)]="custsignup.phonenumber" required>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="email">{{'signup.email' | translate}}
+          <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':email.invalid && (email.touched)? 'red' : 'black' }"></i>
+        </label>
+        <div *ngIf="email.invalid && email.touched" class="validation-error">
+          <div *ngIf="email.errors.required">
+            Required
+          </div>
+          <div *ngIf="email.errors.pattern">
+            Not a valid email
+          </div>
+        </div>
+        <input type="email" class="form-control" placeholder="" #email='ngModel' name="email" [(ngModel)]="custsignup.email" required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
+      </div>
+      <div class="form-group">
+        <label for="pwd">{{'signup.password' | translate}}
+          <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':password.invalid && (password.touched)? 'red' : 'black' }"></i>
+        </label>
+        <div *ngIf="password.invalid && password.touched" class="validation-error">
+          <div *ngIf="password.errors.required">
+            Required
+          </div>
+          <div *ngIf="password.errors.minlength">
+            Password must be six character long
+          </div>
+        </div>
+        <input type="password" class="form-control" #password='ngModel' placeholder="" name="pswd" [(ngModel)]="custsignup.password"
+          required minlength="6">
+
+      </div>
+      <div [ngClass]="responseClass">
+        {{response}}
+      </div>
+      <div class="Need_sing_sec">
+        <div class="row">
+          <div class="col-lg-1 col-xs-1 col-sm-1 col-md-1 col-12"></div>
+          <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5 col-12">
+            <button class="btn btn-warning sing_butt" [disabled]="signupForm.invalid">{{'signup.signupbtn' | translate}}</button>
+            <a [routerLink]="['/farmersignup']">
+              <p class="makeuppercase">{{'signup.farmrsignup' | translate}}</p>
+            </a>
+          </div>
+
+          <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5 col-12">
+            <button type="button" [disabled]="signupForm.valid" [routerLink]="['/login']" class="btn btn-warning sing_butt">{{'signup.signin' | translate}}</button>
+            <p class="makeuppercase">{{'signup.accountexist' | translate}}</p>
+          </div>
+          <div class="col-lg-1 col-xs-1 col-sm-1 col-md-1 col-12"></div>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,52 @@
+.first_row {
+    margin: 70px 0 0;
+}
+
+.form-group h4 {
+    font-size: 1.5vw;
+    font-family: roboto;
+    float: left;
+    margin-right: 17px;
+    position: relative;
+}
+input.form-control {
+    font-size: .9vw;
+    font-family: roboto;
+    height: 35px;
+}
+button.button.btn-primary {
+    background: #FF8203 !important;
+    border: none !important;
+    width: 100% !important;
+    padding: 7px !important;
+    border-radius: 4px !important;
+    font-size: 1.1vw !important;
+    font-family: roboto !important;
+    margin: 0 0 10px !important;
+}
+.astestar {
+    position: absolute;
+    right: -11px;
+    top: -8px;
+}
+.sing_butt {
+    color: #fff;
+    background-color: #ff8203 !important;
+    border-color: #ff8203 !important;
+    margin: 1vw 0 !important;
+    font-size: 1vw;
+    width: 8vw;
+    padding: .5vw 0;
+    border: 4px !important;
+    font-family: "Roboto";
+}
+.sign_butt_container{
+    margin: 0 auto;
+    width: 32%;
+}
+.update_btn{
+    text-align: left;
+}
+.cancel_btn {
+    text-align: right;
+}

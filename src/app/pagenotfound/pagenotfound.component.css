@@ -1,0 +1,21 @@
+.pagenotfound{
+    height: auto;
+    width: 100%;
+}
+i.mdi.mdi-arrow-left {
+    color: #53A318;
+    float: left;
+    margin-top: 61px;
+}
+.logo_img {
+    text-align: center;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+    height: 140%;
+    width: 23%;
+}
+.row {
+    margin-top: 25px;
+}

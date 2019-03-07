@@ -1,0 +1,145 @@
+
+.top_sec {
+    border-bottom: 1px solid #ddd;
+    
+}
+li {
+    list-style: none;
+}
+.btn-danger {
+    color: #fff;
+    background-color: orange;
+    border-color: #dc3545;
+    margin: 10px 0 0;
+    padding: 4px 13px;
+    border-radius: 4px;
+    border: none;
+}
+.Dashboard {
+    /* border-bottom: 1px solid #dddddd29; */
+    padding: 14px 0px 5px !important;
+    position: fixed;
+    background: #fff;
+    width:92%;
+    float: left;
+    z-index: 999;
+    top: 0;
+}
+#content.active .Dashboard{
+    width: 88%;
+}
+.weal {
+    
+    padding: 0;
+    margin: 0px -52px;  
+}
+i.mdi.mdi-bell.colo {
+    color: #53A318;
+    margin: 7px 0px 0px;
+ 
+}
+.Search_icon_sec {
+    position: relative;
+    
+    color: #53A318;
+}
+.Search_butt {
+    position: relative;
+    float: left;
+}
+.Search_butt input {
+    box-shadow: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.1vw;
+    font-weight: bold;
+    width: 100%;
+    font-family: "Roboto";
+    border-radius: 26px;
+}
+.farm-title {
+    text-align: center;
+}
+button.btn.btn-lg.btn-success {
+    font-size: 1vw;
+    padding: 0.4vw 1.4vw;
+    font-family: roboto;
+}
+.mdi::before {
+    font-size: 2vw;
+    line-height: 14px;
+}
+h2.near {
+    font-size: 2vw;
+}
+.farm-title h1 {
+    font-size: 3vw ;
+    font-family: roboto !important;
+    font-weight: 600 !important;
+}
+.btn-success {
+    color: #fff;
+    background-color: #FF8203 !important;
+    border-color: #FF8203 !important;
+    font-size: 1vw !important;
+    font-family: roboto;
+}
+ul.nav {
+    width: 100%;
+    float: left;
+    margin-left: 10px !important;
+}
+.farm-title h1 {
+    margin: 0px 0 20px 0;
+}
+.Search_icon_sec .mdi::before {
+    font-size: 1.3vw !important;
+    padding-right: 5px;
+}
+.pageTitle {
+   float: left;
+   margin-left: -3px;
+}
+
+.farmrheader {
+    width: 100%;
+    float: left;
+}
+.farm-title {
+   
+    width:100%;
+    float: left;
+}
+span {
+    font-size: 15px;
+    color:black;
+}
+
+i.mdi {
+    color: #53A318;
+}
+.row{
+    margin: 0px;
+}
+.main_sec{
+    margin-top: 135px;
+    padding: 0;
+}
+.iconwell {
+    text-align: center;
+    margin-top: 8px;
+}
+#sidebarCollapse
+{
+    float: left;
+}
+/* .notifyCount
+{
+    color: #FF8203;
+    margin-left: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    position: absolute;
+    top: 0 !important;
+    left: 22px;
+    font-style: normal;
+} */

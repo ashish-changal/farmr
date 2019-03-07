@@ -1,0 +1,42 @@
+<div clss="logo_sec">
+  
+ <img class="main_img" src="./assets/imgs/farmr-logos.png" />
+ <h3 class="logo_sec_name">{{userName}}</h3>
+</div>
+
+<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 col-12 d-md-flex sidebar">
+  <ul class="nav flex-column flex-nowrap">
+
+    <li class="nav-item menu_img">
+      <a class="nav-link" routerLink="./dashboard" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'dashboard' ? '#53A318': '#828282'}">
+        <i class="mdi mdi-view-dashboard dash"></i>{{'sidemenu.dashboard' | translate}}</a>
+    </li>
+
+    <li class="nav-item menu_img">
+      <a class="nav-link" routerLink="./produce" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'produce' ? '#53A318': '#828282'}">
+        <i class="mdi mdi-food-apple dash"></i>{{'sidemenu.produce' | translate}}</a>
+    </li>
+
+    <li class="nav-item menu_img">
+      <a class="nav-link"  routerLink="./farminformation" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'farminformation' ? '#53A318': '#828282'}">
+        <i class="mdi mdi-home dash"></i>{{'sidemenu.farminformation' | translate}}</a>
+    </li>
+
+    <li class="nav-item menu_img">
+      <a class="nav-link"  routerLink="./customers" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'customer' ? '#53A318': '#828282'}">
+        <i class="mdi mdi-account dash"></i>{{'sidemenu.customer' | translate}}</a>
+    </li>
+    <li class="nav-item menu_img">
+      <a class="nav-link" routerLink="./transaction" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'transactions' ? '#53A318': '#828282'}">
+        <i class="mdi mdi-currency-usd dash"></i>{{'sidemenu.transaction' | translate}}</a>
+    </li>
+    <li class="nav-item menu_img">
+      <a class="nav-link" routerLink="./settings" routerLinkActive="active-link" [ngStyle] = "{'color':sidemenuText == 'settings' ? '#53A318': '#828282'}">
+        <img src="./assets/imgs/settings.png" alt="Photo of a Shiba Inu">{{'sidemenu.settings' | translate}}</a>
+    </li>
+    <li class="nav-item menu_img" (click)="signout()">
+      <a class="nav-link dash2" routerLinkActive="active-link">
+        <i class="mdi mdi-logout-variant logout_sec"></i>{{'sidemenu.logout' | translate}}</a>
+    </li>
+  </ul>
+</div>

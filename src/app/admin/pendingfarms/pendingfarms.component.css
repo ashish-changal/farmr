@@ -1,0 +1,51 @@
+.first-row{
+    margin-top: 75px;
+}
+.image-path
+{
+    height:70px;
+    width: 70px;
+}
+
+.search_no_results {
+    text-align: center;
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+}
+.col-md-12 {
+    clear: both;
+    
+}
+
+.custyle {
+    margin: 0;
+    padding: 0;
+}
+  pagination-controls.pagination {
+    float: right;
+    margin: 0;
+}
+
+ th {
+    width: 25%;
+}
+
+
+ td {
+    width: 25%;
+}
+.dashbardbtn {
+    padding: 0;
+    color: #53a318 !important;
+    font-size: 1vw;
+    text-decoration: underline !important;
+    font-family: "Roboto"; 
+}
+.disapprove{
+    padding: 0;
+    color: #FF8203 !important;
+    font-size: 1vw;
+    text-decoration: underline !important;
+    font-family: "Roboto"; 
+}

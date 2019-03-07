@@ -1,0 +1,186 @@
+
+h4.dolr {
+    color: #53A318;
+    font-size: 2.6em;
+    margin: 50px 0 0;
+    font-weight: 500;
+    font-family: "Roboto";
+}
+pagination-controls.pagination {
+    float: right;
+    margin: 0;
+}
+a:hover {
+    color: #fff;
+}
+h3.second_rowP {
+    font-weight: 500;
+    font-size: 1.5em;
+    line-height: 20px;
+    text-shadow: 1px 0px 0px #000;
+    font-family: "Roboto";
+    margin: 30px 0 10px;
+}
+.first_row {
+    /* box-shadow: 0px 1px 0px 1px #dddddd57; */
+    margin: 40px 0 0;
+    width: 100%;
+}
+.Transactions img {
+    margin: -13px 0;
+    width: 2vw;
+}
+.Transactions li {
+    float: left;
+    list-style: none;
+    width: 33%;
+}
+
+.produce-sales-options{
+    font-size: .8vw;
+    margin: 0 auto;
+    display: inline-block;
+}
+.producesales h4{
+    color: #53A318;
+    font-size: 2.6em;
+    margin-top: 20px !important;
+    font-weight: 500;
+    font-family: "Roboto";
+}
+.produce-sales-options li {
+    list-style: none;
+    margin: 0 15px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+}
+.produce-sales-options a {
+    text-decoration: underline !important;
+}
+.producesales{
+    text-align: center;
+}
+.produceF1{
+    text-align: center;
+}
+.col-lg-2.col-md-2.col-sm-2.col-xs-2.col-2 {
+    float: left;
+}
+
+.Order {
+    float: left;
+    padding: 0 14px;
+}
+
+.status {
+    font-size: 1vw;
+    font-family: roboto;
+    font-weight: 600;
+    padding: 0;
+    height: 40px;
+    float: left;
+    background: #53A318
+}
+.status button.header-btn {
+    font-family: roboto;
+    font-weight: 600;
+}
+
+.number_sec {
+    float: left;
+    font-size: 1vw;
+    font-family: roboto;
+    font-weight: 400;
+    border: 1px solid #ddd;
+    padding: 7px 7px !important;
+    padding: 0;
+    height: 36px;
+}
+
+.status {
+    float: left;
+}
+h3 {
+    font-size: 1.3vw;
+    margin: 14px 0vw;
+}
+pagination-template {
+    font-size: 2vw;
+}
+/* .mdi::before {
+    font-size: 1.5vw;
+    line-height: 14px;
+} */
+
+.Transactions {
+    padding: 0;
+}
+
+.img_sec{
+
+    text-align: center;
+}
+button.dashbardbtn {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #fff;
+    width: 100%;
+    position: relative;
+    font-size: 1vw;
+    font-weight: 500;
+    font-family: roboto;
+}
+
+th, td {
+    width: 16%;
+}
+.pading_sec {
+    float: left;
+    padding: 0;
+}
+
+
+@media (max-width: 768px) {
+
+
+    button.dashbardbtn {
+        font-size: 11px;
+    }
+   
+    td.img_sec img {
+        width: 25px;
+    }
+
+    h3.second_rowP {
+  
+        font-size: 15px;
+      
+    }
+    .produce-sales-options {
+        font-size: 10px;
+     
+    }
+    h3 {
+        font-size: 12px;
+    }
+    .produce-sales-options li {
+        margin: 0 5px;
+        font-size: 10px;
+       
+    }
+}
+@media (max-width: 575px) {
+    h4.dolr {
+        font-size: 15px !important;
+        margin: 10px 0 0 !important;
+        
+    }
+
+    
+}
+.last-price {    
+    padding-right: 7% !important;
+    text-align: right !important;
+}

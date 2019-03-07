@@ -1,0 +1,138 @@
+<form role="form" #produceForm='ngForm' (ngSubmit)="addProduce(produce.hdn)">
+  <div class="col-md-12 chang_butt_img">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 left_sec chang_butt_sec ">
+      <label class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 Select left_sec">{{'farmproduce.selectimage' | translate}}
+        <input type="file" (change)="selectFile($event)" required name="image" accept="image/*" style="display: none">
+      </label>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 left_sec">
+      <h4></h4>&nbsp;
+      <img src="{{produce.image}}" name="image" class="image-path" required>
+    </div>
+  </div>
+  <div [ngClass]="responseClass">
+    {{response}}
+  </div>
+  <div class="col-md-12 produce-modal">
+    <div class="form-group col-md-12 left_sec  produce_name_Sec">
+      <label>{{'farmproduce.inputproducename' | translate}}
+        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':producename.invalid && (producename.touched)? 'red' : 'black' }"></i>
+      </label>
+      <div *ngIf="producename.invalid && (producename.touched) " class="validation-error">
+        <div *ngIf="producename.errors.required">
+          Required
+        </div>
+        <div *ngIf="producename.errors.pattern">
+          Special characters are not allowed
+        </div>
+      </div>
+      <input type="text" class="form-control" (keyup)="autoComplete(produce.name)" pattern="[A-Za-z\s]{0,20}" (change)="checkProduceExist(produce.name)"
+        #producename='ngModel' name="producename" [(ngModel)]="produce.name" required>
+
+      <input type="hidden" #myFile name="producekeyhidden" id="hdn" [(ngModel)]="produce.hdn">
+      <div *ngFor="let value of autocompleteValues | slice:0:4" class="searchitems" (click)="selectItem(value)">
+        {{value.name}}
+      </div>
+    </div>
+    <div class="col-md-12 produce-modal">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 left_sec form-group">
+        <div class=""></div>
+        <label>{{'farmproduce.inputproducesold' | translate}}
+          <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':unitquant.invalid && (unitquant.touched)? 'red' : 'black' }"></i>
+        </label>
+        <div *ngIf="unitquant.invalid && (unitquant.touched) " class="validation-error">
+          <div *ngIf="unitquant.errors.required">
+            Required
+          </div>
+          <div *ngIf="unitquant.errors.pattern">
+            Numeric value only
+          </div>
+        </div>
+        <input type="text" class="date form-control" placeholder="" (keypress)="_keyPress($event)" name="soldtype" #unitquant='ngModel'
+          [(ngModel)]="produce.unitquant" required>
+
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 left_sec form-group ">
+        <label>{{'farmproduce.selectunittype' | translate}}</label>
+        <select class="form-control lb" [(ngModel)]="produce.unit" name="unit" required>
+
+          <option *ngFor="let unit of units">
+            {{unit}}
+          </option>
+        </select>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 produce-modal">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 left_sec form-group ">
+      <label>{{'farmproduce.inputquantity' | translate}} ({{produce.unit}})
+        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':producequantity.invalid && (producequantity.touched)? 'red' : 'black' }"></i>
+      </label>
+      <div *ngIf="producequantity.invalid && (producequantity.touched) " class="validation-error">
+        <div *ngIf="producequantity.errors.required">
+          Required
+        </div>
+        <div *ngIf="producequantity.errors.pattern">
+          Numeric value only
+        </div>
+        <div *ngIf="producequantity.errors.value">
+          Greater
+        </div>
+      </div>
+      <input type="text" value="dateOk=='false'" class="form-control" (keypress)="_keyPress($event)" name="producequantity" #producequantity='ngModel'
+        [(ngModel)]="produce.quantity" required>
+
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 left_sec form-group">
+      <label>{{'farmproduce.inputprice' | translate}}
+        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':produceprice.invalid && (produceprice.touched)? 'red' : 'black' }"></i>
+      </label>
+      <div *ngIf="produceprice.invalid && ( produceprice.touched) " class="validation-error">
+        <div *ngIf="produceprice.errors.required">
+          Required
+        </div>
+      </div>
+      <input type="text" class="form-control" name="produceprice" (keypress)="_keyPress($event)" #produceprice='ngModel' [(ngModel)]="produce.price"
+        required>
+
+    </div>
+  </div>
+  <div class="col-md-12 produce-modal">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 left_sec form-group">
+      <label>{{'farmproduce.inputscheduled' | translate}}</label>
+      <my-date-picker name="scheduled" [options]="myDatePickerOptions" [(ngModel)]="produce.scheduled" required></my-date-picker>
+    </div>
+    <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 left_sec form-group ">
+      <label>{{'farmproduce.inputlowinventory' | translate}} ({{produce.unit}})
+        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':lowinventory.invalid && (lowinventory.touched)? 'red' : 'black' }"></i>
+      </label>
+      <div *ngIf="lowinventory.invalid && (lowinventory.touched) " class="validation-error">
+        <div *ngIf="lowinventory.errors.required">
+          Required
+        </div>
+        <div *ngIf="lowinventory.errors.pattern">
+          Numeric value only
+        </div>
+      </div>
+      <input type="text" class="date form-control" name="lowinventory" (keypress)="_keyPress($event)" #lowinventory='ngModel' [(ngModel)]="produce.lowinventory"
+        required>
+
+    </div>
+  </div>
+  <!-- <div class="col-md-6 left_sec" *ngIf="currentFileUpload" class="progress" style="width:400px">
+    </div> -->
+
+
+  <!-- Modal footer -->
+  <div class="modal-footer butt">
+    <button type="button" (click)="cancel()" class="btn btn-lg btn-success ">{{'common.cancel' | translate}}</button>
+    <button type="submit" *ngIf = "produceKey == 0" class="btn btn-lg btn-success " [disabled]="produce.scheduled?.formatted == '' ||  produceForm.invalid || selectedFiles?.length == 0">
+      {{'farmproduce.addproduce' | translate}}</button>
+    <button type="submit" *ngIf = "produceKey != 0" class="btn btn-lg btn-success " [disabled]="produce.scheduled?.formatted == '' ||  produceForm.invalid">
+      {{'farmproduce.addproduce' | translate}}</button>
+  </div>
+
+</form>

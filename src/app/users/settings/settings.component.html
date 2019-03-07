@@ -1,0 +1,97 @@
+<div class="row">
+
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 left_sec">
+
+  </div>
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 left_sec">
+    <div class="row">
+
+      <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+          <h4>{{'settings.email' | translate}}</h4>
+          <input type="text" [disabled]="true" class="form-control" name="email" [value]="user.email">
+        </div>
+      </div>
+
+    </div>
+    <form role="form" #settingForm="ngForm">
+      <div class="row">
+
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group">
+            <h4>{{'settings.oldpassword' | translate}}
+              <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':oldpassword.invalid && (oldpassword.touched)? 'red' : 'black' }"></i>
+            </h4>
+            <div *ngIf="oldpassword.invalid && ( oldpassword.touched)" class="validation-error">
+              <div *ngIf="oldpassword.errors.required">
+                Required
+              </div>
+
+
+            </div>
+            <input type="password" [disabled]="isAuthenticate" class="form-control" name="oldpassword" [(ngModel)]="user.oldpassword"
+              #oldpassword='ngModel' required>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="row" *ngIf="!isAuthenticate">
+
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group sign_butt_container">
+            <button class="sing_butt btn btn-primary" [disabled]="settingForm.invalid" (click)="authenticate()">{{'settings.authbtn'
+              | translate}}</button>
+            <div [ngClass]="responseClass">
+              {{response}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div *ngIf="isAuthenticate">
+        <div class="row">
+
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'settings.newpassword' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':password.invalid && (password.touched)? 'red' : 'black' }"></i>
+
+              </h4>
+              <div *ngIf="password.invalid && (password.touched)" class="validation-error">
+                <div *ngIf="password.errors.required">
+                  Required
+                </div>
+                <div *ngIf="password.errors.minlength">
+                  Password must be 6 character long
+                </div>
+              </div>
+              <input type="password" class="form-control" name="password" #password='ngModel' [(ngModel)]="user.password"
+                minlength="6" required>
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 cancel_btn">
+            <div class="form-group">
+              <button class="sing_butt btn btn-primary" (click)="cancel(settingForm)">{{'common.cancel' | translate}}</button>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 update_btn">
+            <div class="form-group">
+              <button class="sing_butt btn btn-primary" [disabled]="settingForm.invalid" (click)="updateUserAuth(settingForm)">{{'settings.updatebtn'
+                | translate}}</button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 left_sec">
+  </div>
+</div>

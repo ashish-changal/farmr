@@ -1,0 +1,181 @@
+select.farmername {
+    height: 35px !important;
+    width: 100%;
+    border-radius: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #2f2d2d96;
+    font-size: .9vw;
+    margin: 4px 0;
+    font-family: "Roboto";
+}
+.text-line {
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #2f2d2d96;
+}
+
+.first_row {
+    margin: 130px 0 0;
+}
+.Search_butt
+{
+   margin-top: 27px; 
+}
+.image-path
+{
+    height:70px !important;
+    width: 70px !important;
+}
+#fileuploadhide {
+    margin: 20px 0 0;
+    }
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 0% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    font-size: 16px;
+    font-family: "Roboto";
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+.custab th , td
+    {
+font-size: 18px;
+vertical-align: middle !important;
+font-family: "Roboto";
+    }
+    .pagination
+{
+    float:right;
+    margin-right: 100px;
+}
+#fileimage img {
+    width: 100%;
+    margin: 0 0 13px;
+}
+.icon
+{
+    color: #53A318
+}
+.custyle {
+    margin: 10px 0;
+    padding: 0;
+}
+
+.custyle h4 {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.left_sec {
+    float: left;
+}
+.col-md-12 {
+    clear: both;
+}
+.text-line {
+    padding: 0 6px;
+    font-size: .9vw;
+    font-family: "Roboto";
+    height: 35px;
+    border-radius: 0;
+
+}
+.form-group h5 {
+    margin: 4px 32px 0;
+    font-size: 1.3vw;
+    font-family: roboto;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #FF8203;
+    border-color: #FF8203;
+    font-family: "Roboto";
+    font-size: 1vw;
+}
+.form-group h2 {
+    font-size: 2vw;
+    font-family: roboto;
+}
+.hours_sec{
+    font-size: 1.4vw;
+    font-family: roboto;
+    margin: 0 28px;
+}
+label.col-lg-12.col-xs-12.col-sm-12.col-md-12.col-12 {
+    padding: 0;
+}
+.edit_butt_sec {
+    text-align: right;
+    margin: 0 -15px 40px;
+}
+button.btn.btn-success {
+    color: #fff;
+    background-color: #FF8203;
+    border-color: #FF8203;
+    font-family: "Roboto";
+    font-size: 1vw;
+    width: 8vw;
+    margin-top: 10px;
+}
+.form-group label {
+    font-size: 1vw;
+    font-family: "Roboto";
+    font-weight: 600;
+    color: #000;
+    float: left;
+    position: relative;
+    margin-right: 17px; 
+}
+.form-control:disabled {
+    background-color: #fff;
+    opacity: 1;
+}
+.Farms_Hours_inform {
+    padding: 0;
+}
+.Select {
+    font-size: 1vw;
+    font-family: roboto;
+    background: #53A318;
+    padding: 6px 15px;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    width: 17vw;
+    margin: 40px 0 23px;
+}
+
+#fileimage {
+    text-align: center;
+    }
+    textarea {
+        overflow: auto;
+        resize: vertical;
+        width: 100% !important;
+        margin: 24px 0;
+        border: 1px solid #ddd;
+        padding: 0 12px;
+        font-size: 1vw;
+        font-family: "Roboto";
+    }
+    .dropzoneBG {
+        background-color: #dddddd4d;
+        padding: 20px 5px;
+    }
+    .space {
+        margin-top: 18px;
+        margin-bottom: 24px;
+    }
+    .response-failed {
+        text-align: right;
+    }
+    
+   

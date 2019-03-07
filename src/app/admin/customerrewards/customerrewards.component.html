@@ -1,0 +1,69 @@
+<div class=" first-row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+
+    <h3>
+      <pagination-controls class="pagination" (pageChange)="p = $event" directionLinks="true" maxSize=3 autoHide="true" previousLabel=""
+        nextLabel=""></pagination-controls>
+    </h3>
+  </div>
+  <table class="notitable">
+    <thead>
+      <tr class="thHeading">
+
+        <th>
+          <button class="dashbardbtn center" [disabled]="true">{{'rewards.rewardnumber' | translate}}
+          </button>
+        </th>
+        <th>
+          <button (click)="sortByColumn('name',toggle.name)" class="header-btn" [disabled]="rewards?.length == 0">Member Name
+            <span class="header-icons" *ngIf="toggle.name != 2">
+              <!-- <i [ngStyle]="{'color':toggle.name == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+              <i [ngStyle]="{'color':toggle.name == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+            
+              <!-- <i  [ngStyle]="{'color':toggle.name == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+              <i  [ngStyle]="{'color':toggle.name == 0?'#fff':'#00000059'}" *ngIf="toggle.name == 0"  class="sort-by-asc"></i>
+              <i  [ngStyle]="{'color':toggle.name == 1?'#fff':'#00000059'}" *ngIf="toggle.name == 1"   class="sort-by-desc"></i>
+            </span>
+          </button>
+        </th>
+
+        <th>
+          <button (click)="sortByColumn('issuedate',toggle.issuedate)" class="dashbardbtn" [disabled]="rewards?.length == 0">{{'rewards.issuedate' | translate}}
+            <span class="header-icons" *ngIf="toggle.issuedate != 2">
+              <!-- <i [ngStyle]="{'color':toggle.issuedate == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+              <i [ngStyle]="{'color':toggle.issuedate == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+              <!-- <i  [ngStyle]="{'color':toggle.issuedate == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+              <i  [ngStyle]="{'color':toggle.issuedate == 0?'#fff':'#00000059'}" *ngIf="toggle.issuedate == 0"  class="sort-by-asc"></i>
+              <i  [ngStyle]="{'color':toggle.issuedate == 1?'#fff':'#00000059'}" *ngIf="toggle.issuedate == 1"   class="sort-by-desc"></i>
+            </span>
+          </button>
+        </th>
+        <th>
+          <button (click)="sortByColumn('redemptiondate',toggle.redemptiondate)" class="dashbardbtn" [disabled]="rewards?.length == 0">{{'rewards.redemptiondate' | translate}}
+            <span class="header-icons" *ngIf="toggle.redemptiondate != 2">
+              <!-- <i [ngStyle]="{'color':toggle.redemptiondate == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+              <i [ngStyle]="{'color':toggle.redemptiondate == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+              <!-- <i  [ngStyle]="{'color':toggle.redemptiondate == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+              <i  [ngStyle]="{'color':toggle.redemptiondate == 0?'#fff':'#00000059'}" *ngIf="toggle.redemptiondate == 0"  class="sort-by-asc"></i>
+              <i  [ngStyle]="{'color':toggle.redemptiondate == 1?'#fff':'#00000059'}" *ngIf="toggle.redemptiondate == 1"   class="sort-by-desc"></i>
+            </span>
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody class="table-hover">
+      <tr *ngFor="let reward of rewards  | paginate: { itemsPerPage: 15, currentPage: p };">
+        <td class="center">{{reward.number}}</td>
+        <td>{{reward.customerName}}</td>
+
+        <td>{{reward.issueDate}}</td>
+        <td>{{reward.redemptionDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div align="center" *ngIf="rewards?.length == 0">
+    <span class="search_no_results">
+      <h4>{{noDataFound}}</h4>
+    </span>
+  </div>
+</div>

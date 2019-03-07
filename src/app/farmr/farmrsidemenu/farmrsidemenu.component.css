@@ -1,0 +1,51 @@
+.images img {
+    margin: 0px 13px 0 0;
+}
+.images a {
+    color: #888;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 18px;   
+}
+span {
+    font-size: 34px;
+    color: #0f910fde;
+}
+.farmr-logo {
+    width: 100%;
+    margin: 4px 21px;
+}
+.menu_img img {
+    margin: 0 16px 0 3px;
+    width: 1vw
+}
+li.nav-item.menu_img a {
+    color: #828282;
+    font-size: 1vw;
+    font-weight: 500;
+    font-family: "Roboto";
+    padding: 7px 3px;
+}
+
+ul.nav {
+    width: 100%;
+    float: left;
+    padding: 0 6px;
+}
+.sidebar{
+    padding: 0;
+}
+img.main_img {
+    width: 8vw;
+    margin: 0 auto;
+    display: table;
+}
+.dash
+{
+color: #53A318;
+margin: 0 10px 0 0;
+}
+i.mdi.mdi-logout-variant {
+    margin: 0 13px 0 1px;
+    font-size: .9vw;
+}

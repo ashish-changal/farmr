@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 first_produce_sec" *ngIf="produces?.length > 0">
+      <h4 class="my-4">{{farmname}}</h4>
+      <div class="col-lg-2 col-md-4 col-sm-4 col-12 mb-2 left_sec" *ngFor="let produce of produces">
+        <div class="card farms-card">
+          <a>
+            <img class="card-img-top" src="{{produce.image}}" alt="">
+          </a>
+          <div class="card-body">
+            <h5>{{produce.producename}}</h5>
+            <!-- <h5></h5> -->
+            <h5>{{produce.productprice | currency}}/{{produce.productdesc}}</h5>
+            <h5>In stock : {{produce.displayQuantity}} {{produce.units}}</h5>
+            <a>
+              <button class="btn btn-warning cart_butt" (click)="addTocart(produce)" [disabled]="produce.displayQuantity < produce.unitQuantity"
+                *ngIf="produce.totalquantity >= produce.unitQuantity">{{'userproduce.addtocartbtn' | translate}}</button>
+              <!-- <p *ngIf="produce.producekey == prodduceKey" [ngClass]="responseClass">{{response}}</p> -->
+              <p class="outofstock" *ngIf="produce.totalquantity < produce.unitQuantity">{{'userproduce.outofstock' |
+                translate}}</p>
+            </a>
+            <div id="newModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Remove Item</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <p>You have items in your shopping cart from another farm. Do you want to remove those items and
+                      add the items from this farm?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="replaceProduce(produce)">Yes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div align="center" class="search_no_results col-lg-12" *ngIf="produces?.length == 0">
+    <h4>{{noDataFound}}</h4>
+  </div>
+</div>

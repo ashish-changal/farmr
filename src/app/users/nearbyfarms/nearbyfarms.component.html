@@ -1,0 +1,34 @@
+<div class="row">
+
+  <div class="col-lg-4 col-md-4 mb-4 col-sm-4 col-12" *ngFor="let farm of farms">
+    <div class="card farms-card">
+      <div class="farm1_img_sec">
+        <img [src]="farm.image"  (click)="goToFarm(farm.key)">
+        <div class="miaway">
+          <button type="button"  class="btn btn-danger badge-miles" >{{farm.miles}} {{'common.miaway' | translate}}</button>
+        </div>
+        <div class="heart_icon_sec pointer" (click)="changeFav(farm.key,farm.fav)">
+        
+          <i class="mdi mdi-heart" aria-hidden="true"  [ngStyle]="{'color':farm.fav? 'green' : 'white' }"></i>
+          
+        </div>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">
+          {{farm.name}}
+        </h4>
+         
+        <p class="card-text">{{farm.address1}}<br>{{farm.address2}}</p>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn  btn-link btnmragim" (click)="goToFarm(farm.key)">{{'nearbyfarm.moreinfo' | translate}}</button>
+        <button type="button" class="btn btn-light Orange_color btnmragim" (click)="goToProduce(farm.key)">{{'nearbyfarm.buyproduce' | translate}}</button>
+      </div>
+    </div>
+  </div>
+  <div align="center" class="search_no_results" *ngIf="farms?.length == 0">
+    <h4>{{noDataFound}}</h4>
+  </div>
+</div>
+
+    

@@ -1,0 +1,110 @@
+<div class="first-row">
+  <h3>
+    <pagination-controls class="pagination" (pageChange)="p = $event" directionLinks="true" maxSize="3" autoHide="true"
+      previousLabel="" nextLabel=""></pagination-controls>
+  </h3>
+  <div class="row col-md-12 col-md-offset-2 custyle">
+    <table class="table">
+      <thead>
+        <tr>
+
+          <th class="first-col">
+            <button (click)="sortByColumn('name',toggle.name)" class="header-btn" [disabled]="farms?.length == 0">{{'farminformation.farmname'
+              | translate}}
+              <span class="header-icons" *ngIf="toggle.name != 2">
+                <!-- <i [ngStyle]="{'color':toggle.name == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+                <i [ngStyle]="{'color':toggle.name == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+                <!-- <i  [ngStyle]="{'color':toggle.name == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+                <i [ngStyle]="{'color':toggle.name == 0?'#fff':'#00000059'}" *ngIf="toggle.name == 0" class="sort-by-asc"></i>
+                <i [ngStyle]="{'color':toggle.name == 1?'#fff':'#00000059'}" *ngIf="toggle.name == 1" class="sort-by-desc"></i>
+
+              </span>
+            </button>
+          </th>
+          <th>
+            <button class="header-btn" [disabled]="farms?.length == 0">{{'farminformation.farmaddress' | translate}}
+            </button>
+          </th>
+          <th>
+            <button (click)="sortByColumn('zipcode',toggle.zipcode)" class="header-btn" [disabled]="farms?.length == 0">{{'common.zipcode'
+              | translate}}
+              <span class="header-icons" *ngIf="toggle.zipcode != 2">
+                <i [ngStyle]="{'color':toggle.zipcode == 0?'#fff':'#00000059'}" *ngIf="toggle.zipcode == 0" class="sort-by-asc"></i>
+                <i [ngStyle]="{'color':toggle.zipcode == 1?'#fff':'#00000059'}" *ngIf="toggle.zipcode == 1" class="sort-by-desc"></i>
+              </span>
+            </button>
+          </th>
+          <th>
+            <button class="header-btn" [disabled]="farms?.length == 0">{{'farminformation.farmimage' | translate}}
+            </button>
+          </th>
+          <th>
+            <button (click)="sortByColumn('status',toggle.status)" class="header-btn" [disabled]="farms?.length == 0">{{'farminformation.status' | translate}}
+                <span class="header-icons" *ngIf="toggle.status != 2">
+                  <i  [ngStyle]="{'color':toggle.status == 0?'#fff':'#00000059'}" *ngIf="toggle.status == 0"  class="sort-by-asc"></i>
+                  <i  [ngStyle]="{'color':toggle.status == 1?'#fff':'#00000059'}" *ngIf="toggle.status == 1"   class="sort-by-desc"></i>
+                </span>
+              </button>
+          </th>
+          <th>
+            <button class="header-btn" [disabled]="farms?.length == 0">{{'common.action' | translate}}
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let farm of farms | paginate: { itemsPerPage: 10, currentPage: p }; let i=index;">
+          <!-- <td class="SrNo_sec">{{i+1}}</td> -->
+          <td class="first-col">{{farm.name}}</td>
+          <td *ngIf="farm.address1!=''">{{farm.address1}}
+            <br> {{farm.address2}}
+          </td>
+          <td>{{farm.zipcode}}</td>
+          <td>
+            <img class="image-path" [src]="farm.image">
+          </td>
+          <td>
+            {{farm.status}}
+          </td>
+          <td>
+            <a class='mdi mdi-pencil icon' (click)="editFarm(farm.key,i)">
+            </a>&nbsp;&nbsp;&nbsp;
+            <a class="mdi mdi-delete icon1" (click)="deleteFarm(farm.key , farm.name,farm.image)">
+              <div id="deletefarm" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Delete Farm</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                      <img class="image" src="{{farmImage}}">
+                      <p class="removeItem">Are sure you want to delete
+                        <b> {{farmName}} </b> ? </p>
+                    </div>
+                    <div class="modal-footer">
+
+                      <button type="button" class="btn btn-success" data-dismiss="modal" (click)="removefarm()">Ok</button>
+                      <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="search_no_results" *ngIf="farms?.length == 0">
+      <span>
+        <h4>{{noRecord}}</h4>
+      </span>
+    </div>
+  </div>
+</div>

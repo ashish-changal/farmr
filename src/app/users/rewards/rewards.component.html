@@ -1,0 +1,28 @@
+<h3>
+  <pagination-controls class="pagination" (pageChange)="p = $event" directionLinks="true" maxSize="3" autoHide="true" previousLabel=""
+   nextLabel=""></pagination-controls>
+</h3>
+
+    <table class="table notitable">
+      <thead>
+        <tr class="backgruond">
+          <th class="center">{{'rewards.rewardcertificate' | translate}}</th>
+          <th>{{'rewards.issuedate' | translate}}</th>
+          <th>{{'rewards.redemptiondate' | translate}}</th>
+          <th>{{'rewards.reward' | translate}}</th>
+        </tr>
+      </thead>
+      <tbody class="table-hover">
+      <tr *ngFor = "let reward of rewards |  paginate: { itemsPerPage: 10, currentPage: p };let i=index;">
+        <td class="center">{{reward.rewardCertificate}}</td>
+        <td>{{reward.issueDate}}</td>
+        <td>{{reward.redemptionDate}}</td>
+        <td>{{reward.rewardPrice | currency }}</td>
+      </tr>
+    </tbody>
+    </table>
+  <div align="center" *ngIf="rewards?.length == 0">
+      <span class="search_no_results">
+        <h4>{{noDataFound}}</h4>
+      </span>
+    </div>

@@ -1,0 +1,129 @@
+<div class="row first_row">
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-12  producesales">
+		<h3 class="second_rowP">{{'dashboard.producesale' | translate }}</h3>
+		<div class="row produce-sales-options">
+			<li (click)="changeSalesView('day')">
+				<a style="cursor: pointer" [ngStyle]="{'color': salesChoice == 'day'?'green': '#00000069'}">{{'dashboard.daily' | translate }}</a>
+			</li>
+			<li (click)="changeSalesView('week')">
+				<a style="cursor: pointer" [ngStyle]="{'color': salesChoice == 'week'?'green': '#00000069'}">{{'dashboard.weekly' | translate }}</a>
+			</li>
+			<li (click)="changeSalesView('month')">
+				<a style="cursor: pointer" [ngStyle]="{'color': salesChoice == 'month'?'green': '#00000069'}">{{'dashboard.monthly' | translate }}</a>
+			</li>
+			<li (click)="changeSalesView('year')">
+				<a style="cursor: pointer" [ngStyle]="{'color': salesChoice == 'year'?'green': '#00000069'}">{{'dashboard.yearly' | translate }}</a>
+			</li>
+		</div>
+		<h4>{{produceSales | currency}}</h4>
+
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-12  produceF1">
+		<h3 class="second_rowP">{{'dashboard.customers' | translate }}</h3>
+		<a [routerLink]="['../customers']">
+			<h4 class="dolr">{{totaluser}}</h4>
+		</a>
+
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-12 produceF1">
+		<h3 class="second_rowP">{{'dashboard.pendingfarms' | translate }}</h3>
+		<a [routerLink]="['../pendingfarms']">
+			<h4 class="dolr">{{pendingFarmForApproval}}</h4>
+		</a>
+	</div>
+</div>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 pading_sec">
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 Transactions left_sec">
+		<h3>{{'dashboard.transactions' | translate }}</h3>
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 left_sec">
+		<h3>
+			<pagination-controls previousLabel="" nextLabel="" class="pagination" (pageChange)="p = $event" maxSize="9" directionLinks="true"
+			  autoHide="true" responsive="true">
+			</pagination-controls>
+		  </h3>
+	</div>
+</div>
+
+
+<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 Transactions">
+
+	<h3>{{'dashboard.transactions' | translate }}</h3>
+</div> -->
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="first-col">
+					<button class="dashbardbtn center" [disabled]="true">{{'common.order' | translate}}
+					</button>
+
+				</th>
+				<th>
+					<button (click)="sortByColumn('status', toggle.status)" class="dashbardbtn" [disabled]="orderlist?.length == 0">{{'common.status' | translate}}
+						<span class="header-icons" *ngIf="toggle.status != 2">
+							<!-- <i [ngStyle]="{'color':toggle.status == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+							<i [ngStyle]="{'color':toggle.status == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+							<!-- <i  [ngStyle]="{'color':toggle.status == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+							<i  [ngStyle]="{'color':toggle.status == 0?'#fff':'#00000059'}" *ngIf="toggle.status == 0"  class="sort-by-asc"></i>
+							<i  [ngStyle]="{'color':toggle.status == 1?'#fff':'#00000059'}" *ngIf="toggle.status == 1"   class="sort-by-desc"></i>
+					
+						</span>	
+					</button>
+					
+				</th>
+
+				<th>
+					<button (click)="sortByColumn('date', toggle.date)" class="dashbardbtn" [disabled]="orderlist?.length == 0">{{'common.date' | translate}}
+						<span class="header-icons" *ngIf="toggle.date != 2">
+							<!-- <i [ngStyle]="{'color':toggle.date == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+							<i [ngStyle]="{'color':toggle.date == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+							<!-- <i  [ngStyle]="{'color':toggle.date == 0?'#fff':'#00000059'}"  class="fa fa-sort" ></i> -->
+							<i  [ngStyle]="{'color':toggle.date == 0?'#fff':'#00000059'}" *ngIf="toggle.date == 0"  class="sort-by-asc"></i>
+							<i  [ngStyle]="{'color':toggle.date == 1?'#fff':'#00000059'}" *ngIf="toggle.date == 1"   class="sort-by-desc"></i>
+						</span>
+					</button>
+				</th>
+				<th>
+					<button (click)="sortByColumn('price',toggle.price)" class="dashbardbtn" [disabled]="orderlist?.length == 0">{{'common.total' | translate}}
+						<span class="header-icons" *ngIf="toggle.price != 2">
+							<!-- <i [ngStyle]="{'color':toggle.price == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+							<i [ngStyle]="{'color':toggle.price == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+							<!-- <i  [ngStyle]="{'color':toggle.price == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+							<i  [ngStyle]="{'color':toggle.price == 0?'#fff':'#00000059'}" *ngIf="toggle.price == 0"  class="sort-by-asc"></i>
+							<i  [ngStyle]="{'color':toggle.price == 1?'#fff':'#00000059'}" *ngIf="toggle.price == 1"   class="sort-by-desc"></i>
+						</span>
+					</button>
+				</th>
+				<th>
+					<button class="dashbardbtn" [disabled]="true">{{'common.remarks' | translate}}
+					</button>
+				</th>
+				<th>
+					<button class="dashbardbtn" [disabled]="true">
+					</button>
+				</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr *ngFor="let order of orderlist | paginate: { itemsPerPage: 15, currentPage: p };let i=index;" (click)="openDetailTransaction(order.orderKey)">
+				<td class="first-col">{{order.orderNumber | uppercase}}</td>
+				<td [ngStyle]="{'color': order.status == 'Unfulfilled' || order.status == 'Refund Pending'?'red':'#000'}">{{order.status}}</td>
+				<td>{{order.orderdate}}</td>
+				<td class="last-price">{{order.amount | currency }}</td>
+				<td>{{order.remarks }}</td>
+				<td class="img_sec">
+					<img src="./assets/imgs/Group.png" alt="Photo of a Shiba Inu">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div align="center" *ngIf="orderlist?.length == 0">
+	<span class="search_no_results">
+		<h4>{{noTransaction}}</h4>
+	</span>
+</div>

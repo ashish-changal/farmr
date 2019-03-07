@@ -1,0 +1,402 @@
+.pick_buttan {
+    text-align: center;
+    box-shadow: 1px 1px 8px 1px #DDD;
+    padding: 9px;
+    background: #FFF none repeat scroll 0% 0%;
+ 
+}
+.delivery {
+    border-radius: 28px;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 500;
+    border-color: #53A318 !important;
+    color: #000 !important;
+}
+.mdi-timer::before {
+    font-size: 24px;
+}
+.mdi.mdi-cart-outline::before {
+    font-size: 24px;
+}
+.mdi-phone-classic::before {
+    font-size: 22px;
+}
+.mdi-map-marker::before {
+    font-size: 24px;
+}
+.mdi-car-pickup::before {
+    font-size: 24px;
+}
+.delivery:hover {
+    background: #53A318 !important;
+    border-color: #53A318 !important;
+    color: #fff !important;
+}
+.pickupchoice{
+    background: #53A318 !important;
+    border-color: #53A318 !important;
+    color: #fff !important;
+}
+.notpickupchoice{
+    background: #fff !important;
+    border-color: #000 !important;
+    color: #000 !important;
+}
+.address_sec h4 {
+    
+    font-size: 1.8vw;
+}
+.home_address {
+    width: 100%;
+    float: left;
+    background: #dddddd70;
+    padding: 24px;
+}
+.Choose_butt {
+    background: #53A318;
+    padding: 6px 0;
+}
+.address_sec li {
+    list-style: none;
+}
+li.home_address {
+    margin: 0 0 17px;
+}
+.new_address_sec {
+    width: 100%;
+    float: left;
+}
+.new_address_sec h6 {
+    color: #53A318;
+}
+.Delivery {
+    /* border-top: 1px solid #ddd; */
+    padding: 8px 0;
+    float: left;
+    width: 100%;
+}
+.contact {
+    font-size: 15px;
+    /* margin: 0 10px; */
+}
+p.please {
+    text-align: center;
+    margin: 7px 0;
+}
+.order {
+
+    clear: both;
+    border: 1px solid #dddddd1f;
+    float: left;
+    width: 100%;
+    padding: 0px;
+    background-color: #dddddd30;
+}
+.place_sec{
+    clear: both;
+}
+.Place_butt {
+    background: #b1b1b1;
+    border: none;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: Roboto;
+    margin: 0 0 7px;
+}
+.tip {
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 7px 0;
+    margin: 10px 0;
+}
+.Total {
+    border-top: 1px solid #ddd;
+    padding: 7px 0 0;
+   margin: 0;
+    width: 100%;
+    float: left;
+    
+    margin: 0;
+}
+.promo h5 {
+    text-align: center;
+    width: 100%;
+    color: #53A318;
+}
+span.learn {
+    color: #53A318;
+}
+
+/* checkout */
+
+form.checkout {
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: center;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    background: white;
+  
+    font-family: monospace;
+    color: #525252;
+    font-size: 1.1rem;
+  }
+  
+  form.checkout button {
+    padding: 0.5rem 1rem;
+    color: white;
+    background: coral;
+    border: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+  }
+  
+.item-produce img {
+    width: 25px;
+    margin: 0 5px 0 0;
+}
+.item-produce {
+    width: 88%;
+    float: left;
+}
+.icon-produce {
+    width: 8%;
+    float: left;
+    margin-top: 0px;
+}
+.card-number{
+    
+    width: 94%;
+    float: left;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #ff8203;
+    border-color: #ff8203;
+    font-size: .9vw;
+    font-family: "Roboto"
+}
+.address_sec {
+    float: left;
+}
+.btn-info {
+    color: #fff;
+    background-color: #FF8203;
+    border-color: #FF8203;
+    font-size: .9vw;
+    border-radius: 4px;
+    font-family: "Roboto"
+}
+
+.save {
+      text-align: right;
+}
+h5.Sprouts {
+    font-size: 15px;
+    font-family: "Roboto";
+  line-height: 22px;
+  font-weight: normal;
+  width: 90%;
+  float: left;
+}
+.sing_butt {
+    width: 80px;
+    margin: 2vw 0;
+    font-size: .9vw;
+}
+input.form-control.ng-untouched.ng-pristine.ng-valid {
+    font-size: .9vw;
+    font-family: roboto;
+}   
+select.form-control.ng-untouched.ng-pristine.ng-valid {
+    font-size: .9vw;
+    font-family: roboto;
+}
+/* button.btn.btn-outline-success.delivery {
+    background-color: #53A318 !important; 
+} */
+i.mdi.mdi-phone-classic ,i.mdi.mdi-timer ,.mdi-map-marker,.mdi-car-pickup {
+    color: #53A318;
+    font-size: 17px !important;
+}
+.mdi.mdi-credit-card::before {
+    font-size: 24px;
+}
+/* .pick_up {
+   margin: 0 32px;
+} */
+
+  .Paymen {
+    margin: 12px 0 19px !important;
+}
+.pay_color {
+    color: #53A318;
+    font-size: 1.2vw !important;
+}
+.row.promo {
+    float: left;
+    width: 100%;
+    padding: 0;
+    display: contents;
+    margin: 16px 0 0;
+    display: table;
+}
+.astestar {
+    position: absolute;
+    right: -11px;
+    top: -8px;
+}
+.form-group label
+{
+    float: left;
+    margin-right: 19px;
+    position: relative;
+    font-size: 13px;
+}
+.aply {
+    width: 6vw !important;
+}
+.btnorder {
+    text-align: center;
+    padding: 15px 0 15px 0;
+}
+
+.orderbtn {
+    width: 19vw !important;
+}
+.discount-color{
+    color: red;
+}
+
+.text {
+    text-align: right;
+}
+.address12 {
+    margin: 2px 0 0;
+    display: table;
+}
+/* .mdi-cart-outline {
+    margin: 0 10px;
+} */
+a.apply {
+    color: #FF8203;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: roboto;
+    padding: 0 9px;
+}
+.cardDetails {
+    
+    border-radius: 7px;
+    padding: 12px;
+    margin: -1px 0px;
+    text-align: center;
+    margin-top: 13px;
+    /* height: 41vw; */
+    box-shadow: 0 0 7px #ddd;
+    width: 100%;
+}
+.newtotal {
+    font-size: 15px;
+    font-family: "Roboto";
+    line-height: 22px;
+    font-weight: normal;
+
+    float: left;
+}
+.radio input {
+
+    float: left;
+    
+}
+.left_sec_apply {
+    text-align: right;
+}
+.left_sec2 {
+    margin-top: 4px;
+    padding: 0;
+}
+.address_sec ul {
+    padding: 0;
+}
+.chickbtn {
+    margin: 8px 2px 0;
+}
+.iconchick {
+    width: 8%;
+    float: left;
+}
+.pick_up ,.checkoutpadding {
+    padding: 0;
+}
+.radio {
+    width: 90%;
+    float: left;
+}
+.radiobtnpage {
+    width: 4%;
+    float: left;
+    margin: -1px 3px 0;
+}
+
+.response-failure
+{
+    color: red;
+}
+.left_sec label {
+    font-size: 1vw;
+    font-family: roboto;
+    float: left;
+}
+
+.rad,.ckb{
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+  .rad > input,.ckb > input{ /* HIDE ORG RADIO & CHECKBOX */
+    visibility: hidden;
+    position: absolute;
+  }
+  /* RADIO & CHECKBOX STYLES */
+  .rad > i,.ckb > i{     /* DEFAULT <i> STYLE */
+    display: inline-block;
+    vertical-align: middle;
+    width:  16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: 0.2s;
+    box-shadow: inset 0 0 0 8px #fff;
+    border: 1px solid gray;
+    background: gray;
+  }
+  /* CHECKBOX OVERWRITE STYLES */
+  .ckb > i {
+    width: 25px;
+    border-radius: 3px;
+  }
+  .rad:hover > i{ /* HOVER <i> STYLE */
+    box-shadow: inset 0 0 0 3px #fff;
+    background: gray;
+  }
+  .rad > input:checked + i{ /* (RADIO CHECKED) <i> STYLE */
+    box-shadow: inset 0 0 0 3px #fff;
+    background: #53A318;
+  }
+  .td_width {
+    width: 8%;
+}
+tr {
+    border-bottom: none;
+}
+.coupon
+{
+    float: left;
+    width: 100%;
+}
+
+  

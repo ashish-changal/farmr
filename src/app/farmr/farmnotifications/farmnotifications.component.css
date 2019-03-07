@@ -1,0 +1,40 @@
+
+.first_row {
+    margin: 10px 0px 0px -13px;
+    position: absolute;
+}
+
+.date-field{
+    width: 15%;
+}
+th {
+    width: 80%;
+}
+span.search_no_results {
+    float: left;
+    width: 100%;
+    margin: 20px 0;
+}
+.trash-icon {
+    color: #ffffff;
+    cursor: pointer;
+}
+td{
+    width:80%;
+}
+th:first-child {
+    width: 5%;
+    text-align: center;
+}
+td:first-child {
+    width: 5%;
+    text-align: center;
+}
+input {
+    height: 16px;
+    width: auto;
+    margin: 0 auto;
+}
+.trash-icon::before {
+    font-size: 20px;
+}

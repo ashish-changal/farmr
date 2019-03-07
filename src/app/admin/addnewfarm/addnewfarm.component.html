@@ -1,0 +1,580 @@
+<div class=" first_row">
+
+  <div class=" col-md-12 col-md-offset-2 custyle">
+    <form id="addFarm" #farmForm='ngForm' role="form" (ngSubmit)="addFarm(newfarm.hdn)">
+      <div class="col-md-12" id="fileimage">
+        <label class="col-md-12 btn btn-default">
+          <label _ngcontent-c14="" class=" btn Select" *ngIf="!toggle">Upload Image
+            <input _ngcontent-c14="" accept="image/*" id="fileuploadhide" (change)="selectFile($event)" name="farmimage" required=""
+              style="display: none" type="file">
+          </label>
+        </label>
+        <img src="{{newfarm.image}}">
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>{{'farminformation.farmername' | translate}}</label>
+            <select id="disablefarmer2" class="farmername" [disabled]="toggle" name="farmername" [(ngModel)]="newfarm.farmruid">
+              <option value="" [selected]="!newfarm.farmruid">Farmer Name</option>
+              <option *ngFor="let data of users" value="{{data.uid}}">
+                {{data.firstname}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+              <label>{{'farminformation.status' | translate}}</label>
+              <select class="farmername" [disabled]="toggle" name="farmstatus" [(ngModel)]="newfarm.status" required>
+                <option value="approved">Approved</option>
+                <option value="pending">Pending</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 left_sec">
+          <div class="form-group">
+            <label>{{'farminformation.inputfarmname' | translate}}
+              <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':farm_name.invalid && (farm_name.touched)? 'red' : 'black' }"></i>
+            </label>
+            <div *ngIf="farm_name.invalid && (farm_name.touched) " class="validation-error">
+              <div *ngIf="farm_name.errors.required">
+                Required
+              </div>
+              <div *ngIf="farm_name.errors.pattern">
+                Special characters are not allowed
+              </div>
+            </div>
+            <div class="validation-error" *ngIf = 'existResponse != ""'>
+              {{existResponse}}
+            </div>
+            <input type="text" name="farm_name" #farm_name = 'ngModel' (change)="checkFarmExist(farm_name.value)" [disabled]="toggle" class="text-line form-control" [(ngModel)]="newfarm.name"
+              required>
+            <input type="hidden" name="usertype113" id="hdn" [(ngModel)]="newfarm.hdn">
+          </div>
+        </div>
+
+        <div class="col-md-6 left_sec">
+          <div class="form-group">
+            <label>{{'farminformation.inputphonenumber' | translate}}
+              <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':phonenumber.invalid && (phonenumber.touched)? 'red' : 'black' }"></i>
+            </label>
+            <div *ngIf="phonenumber.invalid && (phonenumber.touched)" class="validation-error">
+              <div *ngIf="phonenumber.errors.required">
+                Required
+              </div>
+              <div *ngIf="phonenumber.errors.minlength || phonenumber.errors.maxlength">
+                Minimum 10 digits required
+              </div>
+            </div>
+            <input type="tel" mask="(***) ***-****" [disabled]="toggle" maxlength="14" minlength="14" name="phonenumber" placeholder=""
+              #phonenumber='ngModel' class="text-line form-control" (keypress)="_keyPress($event)" [(ngModel)]="newfarm.phonenumber"
+              required>
+
+          </div>
+        </div>
+      </div>
+      <div class="space">
+        <div class="row">
+          <div class="col-md-12 left_sec">
+            <h2>
+              <label class="dropzonelabel">Mailing Address</label>
+            </h2>
+          </div>
+          <div class="col-md-6 left_sec">
+            <div class="form-group">
+              <label>{{'farminformation.farmaddress1' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':farmaddress1.invalid && (farmaddress1.touched)? 'red' : 'black' }"></i>
+              </label>
+              <div *ngIf="farmaddress1.invalid && ( farmaddress1.touched)" class="validation-error">
+                <div *ngIf="farmaddress1.errors.required">
+                  Required
+                </div>
+                <div *ngIf="farmaddress1.errors.pattern">
+                  Invalid Street.
+                </div>
+              </div>
+              <input type="tel" name="farmaddress1" [disabled]="toggle" #farmaddress1='ngModel' placeholder="" class="text-line form-control"
+                [(ngModel)]="newfarm.farmaddress1" required pattern="^(?=.*[A-Za-z\s])(?=.*\d)[A-Za-z\d\s]{4,}$">
+
+            </div>
+          </div>
+          <div class="col-md-6 left_sec">
+            <div class="form-group">
+              <label>{{'farminformation.farmaddress2' | translate}}
+
+              </label>
+
+              <input type="tel" name="farmaddress2" [disabled]="toggle" #farmaddress2='ngModel' placeholder="" class="text-line form-control"
+                [(ngModel)]="newfarm.farmaddress2">
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 left_sec">
+            <div class="form-group">
+              <label>{{'farminformation.inputcity' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':city.invalid && (city.touched)? 'red' : 'black' }"></i>
+              </label>
+              <div *ngIf="city.invalid && (city.touched)" class="validation-error">
+                <div *ngIf="city.errors.required">
+                  Required
+                </div>
+                <div *ngIf="city.errors.pattern">
+                  Special characters are not allowed
+                </div>
+              </div>
+              <div *ngIf = "invalidCity"  class="validation-error">
+                Please enter a valid city name
+              </div>
+              <input type="text" name="city" [disabled]="toggle" #city='ngModel' placeholder="" class="text-line form-control" [(ngModel)]="newfarm.city"
+              (keyup)="autoComplete(newfarm.city, 'city')" (change) = "setDefault('city')" required pattern="[A-Za-z\s]{0,20}">
+                <div *ngFor="let value of autoCityValues | slice:0:4" class="searchitems" (click)="selectItem(value, 'city')">
+                  {{value}}
+                </div>
+            </div>
+          </div>
+          <div class="col-md-4 left_sec">
+            <div class="form-group">
+              <label>{{'farminformation.inputstate' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':state.invalid && (state.touched)? 'red' : 'black' }"></i>
+              </label>
+              <select class="farmername form-control" [disabled]="toggle" name="state" #state='ngModel' [(ngModel)]="newfarm.state">
+                <option value="" disabled="true" [selected]="!newfarm.state">{{'signup.state' | translate}}</option>
+                <option *ngFor="let states of states">
+                  {{states}}
+                </option>
+              </select>
+
+            </div>
+          </div>
+          <div class="col-md-4 left_sec">
+            <div class="form-group">
+              <label>{{'farminformation.inputzipcode' | translate}}
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':zipcode.invalid && (zipcode.touched)? 'red' : 'black' }"></i>
+              </label>
+              <div *ngIf="zipcode.invalid && ( zipcode.touched)" class="validation-error">
+                <div *ngIf="zipcode.errors.required">
+                  Required
+                </div>
+                <div *ngIf="zipcode.errors.minlength || zipcode.errors.maxlength">
+                  Minimum 5 digits required
+                </div>
+
+              </div>
+              <input type="text" name="zipcode" [disabled]="toggle" minlength="5" maxlength="5" (keypress)="_keyPress($event)" #zipcode='ngModel'
+                placeholder="" class="text-line form-control" [(ngModel)]="newfarm.zipcode" required>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 left_sec">
+          <div class="form-group">
+            <label>Farm Type
+
+            </label>
+            <select [(ngModel)]="newfarm.farmtype" [disabled]="toggle" name="farmtype" class="farmername form-control" required>
+
+              <option value="Certified Organic">{{'farminformation.organic' | translate}}</option>
+              <option value="Naturally Grown">{{'farminformation.naturally' | translate}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6 left_sec">
+          <div class="form-group">
+            <label>Pickup Option
+
+            </label>
+            <select [(ngModel)]="newfarm.pickup" (change)="pickupOption($event)" [disabled]="toggle" name="pickup" class="farmername form-control"
+              required>
+              <option value="farmrmarket">{{'farminformation.pickupfarmermarket' | translate}}</option>
+              <option value="farm">{{'farminformation.pickupfarm' | translate}}</option>
+              <option value="both">{{'farminformation.pickupboth' | translate}}</option>
+
+
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 left_sec">
+          <div class="form-group">
+            <label>{{'farminformation.inputwebsite' | translate}}
+              <!-- <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':website.invalid && (website.touched)? 'red' : 'black' }"></i> -->
+            </label>
+            <!-- <div *ngIf="website.invalid && ( website.touched) " class="validation-error">
+              <div *ngIf="website.errors.required">
+                Required
+              </div>
+              <div *ngIf="website.errors.pattern">
+                Special characters are not allowed
+              </div>
+            </div> -->
+            <input type="text" name="website" [disabled]="toggle" #website='ngModel' placeholder="" class="text-line form-control" [(ngModel)]="newfarm.website"
+              >
+
+          </div>
+        </div>
+        <div class="col-md-6 left_sec">
+          <div class="form-group">
+            <label>{{'farminformation.inputdeliverytime' | translate}}
+              <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':deliverytime.invalid && (deliverytime.touched)? 'red' : 'black' }"></i>
+            </label>
+            <div *ngIf="deliverytime.invalid && ( deliverytime.touched) " class="validation-error">
+              <div *ngIf="deliverytime.errors.required">
+                Required
+              </div>
+              <div *ngIf="deliverytime.errors.pattern">
+                Special characters are not allowed
+              </div>
+            </div>
+            <input type="text" name="deliverytime" [disabled]="toggle" #deliverytime='ngModel' placeholder="" class="text-line form-control"
+              [(ngModel)]="newfarm.deliverytime" required>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="space" *ngIf="!disableDropzoneMarket">
+
+        <div class="row">
+          <div class="col-md-12 left_sec">
+            <label class="dropzonelabel">DropOff Zone</label>
+          </div>
+
+          <div class="col-md-6 left_sec">
+            <div class="form-group">
+              <label>Market Name
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':marketname.invalid && (marketname.touched)? 'red' : 'black' }"></i>
+              </label>
+              <div *ngIf="marketname.invalid && ( marketname.touched) " class="validation-error">
+                <div *ngIf="marketname.errors.required">
+                  Required
+                </div>
+
+              </div>
+              <input type="text" name="marketname" [disabled]="toggle" placeholder="" class="text-line form-control" #marketname='ngModel'
+                [(ngModel)]="newfarm.marketname" required>
+
+            </div>
+          </div>
+          <div class="col-md-6 left_sec">
+
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-6 left_sec">
+            <div class="form-group">
+              <label>Address line 1
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':streetdropzone1.invalid && (streetdropzone1.touched)? 'red' : 'black' }"></i>
+              </label>
+              <div *ngIf="streetdropzone1.invalid && ( streetdropzone1.touched) " class="validation-error">
+                <div *ngIf="streetdropzone1.errors.required">
+                  Required
+                </div>
+                <div *ngIf="streetdropzone1.errors.pattern">
+                  Invalid Street Address
+                </div>
+              </div>
+              <input type="text" name="streetdropzone1" [disabled]="toggle" placeholder="" #streetdropzone1='ngModel' class="DropOff_zone_sec  text-line Zone form-control"
+                [(ngModel)]="newfarm.streetdropzone1" required pattern="^(?=.*[A-Za-z\s])(?=.*\d)[A-Za-z\d\s]{4,}$">
+
+            </div>
+          </div>
+          <div class="col-md-6 left_sec">
+            <div class="form-group">
+              <label>Address line 2
+              </label>
+
+              <input type="text" name="streetdropzone2" [disabled]="toggle" placeholder="" #streetdropzone2='ngModel' class="DropOff_zone_sec  text-line Zone form-control"
+                [(ngModel)]="newfarm.streetdropzone2">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 left_sec">
+            <div class="form-group">
+              <label>City
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':citydropzone.invalid && (citydropzone.touched)? 'red' : 'black' }"></i>
+              </label>
+              <div *ngIf="citydropzone.invalid && (citydropzone.touched) " class="validation-error">
+                <div *ngIf="citydropzone.errors.required">
+                  Required
+                </div>
+                <div *ngIf="citydropzone.invalid && (citydropzone.touched) " class="validation-error">
+                  <div *ngIf="citydropzone.errors.required">
+                    Required
+                  </div>
+                </div>
+              </div>
+              <div *ngIf = "invalidDropZoneCity"  class="validation-error">
+                Please enter a valid city name
+              </div>
+              <input type="text" name="citydropzone" [disabled]="toggle" placeholder="" #citydropzone='ngModel' class="DropOff_zone_sec text-line Zone form-control"
+                [(ngModel)]="newfarm.citydropzone" (keyup)="autoComplete(newfarm.citydropzone, 'dropcity')" (change) = "setDefault('dropcity')" pattern="[A-Za-z\s]{0,20}" required>
+                <div *ngFor="let value of autoDropCityValues | slice:0:4" class="searchitems" (click)="selectItem(value, 'dropcity')">
+                  {{value}}
+                </div>
+            </div>
+          </div>
+          <div class="col-md-4 left_sec">
+            <div class="form-group">
+              <label>State
+                <!-- <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':statedropzone.invalid && (statedropzone.touched)? 'red' : 'black' }"></i> -->
+              </label>
+              <select class="farmername form-control" [disabled]="toggle" #statedropzone='ngModel' [(ngModel)]="newfarm.statedropzone"
+                name="statedropzone">
+                <option value="state" [selected]="!newfarm.state">{{'signup.state' | translate}}</option>
+                <option *ngFor="let states of states">
+                  {{states}}
+                </option>
+              </select>
+
+            </div>
+          </div>
+
+
+
+
+
+          <div class="col-md-4 left_sec">
+            <div class="form-group">
+              <label>Zipcode
+                <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':zipcodedropzone.invalid && (zipcodedropzone.touched)? 'red' : 'black' }"></i>
+              </label>
+              <div *ngIf="zipcodedropzone.invalid && (zipcodedropzone.touched) " class="validation-error">
+                <div *ngIf="zipcodedropzone.errors.required">
+                  Required
+                </div>
+              </div>
+              <input type="text" (keypress)="_keyPress($event)" [disabled]="toggle" name="zipcodedropzone" placeholder="" class="DropOff_zone_sec text-line Zone form-control"
+                #zipcodedropzone='ngModel' [(ngModel)]="newfarm.zipcodedropzone" required>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12 form-group">
+          <label>{{'farminformation.farmdesc' | translate}}
+            <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':farminfo.invalid && (farminfo.touched)? 'red' : 'black' }"></i>
+          </label>
+          <div *ngIf="farminfo.invalid && (farminfo.touched) " class="validation-error">
+            <div *ngIf="farminfo.errors.required">
+              Description is required
+            </div>
+          </div>
+          <textarea type="text" name="farminfo" #farminfo='ngModel' [disabled]="toggle" class="text-line form-control" [(ngModel)]="newfarm.farmdesc"
+            required></textarea>
+
+        </div>
+      </div>
+      <div class="mt-2 col-md-12"></div>
+      <div class="mt-2 col-md-12"></div>
+      <div class="mt-2 col-md-12"></div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <h2>
+            <label class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">{{'farminformation.farmhours' | translate}}</label>
+          </h2>
+          <div class="mt-2 col-md-12"></div>
+          <div class="mt-2 col-md-12"></div>
+          <h5>
+            <label>{{'farminformation.mondayhours' | translate}}</label>
+          </h5>
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.monOpening" name="monOpen" required>
+                <option value="" disabled="true" [selected]="!newfarm.monOpening">{{'farminformation.beginninghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.monClosing" name="monClose" required>
+                <option value="" disabled="true" [selected]="!newfarm.monClosing">{{'farminformation.endinghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+
+          </div>
+          <div class="mt-2 col-md-12"></div>
+          <div class="mt-2 col-md-12"></div>
+          <h5>
+            <label>{{'farminformation.tuesdayhours' | translate}}</label>
+          </h5>
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.tuesOpening" name="tuesOpen" required>
+                <option value="" disabled="true" [selected]="!newfarm.tuesOpening">{{'farminformation.beginninghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.tuesClosing" name="tuesClose" required>
+                <option value="" disabled="true" [selected]="!newfarm.tuesClosing">{{'farminformation.endinghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-2 col-md-12"></div>
+          <div class="mt-2 col-md-12"></div>
+          <h5>
+            <label>{{'farminformation.wednesdayhours' | translate}}</label>
+          </h5>
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.wedOpening" name="wedOpen" required>
+                <option value="" disabled="true" [selected]="!newfarm.wedOpening">{{'farminformation.beginninghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.wedClosing" name="wedClose" required>
+                <option value="" disabled="true" [selected]="!newfarm.wedClosing">{{'farminformation.endinghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-2 col-md-12"></div>
+          <div class="mt-2 col-md-12"></div>
+          <h5>
+            <label>{{'farminformation.thursdayhours' | translate}}</label>
+          </h5>
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.thusOpening" name="thusOpen" required>
+                <option value="" disabled="true" [selected]="!newfarm.thusOpening">{{'farminformation.beginninghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.thusClosing" name="thusClose" required>
+                <option value="" disabled="true" [selected]="!newfarm.thusClosing">{{'farminformation.endinghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+
+          </div>
+          <div class="mt-2 col-md-12"></div>
+          <div class="mt-2 col-md-12"></div>
+          <h5>
+            <label>{{'farminformation.fridayhours' | translate}}</label>
+          </h5>
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.friOpening" name="friOpen" required>
+                <option value="" disabled="true" [selected]="!newfarm.friOpening">{{'farminformation.beginninghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.friClosing" name="friClose" required>
+                <option value="" disabled="true" [selected]="!newfarm.friClosing">{{'farminformation.endinghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-2 col-md-12"></div>
+          <div class="mt-2 col-md-12"></div>
+          <h5>
+            <label>{{'farminformation.saturdayhours' | translate}}</label>
+          </h5>
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.satOpening" name="satOpen" required>
+                <option value="" disabled="true" [selected]="!newfarm.satOpening">{{'farminformation.beginninghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.satClosing" name="satClose" required>
+                <option value="" disabled="true" [selected]="!newfarm.satClosing">{{'farminformation.endinghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="mt-2 col-md-12"></div>
+          <div class="mt-2 col-md-12"></div>
+          <h3 class="hours_sec">
+            <label>{{'farminformation.sundayhours' | translate}}</label>
+          </h3>
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.sunOpening" name="sunOpen" required>
+                <option value="" disabled="true" [selected]="!newfarm.sunOpening">{{'farminformation.beginninghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 left_sec">
+              <select class="farmername form-control" [disabled]="toggle" [(ngModel)]="newfarm.sunClosing" name="sunClose" required>
+                <option value="" disabled="true" [selected]="!newfarm.sunClosing">{{'farminformation.endinghrs' | translate}}</option>
+                <option *ngFor="let hours of hours">
+                  {{hours}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-7 left_sec">
+          </div>
+          <div class="col-md-5 left_sec edit_butt_sec">
+            <label></label>
+            <div class="form-group">
+              <button type="reset" class="btn btn-success" (click)="enableEditing()" *ngIf="toggle">{{'farminformation.editbtn' | translate}}</button>
+              <button type="button" class="btn btn-success" *ngIf="!toggle" (click)="cancel()">{{'common.cancel' | translate}}</button>
+              <button type="submit" class="btn btn-success" [disabled]="farmForm.invalid || selectedFiles?.length == 0 || existResponse != ''" *ngIf="!toggle &&farmKey == '0'">{{'farminformation.savebtn' | translate}}</button>
+              <button type="submit" class="btn btn-success" [disabled]="farmForm.invalid || existResponse != ''" *ngIf="!toggle && farmKey != 0">{{'farminformation.savebtn' | translate}}</button>
+
+              <div [ngClass]="responseClass">
+                {{response}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

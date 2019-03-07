@@ -1,0 +1,129 @@
+
+    body {
+        overflow-x: hidden;
+        font-family: roboto;
+    }
+
+      
+.p {
+        text-align: center;
+        padding-top: 130px;
+      }
+.modal-body{
+    font-family: "Roboto";
+}
+
+.form-group h2 {
+    margin: 0 -16px;
+}
+
+.icon1
+{
+    color: #53A318 !IMPORTANT;
+}
+.first-row {
+    margin-top: 40px;
+}
+
+
+.pagination
+{
+    float: right;
+    margin-right: 100px;
+    margin: 0
+}
+.icon {
+    color: #53A318 !IMPORTANT;
+}
+.image-path {
+    height: 2vw;
+    width: 2vw;
+}
+
+.btn-default{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 150px;
+}
+ul.ngx-pagination {
+    font-size: 2vw;
+}
+.mdi::before {
+      font-size:1.3vw;
+}
+/* span {
+    font-size: 2vw;
+} */
+
+.first-row h3 {
+    font-size: 1.5vw;
+    font-family: roboto;
+}
+.col-md-12 {
+    clear: both;
+    
+}
+
+.cancel {
+    margin: 23px 0 0;
+}
+.btn-success {
+    color: #fff;
+    background-color: #FF8203;
+    border-color: #FF8203;
+    font-size: 1vw !important;
+    padding: 0.4vw 1.4vw;
+    font-family: "Roboto";
+}
+.btn-danger {
+
+    background-color: #fff;
+    border-color: #FF8203;
+    color: #FF8203;
+}
+.custyle {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.modal-header h4 {
+    font-size: 2vw;
+}
+label {
+    font-size: 1vw;
+}
+.ngx-pagination {
+    margin: 29px 0 !important;
+}
+
+
+
+
+th, td {
+    width: 16.5%;
+    text-transform: capitalize;
+}
+
+.search_no_results {
+    text-align: center;
+    width: 100%;
+}
+
+
+.image {
+    vertical-align: middle !important;
+    border-style: none !important;
+    height: 45px !important;
+    width: 45px !important;
+    float: left !important;
+}
+.removeItem {
+    margin-top: 10px;
+    color: black;
+    font-size: 16px;
+  
+}

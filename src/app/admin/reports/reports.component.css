@@ -1,0 +1,84 @@
+.first-row {
+    margin-top: 40px;
+}
+
+.Transactions h4 {
+    font-size: 2vw;
+    font-family: roboto;
+    text-align: center;
+}
+.Transactions h3 {
+    font-size: 2vw;
+    font-family: roboto;
+    
+}
+button.button.btn-primary {
+    background: #FF8203;
+    border: none;
+    width: 100%;
+    padding: 6px;
+    border-radius: 3px;
+}
+.left_sec {
+    float: left;
+}
+th {
+    width: 20%;
+}
+
+ td{
+    width: 20%;
+}
+.reportspading {
+    padding: 0;
+}
+.Transactions {
+    float: left;
+    padding: 0;
+}
+.report_total {
+    text-align: right !important;
+    padding-right: 8%;
+}
+.first_row
+{
+    padding-top: 25px;
+}
+.btn-primary:not(:disabled):not(.disabled):active{
+    background-color: #FF8203;
+    border-color: #FF8203;
+}
+
+.export-excel{
+    text-align: right;
+    padding: 0 0 6px 0;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+}
+.export-excel a {
+    color: #ff8203;
+    text-decoration: none;
+    text-align: right;
+}
+.export-excel i {
+    color: #53a318;
+    margin-right: 128px;
+}
+.dashbardbtn {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #fff;
+    width: 100%;
+    position: relative;
+    font-size: 1vw;
+    font-weight: 500;
+    font-family: roboto;
+}
+.excel-text {
+    position: absolute;
+    right: 0;
+    bottom: 7px;
+}

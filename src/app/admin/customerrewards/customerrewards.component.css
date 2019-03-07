@@ -1,0 +1,81 @@
+.first-row{
+    margin-top: 40px;
+}
+
+.mdi::before {
+    font-size: 1.7vw;
+    line-height: 14px;
+}
+
+pagination-controls.pagination {
+    float: right;
+    margin: 0;
+}
+
+
+.ng-pristine {
+    font-size: 1vw;
+}
+select.form-control.ng-pristine.ng-valid.ng-touched {
+    font-size: 1vw !important;
+}
+table.notitable {
+    width: 100%;
+    float: left;
+}
+tr.thHeading {
+    width: 100%;
+    float: left;
+    background-color:#53A318; 
+    padding: 8px 0;
+}
+tr.thHeading th {
+    width:25%;
+    float: left;
+}
+button.dashbardbtn {
+    padding: 0;
+    border: 0;
+    background: none;
+
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    font-size: 1vw;
+    font-weight: 500;
+    font-family: roboto;
+  
+}
+tr.customer_name {
+    width: 100%;
+    float: left;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+tbody.table-hover tr td {
+    width: 25%;
+    float: left;
+    text-align: center;
+    font-size: 1vw;
+    font-family: roboto;
+    padding-left: 0;
+}
+tbody.table-hover tr {
+    width: 100%;
+    float: left;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+.header-btn {
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    background-color: #53A318;
+    color: #fff;
+    font-size: 1vw;
+    font-weight: 500;
+    font-family: "Roboto";
+    width: 100%;
+    text-align: center;
+}

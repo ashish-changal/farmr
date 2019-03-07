@@ -1,0 +1,40 @@
+
+.first {
+    margin: 10px 0 0;
+}
+
+.near {
+    font-weight: bold;
+    font-size: 24px;
+    
+    font-family: "Roboto";  
+}
+.icon{
+    color: #53A318;
+}
+
+span.search_no_results {
+    margin-top: 10px;
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+button.tablebtn {
+    padding: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    width: 100%;
+    text-align: left;
+    font-size: 1vw;
+    font-weight: 500;
+    font-family: roboto;
+    text-align: center;
+}
+
+th, td {
+    width: 33%;
+}
+
+

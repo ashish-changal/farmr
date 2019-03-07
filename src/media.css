@@ -1,0 +1,851 @@
+
+
+@media (min-width: 576px) and (max-width: 900px) {
+    .producesales h4 {
+        margin-bottom: 0;
+    }
+    h4 {
+        font-size: 18px !important;
+        margin: 10px 0 !important;
+    }
+    h4.dolr {
+        margin-top: 52px !important
+    }
+    p.conten {
+        font-size: 12px !important;
+      
+    }
+    .produce-sales-options li {
+  
+        margin: 0 0px !important;
+        
+    }
+    .row.produce-sales-options li {
+        margin: 0px 2px !important;
+        font-size: 9px !important;
+    }
+}
+@media (min-width: 300px) and (max-width: 500px) {
+    .produce-sales-options li {
+      
+        margin: 0 5px !important;
+        font-size: 11px !important;
+        
+    }
+    .fa-sort {
+        font-size: 8px !important;
+    }
+    .card-body {
+        height: 100px !important;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1400px) {
+    .app-header {
+     width: 83% !important;
+    
+    }
+    #content.active .app-header {
+        width: 94% !important;
+    }
+    .header-icons {
+        right: 0px !important;
+        top:82% !important;
+     
+    }
+    .row.produce-sales-options li {
+        margin: 0 5px !important;
+        font-size: 12px !important;
+    } 
+}
+@media (min-width: 769px) and (max-width: 1400px) {
+ .header-icons i.mdi.mdi-menu-down {
+    top: -8px !important;
+ 
+ 
+}
+.header-icons {
+    right: 0px !important;
+    /* top:82% !important; */
+ 
+}
+.header-icons i.mdi.mdi-menu-up {
+ 
+    bottom: -6px !important;
+
+}
+}
+@media (max-width: 768px) {
+    #sidebar {
+        min-width: 160px;
+        max-width: 160px;
+        z-index: 9999;
+        background: #fff;
+        text-align: center;
+    }
+   
+    .mdi-magnify{
+        display: none;
+    }
+.fade .modal-dialog {
+    margin-left: 57px !important;
+    } 
+    .dropdown-toggle::after {
+        top: auto;
+        bottom: 10px;
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+    #content{
+      margin-left: 45px !important;
+    }
+    .dropdown-toggle p {
+      font-size: 12px;
+      line-height: 2.0em;
+  }
+    #sidebar.active {
+        margin-left: 0 !important;
+    }
+    #sidebar .sidebar-header strong {
+        display: block;
+    }
+    #sidebar ul li a span {
+        font-size: 0.85em;
+    }
+    #sidebar ul ul a {
+        padding: 10px !important;
+    }
+    #sidebar {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+    .icon_img {
+      width: 40px;
+  }
+ 
+ 
+tr.product td {
+     font-size: 12px;
+}   
+thead.item th {
+    font-size: 8px; 
+}
+tr.addtr {
+
+    font-size: 0;
+}
+button.dashbardbtn {
+     font-size: 10px !important;
+   
+}
+
+td {
+    font-size: 10px !important;
+    word-break: break-all;
+}
+
+.header-icons {
+    font-size: 8px !important;
+    /* left: 10px !important; */
+}
+/* .header-icons .mdi::before {
+    font-size: 12px;
+} */
+.Dashboard { 
+    width: 86%  !important;
+}
+tr.pentr th {
+  
+    font-size: 10px  !important;
+  
+}
+
+.search_no_results h4 {
+    font-size: 10px !important;
+}
+
+th{
+    font-size: 10px !important;
+}
+h1.near {
+    font-size: 16px !important;
+    margin: 6px 0;
+   
+}
+.Search_butt {
+    width: 72%;
+    
+    padding: 0 !important;
+}
+.notifiy{
+    padding: 0 !important;
+}
+.producesales h4 , h3.Commerce {
+    font-size: 15px !important;
+    margin-bottom: 0;
+}
+.samule_sec h3 {
+    font-size: 12px !important;
+}
+.samule_sec h5 {
+    font-size: 12px !important;
+}
+
+.coupon h3 {
+    font-size: 10px !important;
+   
+}
+
+
+.left_sec label {
+    font-size: 12px !important; 
+    margin: -1px 0 !important;
+}
+span.number_trans_sec {
+    width: 28% !important;
+  
+}
+/* .dropdown select.form-control:not([size]):not([multiple]) {
+    font-size: 12px !important;
+   
+} */
+
+select.form-control {
+ 
+    font-size: 10px !important;
+
+    }
+.form-control
+{
+    font-size: 10px !important;
+}
+
+option {
+    font-size: 10px !important;
+}
+.coupon li {
+    width: 86% !important;
+    margin: 10px 0;
+}
+.btn-success {
+    width: 60px !important;
+    font-size: 12px !important;
+}
+
+.form-group label {
+    font-size: 13px !important;
+}
+.Need_sing_sec p , .Need_sing_sec a , .sing_butt {
+    font-size: 10px !important;
+}
+p.Have_titel
+{
+    margin: 0 0 0px -52px !important;
+    font-size: 13px !important;
+}
+.sing_butt {
+     padding: 2px 10px !important
+    
+}
+.container {
+    padding: 0 20px 0 25px!important;
+}
+.notifiy {
+    text-align: center !important;
+}
+.thHeading .header-btn {
+ 
+    font-size: 10px  !important;
+    
+  }
+  .Rectangle2 {
+    padding: 0 14px 0 25px!important;
+}
+.validation-error {
+    font-size: 12px !important;
+    padding: 3px 9px !important;
+}
+.Rectangle1 {
+    padding: 0 25px 0 25px !important;
+}
+
+input.selection {
+    font-size: 14px !important;
+}
+select.farmername {
+ 
+    font-size: 12px !important;
+ 
+}
+.Select {
+    font-size: 12px !important;
+   
+    width: 100px !important;
+ 
+}
+.dropdown-toggle i.mdi::before {
+    font-size: 15px !important;
+}
+.modal-dialog {
+  
+    margin: 3.5rem !important;
+  
+}
+.removeItem {
+    margin-top: 0px !important;
+  ;
+    font-size: 13px !important;
+}
+button.btn.btn-success {
+    font-size: 10px !important;
+}
+.modal-header h4 {
+    font-size: 12px !important;
+    margin: 3px 0 0 !important;
+}
+.myCart {
+
+    font-size: 12px  !important;
+  
+}
+.Empty_btn {
+  
+    font-size: 12px !important;
+    width: 24vw !important;
+}
+.smith{
+
+       font-size: 12px !important;
+
+   }
+   .wests {
+    font-size: 12px  !important;
+ 
+}
+.card-img-top {
+    width: 40px  !important;
+    height: 40px !important;
+}
+.fade .modal-dialog {
+    margin: 0.5rem !important;
+}
+.prodt {
+    font-size: 12px !important;
+ 
+}
+.Instruction {
+
+    font-size: 12px !important;
+}
+.leftbtnsec button.btn.btn-primary.btn-block.addmore {
+    font-size: 12px !important;
+}
+.rightbtnsec button.btn.btn-primary.btn-block.CheckoutButton {
+    font-size: 12px;
+}
+p.editno {
+    margin: 5px 0 !important;
+    font-size: 12px !important;
+}
+.header-btn {
+  
+    font-size: 10px !important;
+   
+}
+
+
+
+
+
+/* farmer css (Ashish) */
+
+.pageTitle , .header-btn {
+    font-size: 10px !important;
+    
+}
+
+.Recent {
+    font-size: 10px !important;  
+}
+span.search_no_results h4 {
+    font-size: 10px !important;
+    margin-top: 0px;
+   
+}  
+
+.edt_img img{
+
+    width: 30px !important;
+}
+.main_sec {
+    margin-top: 85px !important;
+}
+
+.titel h3 ,.titleProduce  {
+  
+    font-size: 10px !important;
+  
+}
+span.Transaction_Number_sec {
+    width: 25%;
+    float: left;
+}
+.colam {
+    width: 5%;
+    float: left;
+}
+.titleProduce  {
+  
+    font-size: 10px !important;
+    margin-top: 10px !important;
+  
+}
+.farm-title h1
+{
+    font-size: 10px !important;
+}
+
+.farm-title h1 {
+    margin: 0px 0 18px 0;
+    float: left;
+    width: 100%;
+}
+.table th {
+
+    /* padding: 8px 0px !important; */
+    font-size: 8px !important;
+   
+}
+.form-group input {
+    font-size: 15px !important;
+  
+}
+.validation-error {
+    font-size: 12px !important;
+  
+  
+}
+.Select {
+    font-size: 10px !important;
+    padding: 6px 0px !important;
+}
+
+.button.btn.btn-lg.btn-success {
+    font-size: 10px !important;
+    padding: 0px 0px 0!important;
+
+}
+button.btn.btn-lg.btn-success.btnSuccess {
+    font-size: 10px !important;
+
+    width: auto !important;
+}
+h3.second_rowP {
+
+    font-size: 15px !important;
+  
+}
+
+.iconwell{
+    text-align: right !important;
+    margin-top: 0 !important;
+}
+i.mdi.mdi-menu.collaspe::before {
+    font-size: 26px !important;
+}
+#sidebar.active ul li a {
+    padding: 0 6px !important;
+}
+
+h5.Sprouts {
+    font-size: 12px !important;
+}
+.left_sec2 {
+    margin-left: 12px !important;
+}
+h5.Sprouts {
+    font-size: 12px !important;
+
+}
+.address_sec h4 {
+    margin: 20px 0 10px;
+    font-size: 20px !important;
+}
+.pickupcrat {
+    padding: 0 !important;
+}
+.left_sec2 h6 {
+    font-size: 12px;
+    margin: 0 10px;
+}
+/* .pick_up {
+    margin: 0 17px;
+} */
+/* .mdi-car-pickup {
+    margin: 0 -12px;
+} */
+.contact {
+    
+    margin: 0 0px !important;
+}
+.sing_but {
+    width: 80px !important;
+}
+.cart_butt {
+ 
+    font-size: 10px !important;
+  
+}
+h4 {
+    font-size: 12px !important;
+margin: 10px 0 !important;
+}
+p.conten {
+    font-size: 12px !important;
+  
+}
+.green::before {
+    font-size: 12px !important;
+    margin: 8px 0 0 !important;
+}
+p.editno {
+    margin: 4px 0 !important;
+    font-size: 12px !important;
+}
+.mdi-plus::before {
+    font-size: 12px !important;
+}
+.mdi-minus::before {
+    font-size: 12px !important;
+}
+.center_sec {
+    margin: 10px 0 0 !important;
+}
+.productname {
+    margin: 10px 0 0 !important;
+}
+.produce-add{
+    font-size: 12px !important;
+   
+}
+p.card-text {
+    font-size: 12px !important;
+    margin: 3px 0 20px !important;
+}
+span.display-day {
+
+    font-size: 12px !important;
+}
+.hours p {
+ 
+    font-size: 12px !important;
+    
+}
+#content.active .app-header {
+    width: 88% !important;
+}
+.header-icons i.mdi.mdi-menu-down {
+    top: -7px !important;
+}
+.header-icons i.mdi.mdi-menu-up {
+ 
+    bottom: -2px !important;
+
+}
+
+.header
+{
+    left: 60px !important;
+}
+
+.searchValue
+{
+    font-size: 6px !important;
+}
+.mdi-pencil.icon1::before {
+    font-size: 10px !important;
+}
+ .mdi-delete.icon1::before {
+        font-size: 10px !important;
+  }
+ tr:last-child td {
+            padding-right: 5.5% !important;
+         
+ }
+
+    
+        .app-header {
+                      left: 68px !important;
+        }
+        .mdi-timer::before {
+            font-size: 14px !important;
+        }
+        .mdi.mdi-cart-outline::before {
+            font-size: 14px !important;
+        }
+        .mdi-phone-classic::before {
+            font-size: 14px !important;
+        }
+        .mdi-map-marker::before {
+            font-size: 14px !important;
+        }
+        .mdi-car-pickup::before {
+            font-size: 14px !important;
+        }
+        .mdi.mdi-credit-card::before {
+            font-size: 14px !important;
+        }
+        .card-number {
+            width: 86% !important;
+            font-size: 12px  !important;
+        }
+        .radiobtnpage {
+            width: 10% !important;
+        }
+        .left_sec2 {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .left_sec {
+            float: left;
+            width: 100%;
+            margin: 0 0 28px;
+        }
+}
+@media (min-width: 1401px) {
+    .header-icons i.mdi.mdi-menu-down {
+        top:-11px !important;
+    }
+    .header-icons i.mdi.mdi-menu-up {
+        bottom: -7px !important;
+    }
+    /* .header-icons .mdi::before {
+        font-size: 13px;
+    } */
+}
+
+@media (min-width: 400px) and (max-width: 600px)
+{
+    .outofstock {
+        font-size: 16px;
+    }
+    .farms-card{
+        min-height: 183px;
+    }
+   .fa-sort {
+        font-size: 8px !important;
+    }
+    .first {
+        margin: 10px 0 0 !important;
+        float: left;
+    }
+   
+}
+
+@media (max-width: 575px) {
+    .Transactions.left_sec {
+        text-align: center;
+    }
+    pagination-controls.pagination {
+        float: left !important;
+        margin: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    pagination-template {
+        min-height: 35px !important;
+        width: 100% !important;
+    }
+    .ngx-pagination {
+      
+        padding: 0 !important;
+    }
+    .mdi-cart::before {
+        font-size: 14px !important;
+    }
+ 
+    .cart_sec p {
+        font-size: 16px !important;
+    }
+
+}
+
+
+@media (min-width: 600px) and (max-width: 800px)
+{
+    .outofstock {
+        font-size: 16px;
+    }
+    .farms-card{
+        min-height: 183px;
+    }
+ .fa-sort {
+        font-size: 9px !important;
+    }
+    .first {
+        margin: 10px 0 0 !important;
+        float: left;
+    }
+}
+@media (min-width: 800px) and (max-width: 1000px)
+{
+    .outofstock {
+        font-size: 16px;
+    }
+    .farms-card{
+        min-height: 183px;
+    }
+   .fa-sort {
+        font-size: 9px !important;
+    }
+    .header-btn
+    {
+        font-size: 11px !important;
+    }
+    .first {
+        margin: 10px 0 0 !important;
+        float: left;
+    }
+}
+@media (min-width: 1000px) and (max-width: 1200px)
+{
+    .outofstock {
+        font-size: 16px;
+    }
+    .farms-card{
+        min-height: 193px;
+    }
+   .fa-sort {
+        font-size: 9px !important;
+    }
+    .first {
+        margin: 10px 0 0 !important;
+        float: left;
+    }
+    button.dashbardbtn{
+        font-size: 12px !important;
+     
+    }
+}
+@media (min-width: 1200px) and (max-width: 1400px)
+{
+    .farms-card{
+        min-height: 218px;
+    }
+    .first {
+        margin: 10px 0 0 !important;
+        float: left;
+    }
+}
+@media (min-width: 1400px) and (max-width: 1600px)
+{
+    .farms-card{
+        min-height: 245px;
+    }
+  .fa-sort {
+        font-size: 12px !important;
+    }
+    .first {
+        margin: 10px 0 0 !important;
+        float: left;
+    }
+}
+@media (min-width: 1600px) and (max-width: 1800px)
+{
+    .farms-card{
+        min-height: 270px;
+    }
+    .sort-by-asc {
+   
+        border: solid 5px transparent !important;
+        border-bottom: solid 9px #fff !important;
+     
+    }
+ 
+    .sort-by-desc {
+      
+       
+        border-top: solid 9px #fff !important;
+        
+    }
+
+}
+@media (min-width: 1800px) and (max-width: 2000px)
+{
+    .farms-card{
+        min-height: 285px;
+    }
+  
+    .sort-by-desc {
+       
+       
+        border-top: solid 10px #fff !important;
+     
+    }
+    .sort-by-asc {
+        border-bottom: solid 10px #fff !important;
+    }
+}
+@media (min-width: 2000px) and (max-width: 2700px)
+{
+    .fa-sort {
+        font-size: 18px !important;
+    }
+    .main_sec {
+        margin-top: 160px  !important;
+        padding: 0;
+    }
+    .sort-by-asc {
+    
+        border: solid 7px transparent !important;
+        border-bottom: solid 13px #fff !important;
+       
+    }
+    .sort-by-desc {
+   
+        border-top: solid 13px #fff !important;
+
+    }
+}
+@media (min-width: 776px) and (max-width: 1000px)
+{
+    button.dashbardbtn{
+  
+        border: solid 5px transparent !important;
+        font-size: 12px !important;
+     
+    }
+    .app-header {
+        
+        width: 84% !important ;
+        
+      }
+    }
+    @media (min-width: 769px) and (max-width: 900px)
+{
+    .header-btn {
+        font-size: 10px !important;
+      
+    }
+   
+}
+@media (min-width:1500px) and (max-width: 2700px)
+{
+.first{
+    margin: 60px 0 0 !important;
+    float: left !important;
+}
+}
+@media (min-width:1500px) and (max-width: 3200px)
+{
+
+.first_row {
+    margin: 60px 0 0 !important;
+    float: left !important;
+    width: 100%;
+}
+}

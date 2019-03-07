@@ -1,0 +1,179 @@
+.weal li {
+    list-style: none;
+    width: 30%;
+    float: left;
+}
+
+.Summary {
+    padding: 0;
+    margin: 10% 0 0;
+}
+.Summary_sec {
+    margin: 12px 0;
+    padding: 0;
+    font-family: "Roboto";
+}
+img.grey_img {
+    width: 20px;
+    margin: 0 2px 0 0;
+}
+.coupon ul {
+    padding: 0 19px;
+}
+.coupon li {
+    width: 93.3%;
+    text-align: right;
+}
+.coupon li:nth-child(2) {
+    /* border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd; */
+    padding: 9px 0;
+    margin: 13px 0;
+}
+.coupon h3 {
+    
+    text-transform: capitalize;
+    font-size: 1vw ;
+  
+    font-family: "Roboto";
+    margin-right: 10px !important;
+}
+.dropdown {
+    float: right;
+}
+.samule_sec ul {
+    padding: 0 8px 7px;
+    box-shadow: 1px 2px 5px 1px #ddd;
+    margin: 18px 0;
+    font-family: "Roboto";
+    font-weight: 500;
+}
+li{
+    list-style: none;
+}
+.samule_sec h3 {
+    text-transform: capitalize;
+    font-weight: bold !important;
+    margin: 5px 0;
+    font-family: "Roboto";
+    font-size: 1.2vw;
+
+}
+.samule_sec li {
+    margin: 13px 0;
+}
+.samule_sec h5 {
+    font-weight: normal;
+    padding: 5px 0;
+    font-size: 1vw;
+    font-family: "Roboto";
+
+
+}
+.titel {
+    margin: 18px 0;
+    padding: 0;
+    
+}
+.titel h3 {
+    font-weight: bold;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-family: "Roboto";
+    font-size: 1vw;
+    width: 100%;
+float: left;
+margin: 0;
+}
+.produce-table{
+    font-family: "Roboto";
+    width: 100%;
+    float: left;
+}
+.colo
+{
+    color: #53A318;
+}
+.product
+{
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+
+}
+
+.near
+{
+    font-weight: 500;
+    font-family: "Roboto";
+    font-size: 24px;
+    color: black;
+}
+
+.samule_sec li {
+    margin: 0 0;
+    padding: 11px 20px 0 12px;
+}
+.refund li {
+    border: none !important;
+}
+.refund {
+    /* border: 1px solid #ddd; */
+    text-align: center;
+    padding: 13px 0;
+    margin: 40px 0;
+}
+.samule_sec {
+    float: left;
+}
+.Summary_sec {
+    float: left;
+}
+.titel {
+    float: left;
+}
+
+.titel select {
+    
+    border: navajowhite;
+    font-size: 1.2vw;
+    border: 1px solid #ddd;
+    font-family: roboto;
+}
+
+.table {
+    width: 99%;
+}
+
+select.form-control {
+    font-size: 14px !important;
+    font-family: roboto;
+    border-color: #FF8203;
+}
+ td {
+    width: 25%;
+}
+select.form-control:disabled {
+    background-color: #ddd !important;
+    color: #000000 !important; 
+}
+.btn-success.disabled, .btn-success:disabled {
+    color: #fff;
+    background-color: #FF8203;
+    border-color: #FF8203;
+    width: 8vw;
+}
+
+th {
+    width: 25%;
+}
+.coupon.coupon-show {
+    width: 100%;
+    float: left;
+    margin: 10px 0 0 ;
+}
+tr:last-child td {
+    padding-right: 9.5%;
+    text-align: right;
+}

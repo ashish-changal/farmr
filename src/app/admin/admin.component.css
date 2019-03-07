@@ -1,0 +1,103 @@
+.main_sec{
+    padding: 0;
+    margin: 70px 0 0;
+
+}
+.side-nav-bar {
+    box-shadow: 0px 0px 8px 1px #0000002b;
+    background: #fff;
+    padding-right: 0 !important;
+    height: 100%;
+   
+}
+.top_sec {
+    border-bottom: 1px solid #ddd;
+    
+}
+
+.Dashboard {
+    border-bottom: 1px solid #dddddd29;
+ padding: 14px 0px 5px !important; 
+    position: fixed;
+    padding: 0px 0 0;
+    width: 94%;
+   float: left; 
+    z-index: 999;
+    background-color: #fff;
+    top: 0;
+    margin: 0;
+    
+}
+.weal {
+  
+    padding: 0;
+
+}
+i.mdi.mdi-bell.colo {
+    color: #53A318;
+}
+.Search_icon_sec {
+    position: absolute;
+    top: 0px;
+    right: 16px;
+    color: #53A318
+}
+.btn-success {
+    color: #fff;
+    background-color: #FF8203;
+    border-color: #FF8203;
+    font-size: 1vw;
+    padding: 0.4vw 1.4vw;
+    font-family: "Roboto";
+ 
+}
+.pagination {
+    float: right;
+    margin-right: 100px;
+    font-size: 2vw ;
+    font-family: roboto;
+}
+.first-row h3 {
+    font-size: 1.5vw;
+    font-family: roboto;
+}
+.search_bar_sec .mdi::before {
+    font-size: 1.4vw !important;
+}
+.Search_butt input {
+
+    box-shadow: none;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.1vw;
+    font-weight: bold;
+    width: 100%;
+    font-family: "Roboto";
+    border-radius: 26px;
+}
+.Search_butt {
+    position: relative;
+}
+.search_bar_sec {
+    position: relative;
+}
+.search_bar_sec i.mdi.mdi-magnify.magn {
+    position: absolute;
+    right: 8px;
+    top: -27px;
+    color: #53A318;
+}
+.mdi[_ngcontent-c2]::before {
+    font-size: 20px;
+}
+
+
+.logout {
+    color: #FF8203 !important;
+}
+
+@media (max-width: 768px) {
+.produce-sales-options {
+    font-size: 12px;
+
+}
+}

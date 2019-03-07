@@ -1,0 +1,106 @@
+.Need_sing_sec {
+    text-align: center;
+    float: left;
+    width: 100%;
+    margin: 40px 0;
+}
+.sing_butt {
+    background: #FF8203;
+    padding: .6VW 4VW;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 28px;
+    font-family: roboto;
+    font-size: 1VW;
+    font-weight: 400;
+    margin-top: -7px;
+    border: none;
+}
+.form-group {
+    margin-bottom: 6px;
+}
+.Need_sing_sec p {
+    color: #53A318;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: roboto;
+    margin: 10px 0px;
+}
+.marketplace_logo_sec img {
+    margin: 22px auto;
+    width: 150px;
+}
+h3.Commerce {
+    margin: 23px 0;
+    font-family: roboto;
+    color: #000;
+    font-size: 2vw;
+}
+.form-group label {
+    font-size: 1vw;
+    color: #000;
+    font-family: roboto;
+    font-weight: 400;
+    text-shadow: 0px 0px;
+    float: left;
+    margin-right: 17px;
+    position: relative;
+}
+.form-group input {
+    padding: 0 9px;
+    height: 35px;
+    /* margin: 22px 0; */
+}
+/* img.Rectangle {
+    width: 100%;
+    height: 637px;
+} */
+.Already_sec {
+    text-align: center;
+}
+.Already_sing_btn {
+    font-size: 1.2vw;
+    color: #53A318;
+    border-color: #53A318;
+    border-radius: 26px;
+    padding: .7vw 4vw;
+    border: 2px solid;
+    font-weight: 600;
+    font-family: roboto;
+    margin: -7px 0
+}
+.Account_sec {
+    margin-top: 20px;
+}
+p.Have_titel {
+    color: #4F4F4F;
+    font-size: 1.2vw;
+    font-family: roboto;
+    font-weight: 600;
+    float: left;
+    margin: 0 0 0px 70px;
+}
+.Rectangle{
+    width: 100%;
+    
+    float: left
+}
+.Rectangle1 {
+    padding: 0 30px 0 3px;
+}
+img.Rectangle {
+    height: 847px;
+    width: 100%;
+}
+.Rectangle2 {
+    padding: 0 25px 0 0;
+}
+.astestar {
+    position: absolute;
+    right: -11px;
+    top: -6px;
+}
+.space {
+    margin-top: 8px;
+    margin-bottom: 25px;
+}

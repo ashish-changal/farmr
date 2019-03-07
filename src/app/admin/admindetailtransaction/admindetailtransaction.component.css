@@ -1,0 +1,204 @@
+.weal li {
+    list-style: none;
+    width: 30%;
+    float: left;
+}
+.Dashboard {
+    border-bottom: 1px solid #ddd;
+    font-family: "Roboto";
+}
+
+button#dropdownMenuButton {
+    background: none;
+    border: 1px solid #FF8203;
+    color: #FF8203;
+}
+.Summary {
+    padding: 0;
+    margin-top: 40px;
+}
+.cardNumberwidth {
+    width: 25% !important;
+    float: left;
+}
+.carddetail-sec {
+    padding: 16px 0;
+    float: left;
+    width: 100%;
+}
+.check_refund
+{
+    width: 56% !important;
+}
+.Summary_sec {
+    margin: 12px 0;
+    padding: 0;
+    font-family: "Roboto";
+}
+img.grey_img {
+    width: 20px;
+    margin: 0 2px 0 0;
+}
+ .coupon ul {
+    padding: 0;
+} 
+.coupon li {
+    width: 85%;
+    text-align: right;
+    margin: 10px 0;
+}
+/* .coupon li:nth-child(2) {
+
+    padding: 9px 0;
+ 
+} */
+
+.coupon h3 {
+   
+    text-transform: capitalize;
+    font-size: 1vw;
+    color: black;
+    font-family: "Roboto";
+    float: left;
+    width: 100%;
+    font-weight: normal;
+}
+.dropdown {
+    float: right;
+}
+.samule_sec ul {
+    padding: 0 8px 7px;
+    box-shadow: 1px 2px 5px 1px #ddd;
+    margin: 18px 0;
+    font-family: "Roboto";
+    font-weight: 500;
+}
+li{
+    list-style: none;
+}
+.samule_sec h3 {
+    text-transform: capitalize;
+    font-weight: bold !important;
+    margin: 5px 0;
+    font-family: "Roboto";
+    font-weight: normal;
+    font-size: 1.2vw;
+
+}
+.samule_sec li {
+    margin: 13px 0;
+}
+.samule_sec h5 {
+    text-transform: capitalize;
+    margin: 5px 0;
+    font-family: "Roboto";
+    font-weight: normal;
+    font-size: 1vw;
+
+}
+.titel {
+    margin:0 0 20px 0;
+    padding: 0;
+    
+}
+.titel h3 {
+    font-weight: normal !important;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-family: "Roboto";
+    font-size: 1vw;
+    width: 100%;
+float: left;
+margin: 0;
+}
+
+
+
+.near
+{
+    font-weight: 500;
+    font-family: "Roboto";
+    font-size: 24px;
+    color: black;
+}
+
+.samule_sec li {
+    margin: 0 0;
+    padding: 11px 20px 0 12px;
+}
+.left_sec {
+    float: left;
+}
+select.form-control.ng-untouched.ng-pristine.ng-valid {
+    
+    border: 1px solid;
+    font-size: 1vw;
+}
+.btn-success {
+    width: 8vw;
+}
+
+h4.Expiry {
+    font-size: 1.7vw;
+    font-family: roboto;
+}
+
+li.carddetail-sec {
+    text-align: left !important;
+}
+.coupon.refund {
+    float: left;
+    width: 100%;
+
+}
+h3.refund {
+    text-align: right;
+    margin: 0 20px;
+}
+
+
+.samule_sec {
+    margin: 0 0 32px;
+}
+span.number_trans_sec {
+    width: 20%;
+    float: left;
+}
+ th {
+    width: 25%;
+}
+td {
+    width: 25%;
+}
+.refund-title{
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+
+.coupon {
+    float: left;
+    width: 100%;
+    margin: 20px 0;
+}
+.refund h3 {
+    text-align: left !important;
+    float: left;
+    margin: 0 ;
+}
+.btn-success:disabled {
+    color: #fff !important;
+    background-color: #FF8203 !important;
+    border-color: #FF8203 !important;
+}
+.astestar {
+    position: absolute;
+    right: -11px;
+    top: -6px;
+}
+@media (max-width: 768px) {
+
+    .titel h3 {
+            font-size: 10px;
+      
+    }
+}

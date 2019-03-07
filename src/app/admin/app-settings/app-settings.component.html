@@ -1,0 +1,92 @@
+<div class="row first-row">
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 left_sec">
+  </div>
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 left_sec">
+    <form role="form" #settingForm="ngForm">
+      <div class="row" *ngIf="!isAuthenticate">
+
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group">
+            <h4>{{'signup.password' | translate}}
+              <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':password.invalid && (password.touched)? 'red' : 'black' }"></i>
+            </h4>
+            <div *ngIf="password.invalid && ( password.touched)" class="validation-error">
+              <div *ngIf="password.errors.required">
+                Required
+              </div>
+            </div>
+            <input type="password" class="form-control" #password='ngModel' name="password"
+              [(ngModel)]="settingPassword" required>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="!isAuthenticate">
+
+        <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+          <div class="form-group sign_butt_container">
+            <button class="sing_butt btn btn-primary" [disabled]="settingForm.invalid" (click)="authenticate()">{{'settings.authbtn'
+              | translate}}</button>
+          </div>
+          <div [ngClass]="responseClass">
+            {{response}}
+          </div>
+        </div>
+
+      </div>
+      <div *ngIf="isAuthenticate">
+        <div class="row">
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'app-settings.serverURL' | translate}}
+              </h4>
+              <div *ngIf="serverurl.invalid && (serverurl.touched)" class="validation-error">
+                <div *ngIf="serverurl.errors.required">
+                  This is required
+                </div>
+              </div>
+              <input type="url" class="form-control" #serverurl='ngModel' name="serverurl" [(ngModel)]="appSettings.serverurl"
+                required>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+              <h4>{{'app-settings.farmmiles' | translate}}
+              </h4>
+              <div *ngIf="farmmiles.invalid && (farmmiles.touched)" class="validation-error">
+                <div *ngIf="farmmiles.errors.required">
+                  This is required
+                </div>
+              </div>
+              <input type="url" class="form-control" #farmmiles='ngModel' name="farmmiles" [(ngModel)]="appSettings.farmmiles"
+                required>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 cancel_btn">
+            <div class="form-group">
+              <button class="sing_butt btn btn-primary" (click)="cancel(settingForm)">{{'common.cancel' | translate}}</button>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 update_btn">
+            <div class="form-group">
+              <button class="sing_butt btn btn-primary" (click)="updateAppSettings()" [disabled]="settingForm.invalid">{{'settings.updatebtn'
+                | translate}}</button>
+            </div>
+          </div>
+          <div [ngClass]="responseClass">
+            {{response}}
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 left_sec">
+  </div>
+</div>

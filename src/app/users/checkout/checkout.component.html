@@ -1,0 +1,431 @@
+<div class="row Delivery_sec">
+
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 col-12 address_sec">
+        <ul>
+            <li class="address2 Delivery no-line">
+                <table class="left_sec checkoutpadding">
+                    <tr>
+                        <td class="td_width">
+                            <i class="mdi mdi-car-pickup"></i>
+                        </td>
+                        <td>
+                            <div class="radio" *ngIf="cartItems.pickup == 'farm' || cartItems.pickup == 'both'">
+                                <div class="radiobtnpage">
+                                    <label class="rad">
+                                        <input [checked]="cartItems.pickupOption == 'farm'" class="radiobtnmraging"
+                                            value="true" name="cardoption" (click)="checkPickup('farm')" type="radio" />
+                                        <i></i>
+                                    </label>
+                                </div>
+                                <div class="card-number">{{'checkout.delivery' | translate}}</div>
+                            </div>
+                            <div class="radio" *ngIf="cartItems.pickup == 'farmrmarket' || cartItems.pickup == 'both'">
+                                <div class="radiobtnpage">
+                                    <label class="rad">
+                                        <input class="radiobtnmraging" value="false" [checked]="cartItems.pickupOption == 'farmrmarket'"
+                                            type="radio" name="cardoption" (click)="checkPickup('farmrmarket')" />
+                                        <i></i>
+                                    </label>
+                                </div>
+                                <div class="card-number">{{'checkout.market' | translate}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </li>
+            <li class="address2 Delivery no-line">
+                <h4>{{'checkout.pickupadd' | translate}}</h4>
+                <table class="left_sec checkoutpadding">
+                    <tr>
+                        <td class="td_width">
+                            <i class="mdi mdi-map-marker address12"></i>
+                        </td>
+                        <td>
+                            <h5 class="Sprouts" *ngIf="cartItems.pickupOption == 'farmrmarket'">
+                                {{cartItems.marketname}}
+                                <br> {{cartItems.dropzone_address1}}
+                                <br>{{cartItems.dropzone_address2}}
+                            </h5>
+                            <h5 class="Sprouts" *ngIf="cartItems.pickupOption == 'farm'">
+                                {{cartItems.farmAddress1}}
+                                <br> {{cartItems.farmAddress2}}
+                            </h5>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+
+            <li class="address2 Delivery no-line">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 left_sec2">
+                    <span class="iconchick">
+                        <i class="mdi mdi-timer"></i>
+                    </span>
+                    <h6>{{cartItems.deliverytime}} {{'checkout.fulfillment' | translate}}</h6>
+                </div>
+            </li>
+
+
+            <li class=" address2 Delivery no-line">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 left_sec2">
+                    <span class="iconchick">
+                        <i class="mdi mdi-phone-classic"></i>
+                    </span>
+                    <h6>{{cartItems.phonenumber}}</h6>
+                </div>
+            </li>
+
+            <li class=" address2 Delivery checkoutpadding ">
+                <h4 class="Paymen">{{'checkout.paymentcards' | translate}}</h4>
+                <table>
+                    <tr>
+                        <td class="td_width">
+                            <i class="pay_color mdi mdi-credit-card contact"></i>
+                        </td>
+                        <td>
+                            <div class="item-produce">
+
+                                <div class="radio" *ngFor="let card of cards">
+                                    <div class="radiobtnpage">
+                                        <label class="rad">
+
+                                            <input type="radio" (click)="setDefaultCard(card.key)" name="cardoption2"
+                                                [(ngModel)]="cartItems.defaultCard" [value]="card.key">
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                    <div class="card-number" (click)="changeDefaultCard(card.key)" style="cursor: pointer;">{{card.number}}</div>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr *ngIf="toggle">
+                        <td></td>
+                        <td>
+                            <div>
+                                <div class="card cardDetails">
+                                    <form role="form" #cardDetailAdd='ngForm' autocomplete="off" (ngSubmit)="addCardDetail()">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 col-12">
+                                                <h3 class="details">{{'userprofile.updatecarddetails' | translate}}</h3>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>{{'addpaymentcard.inputcardnumber' | translate}}
+                                                        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':number.invalid && (number.touched)? 'red' : 'black' }"></i>
+                                                    </label>
+                                                    <div *ngIf="number.invalid && ( number.touched) " class="validation-error">
+                                                        <div *ngIf="number.errors.required">
+                                                            Required
+                                                        </div>
+                                                        <div *ngIf=" number.errors.maxlength || number.errors.minlength">
+                                                            16 digit Numeric value
+                                                        </div>
+                                                    </div>
+                                                    <input type="tel" mask="****-****-****-****" maxlength="19"
+                                                        minlength="19" class="form-control" (keypress)="_keyPress($event)"
+                                                        [(ngModel)]="card.number" name="number" #number='ngModel'
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>{{'addpaymentcard.inputname' | translate}}
+                                                        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':name.invalid && (name.touched)? 'red' : 'black' }"></i>
+                                                    </label>
+                                                    <div *ngIf="name.invalid && ( name.touched) " class="validation-error">
+                                                        <div *ngIf="name.errors.required">
+                                                            Required
+                                                        </div>
+                                                        <div *ngIf="name.errors.pattern">
+                                                            Special characters not allowed
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" class="form-control" [(ngModel)]="card.name"
+                                                        name="name" #name='ngModel' pattern="[A-Za-z ]{0,20}" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-4">
+                                                <div class="form-group">
+                                                    <label>{{'addpaymentcard.expMonth' | translate}}</label>
+                                                    <month-picker [month]="card.expMonth" (change)="selectMonth($event.target.value)"
+                                                        required></month-picker>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-4">
+                                                <div class="form-group">
+                                                    <label>{{'addpaymentcard.expYear' | translate}}</label>
+                                                    <year-picker [year]="card.expYear" (change)="selectYear($event.target.value)"
+                                                        required></year-picker>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-4">
+                                                <div class="form-group">
+                                                    <label>{{'addpaymentcard.inputcvc' | translate}}
+                                                        <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':cvc.invalid && (cvc.touched)? 'red' : 'black' }"></i>
+                                                    </label>
+                                                    <div *ngIf="cvc.invalid && (cvc.touched)" class="validation-error">
+                                                        <div *ngIf="cvc.errors.required">
+                                                            This is required
+                                                        </div>
+                                                        <div *ngIf="cvc.errors.minlength || cvc.errors.maxlength">
+                                                            Maximum 3 digits are allowed
+                                                        </div>
+                                                    </div>
+
+                                                    <input type="text" class="form-control" (keypress)="_keyPress($event)"
+                                                        [(ngModel)]="card.cvc" name="cvc" required minlength="3"
+                                                        maxlength="3" #cvc='ngModel' pattern="[0-9]{0,5}" required>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>{{'addpaymentcard.inputnickname' | translate}}</label>
+                                                    <input type="text" class="form-control" [(ngModel)]="card.nickName"
+                                                        name="nickName">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space">
+                                            <div class="row">
+                                                <div class="col-md-12 left_sec">
+                                                    <h2>
+                                                        <label class="dropzonelabel">Billing Address</label>
+                                                    </h2>
+                                                </div>
+                                                <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                                                    <div class="form-group">
+
+                                                        <label>{{'signup.streetaddress1' | translate}}
+                                                            <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':address_line1.invalid && (address_line1.touched)? 'red' : 'black' }"></i>
+                                                        </label>
+                                                        <div *ngIf="address_line1.invalid && ( address_line1.touched) "
+                                                            class="validation-error">
+                                                            <div *ngIf="address_line1.errors.required">
+                                                                Required
+                                                            </div>
+                                                            <div *ngIf="address_line1.errors.pattern">
+                                                                Invalid Street Address
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" class="form-control" [(ngModel)]="card.address_line1"
+                                                        name="address_line1" #address_line1='ngModel' pattern="^(?=.*[A-Za-z\s])(?=.*\d)[A-Za-z\d\s]{4,}$"
+                                                        maxlength="100" required>
+                                                </div>
+                                                <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label>{{'signup.streetaddress2' | translate}} </label>
+                                                        <input type="text" class="form-control" [(ngModel)]="card.address_line2"
+                                                            name="address_line2" #address_line2='ngModel' pattern="([a-zA-Z0-9]| |/|\\|@|#|\|(|)|,|-|&)+"
+                                                            maxlength="100">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                                                    <div class="form-group">
+                                                        <label>{{'addpaymentcard.inputcity' | translate}}
+                                                            <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':address_city.invalid && (address_city.touched)? 'red' : 'black' }"></i>
+                                                        </label>
+                                                        <div *ngIf="address_city.invalid && (address_city.touched) "
+                                                            class="validation-error">
+                                                            <div *ngIf="address_city.errors.required">
+                                                                Required
+                                                            </div>
+                                                            <div *ngIf="address_city.errors.pattern">
+                                                                Special characters not allowed
+                                                            </div>
+                                                        </div>
+                                                        <div *ngIf = "invalidCardCity"  class="validation-error">
+                                                            Enter a valid city name
+                                                          </div>
+                                                        <input type="text" class="form-control" [(ngModel)]="card.address_city" name="address_city" #address_city='ngModel' pattern="[A-Za-z]{0,15}" 
+                                                        (change) = "setDefault()" (keyup)="autoComplete(card.address_city)"
+                                                            required>
+                                                        <div *ngFor="let value of autoCardCityValues | slice:0:4" class="searchitems"
+                                                            (click)="selectItem(value)">
+                                                            {{value}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                                                    <div class="form-group">
+                                                        <label>{{'addpaymentcard.inputstate' | translate}}
+                                                            <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':address_state.invalid && (address_state.touched)? 'red' : 'black' }"></i>
+                                                        </label>
+                                                        <select class="farmername form-control" [disabled]="disable == true"
+                                                            name="address_state" #address_state='ngModel' [(ngModel)]="card.address_state"
+                                                            required>
+                                                            <option value="" disabled="true" [selected]="!card.address_state">{{'signup.state'
+                                                                | translate}}</option>
+                                                            <option *ngFor="let states of states">
+                                                                {{states}}
+                                                            </option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 col-12">
+                                                    <div class="form-group">
+                                                        <label>{{'addpaymentcard.inputzip' | translate}}
+                                                            <i class="mdi mdi-asterisk astestar" [ngStyle]="{'color':postal_code.invalid && (postal_code.touched)? 'red' : 'black' }"></i>
+                                                        </label>
+                                                        <div *ngIf="postal_code.invalid && (postal_code.touched) "
+                                                            class="validation-error">
+                                                            <div *ngIf="postal_code.errors.required">
+                                                                Required
+                                                            </div>
+                                                            <div *ngIf="postal_code.errors.minlength || postal_code.errors.maxlength">
+                                                                Five digit Numeric value
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" class="form-control" (keypress)="_keyPress($event)"
+                                                            [(ngModel)]="card.postal_code" name="postal_code"
+                                                            #postal_code='ngModel' maxlength="5" minlength="5" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 save">
+                                            </div>
+                                            <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6 col-12 save">
+                                                <button class="btn btn-info sing_butt" *ngIf="toggle" (click)="toggle = !toggle">{{'common.cancel'
+                                                    | translate}}</button>
+                                                <button type="submit" [disabled]="cardDetailAdd.invalid" class="btn btn-primary sing_butt">{{'common.save'
+                                                    | translate}}</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div>
+                                <button class="btn btn-success chickbtn" *ngIf="!toggle" (click)="addNewCard()">{{'checkout.addcardbtn'
+                                    | translate}}</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+
+
+            </li>
+            <li class=" address2 Delivery checkoutpadding">
+                <h4 class="Paymen">{{'checkout.item' | translate}}</h4>
+                <div class="icon-produce">
+                    <i class="pay_color mdi mdi-cart-outline "></i>
+                </div>
+                <div class="item-produce">
+                    <p> {{cartItems.totalproduces}} {{'checkout.items' | translate}}</p>
+                    <p>
+                        <img [src]="produce.image" *ngFor="let produce of cartItems.produces">
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-12 place_sec ">
+        <div class="order">
+            <div class="btnorder">
+                <button type="button" class="btn btn-success orderbtn" (click)="placeOrder()">{{'checkout.orderbtn' |
+                    translate}}</button>
+            </div>
+            <div class="row Total">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-8">
+                    <h5 class="Sprouts">{{'checkout.subtotal' | translate}}</h5>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
+                    <h5 class="Sprouts text">{{totalAmountWODis | currency }}</h5>
+                </div>
+            </div>
+            <div class="row Total">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-8">
+                    <h5 class="Sprouts">{{'checkout.salestax' | translate}} @
+                        <i> {{salesTaxPercent}} % </i>
+                    </h5>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
+                    <h5 class="Sprouts text">{{salesTax.tax | currency}}</h5>
+                </div>
+            </div>
+            <div class="row Total">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-8">
+                    <h5 class="Sprouts">{{'checkout.yousave' | translate}}</h5>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
+                    <h5 class="Sprouts text" *ngIf="!flag">$0.00</h5>
+                    <h5 class="Sprouts text discount-color" *ngIf="flag">{{discountedAmount | currency}}</h5>
+                </div>
+            </div>
+
+            <div class="row Total">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-8">
+                    <h5 class="Sprouts">{{'common.total' | translate}}</h5>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
+                    <h5 class="Sprouts text"><b>{{totalAmount+salesTax.tax | currency}}</b></h5>
+                </div>
+            </div>
+            <div class="row Total">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-8 left_sec" *ngIf="!flag">
+                    <input type="text" [(ngModel)]="couponCode" class="form-control" placeholder="{{'checkout.promocode' | translate}}"
+                        [disabled]="flag">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-8 left_sec" *ngIf="flag">
+                    Coupon code: {{couponCode}}
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4 left_sec_apply" *ngIf="!flag">
+                    <a routerLink="./" class="apply" (click)="applyCoupon()">{{'checkout.applybtn' | translate}}</a>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4 left_sec_apply" *ngIf="flag">
+                    <!-- <button class="btn btn-remove" (click)="removeCoupon()">{{'checkout.removebtn' | translate}}</button> -->
+                    <a routerLink="./" class="apply" (click)="removeCoupon()">{{'checkout.removebtn' | translate}}</a>
+                </div>
+
+                <div class="col-lg-1 col-sm-1">
+
+                </div>
+
+            </div>
+
+
+            <!-- <div class="row coupon" *ngIf="flag">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-8">
+                    <h5 class="Sprouts">{{'checkout.coupon' | translate}}</h5>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
+                    <h5 class="Sprouts text">{{discountedAmount | currency}}</h5>
+                </div>
+            </div> -->
+            <!-- <div class="row coupon" *ngIf="flag">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-8">
+                    <h5 class="newtotal">{{'checkout.newtotal' | translate}}</h5>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
+                    <h5 class="Sprouts text">{{totalAmount | currency}}</h5>
+                </div>
+            </div> -->
+            <div class="row promo">
+                <div class="col-lg-12 col-sm-12" [ngClass]="responseClass">
+                    {{response}}
+                </div>
+            </div>
+        </div>
+    </div>

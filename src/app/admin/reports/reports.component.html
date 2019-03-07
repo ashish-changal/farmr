@@ -1,0 +1,137 @@
+<div class=" first_row">
+  <form role="form" #reportForm="ngForm">
+    <div class="row">
+      <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
+
+      </div>
+      <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
+        <div class="form-group">
+          <my-date-picker name="fromDate" placeholder="{{'reports.fromdate' | translate}}" [options]="myDatePickerOptions" [(ngModel)] = "reportData.fromDate" required></my-date-picker>
+        </div>
+      </div>
+    <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
+
+    </div>
+    <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
+      <div class="form-group">
+        <my-date-picker name="toDate" placeholder="{{'reports.todate' | translate}}" [options]="myDatePickerOptions" [(ngModel)] = "reportData.toDate" required></my-date-picker>
+      </div>
+    </div>
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
+
+  </div>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
+
+    </div>
+    <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
+      <div class="form-group">
+        <select class="form-control" [(ngModel)] = "reportData.farmKey" name="farmKey">
+          <option value = "">{{'reports.selectfarm' | translate}}</option>
+          <option *ngFor = "let farm of farms" [value] = "farm.farmkey">{{farm.farmname}}</option>
+        </select>
+      </div>
+    </div>
+  <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
+
+  </div>
+</div>
+<div class="row">
+    <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5">
+
+    </div>
+    <div class="col-lg-2 col-xs-2 col-sm-2 col-md-2">
+      <div class="form-group">
+        <button class="button btn-primary" (click) = "getData()" [disabled] = "reportForm.invalid">{{'reports.submitbtn' | translate}}</button>
+      </div>
+    </div>
+  <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5">
+
+  </div>
+</div>
+</form>
+<div [ngClass]="responseClass">
+  {{response}}
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 Transactions" *ngIf = "serachRecords?.length > 0">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-6 left_sec reportspading">
+      <h3>{{'reports.resulttitle' | translate}}</h3>
+  </div>  
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4 left_sec reportspading">
+    <h4>{{'reports.totalsales' | translate}} {{totalSales | currency}}</h4>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4 left_sec reportspading export-excel">
+    <a href="javascript:void(0)" (click) = "exportToExcel()"><i class="mdi mdi-24px mdi-file-excel" aria-hidden="true"></i><span class="excel-text">Export to excel</span></a>
+  </div>
+  <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
+    <h3>
+      <pagination-controls previousLabel="" nextLabel="" class="pagination" (pageChange)="p = $event" maxSize="9" directionLinks="true"
+        autoHide="true" responsive="true">
+      </pagination-controls>
+    </h3>
+  </div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="first-col">
+            <button class="dashbardbtn center" [disabled]="true">{{'common.order' | translate}}
+            </button>
+          </th>
+					<th>
+              <button (click)="sortByColumn('status', toggle.status)" class="dashbardbtn" [disabled]="serachRecords?.length == 0">{{'common.status' | translate}}
+                  <span class="header-icons" *ngIf="toggle.status != 2">
+                    <i  [ngStyle]="{'color':toggle.status == 0?'#fff':'#00000059'}" *ngIf="toggle.status == 0"  class="sort-by-asc"></i>
+                    <i  [ngStyle]="{'color':toggle.status == 1?'#fff':'#00000059'}" *ngIf="toggle.status == 1"   class="sort-by-desc"></i>
+                  </span>	
+                </button>
+          </th>
+					<th>
+              <button (click)="sortByColumn('date', toggle.date)" class="dashbardbtn" [disabled]="serachRecords?.length == 0">{{'common.date' | translate}}
+                  <span class="header-icons" *ngIf="toggle.date != 2">
+                    <!-- <i [ngStyle]="{'color':toggle.date == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+                    <i [ngStyle]="{'color':toggle.date == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+                    <!-- <i  [ngStyle]="{'color':toggle.date == 0?'#fff':'#00000059'}"  class="fa fa-sort" ></i> -->
+                    <i  [ngStyle]="{'color':toggle.date == 0?'#fff':'#00000059'}" *ngIf="toggle.date == 0"  class="sort-by-asc"></i>
+                    <i  [ngStyle]="{'color':toggle.date == 1?'#fff':'#00000059'}" *ngIf="toggle.date == 1"   class="sort-by-desc"></i>
+                  </span>
+                </button>
+          </th>
+					<th>
+              <button (click)="sortByColumn('price',toggle.price)" class="dashbardbtn" [disabled]="serachRecords?.length == 0">{{'common.total' | translate}}
+                  <span class="header-icons" *ngIf="toggle.price != 2">
+                    <!-- <i [ngStyle]="{'color':toggle.price == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+                    <i [ngStyle]="{'color':toggle.price == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+                    <!-- <i  [ngStyle]="{'color':toggle.price == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+                    <i  [ngStyle]="{'color':toggle.price == 0?'#fff':'#00000059'}" *ngIf="toggle.price == 0"  class="sort-by-asc"></i>
+                    <i  [ngStyle]="{'color':toggle.price == 1?'#fff':'#00000059'}" *ngIf="toggle.price == 1"   class="sort-by-desc"></i>
+                  </span>
+                </button>
+          </th>
+					<th>
+              <button class="dashbardbtn" [disabled]="true">{{'common.remarks' | translate}}
+                </button>
+          </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="first-col" *ngFor="let order of serachRecords | paginate: { itemsPerPage: 15, currentPage: p };let i=index;">
+					<td class="center">{{order.orderNumber}}</td>
+					<td [ngStyle] = "{'color': order.status == 'Unfulfilled' || order.status == 'Refund Pending'?'red':'#000'}">{{order.status}}</td>
+					<td>{{order.orderdate}}</td>
+					<td class="report_total">{{order.amount | currency }}</td>
+					<td>{{order.remarks }}</td>
+				</tr>
+			</tbody>
+		</table>
+  </div>
+  <div *ngIf="serachRecords?.length == 0 && toggleShow"><span class="search_no_results">
+          <h4>No record found</h4> 
+        </span></div>
+  
+</div>

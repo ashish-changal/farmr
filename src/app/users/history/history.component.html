@@ -1,0 +1,81 @@
+<h3>
+  <pagination-controls previousLabel="" nextLabel="" class="pagination" (pageChange)="p = $event" maxSize="9" directionLinks="true"
+    autoHide="true" responsive="true">
+  </pagination-controls>
+</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="first-col">
+              <button  class="header-btn" [disabled] = "true">{{'common.ordernumber' | translate}}</button>
+            </th>
+          <th>
+              <button (click)="sortByColumn('date', toggle.date)" class="header-btn" [disabled] = "orders?.length == 0">{{'common.date' | translate}}
+                  <span class="header-icons" *ngIf = "toggle.date != 2">
+                    <!-- <i [ngStyle]="{'color':toggle.date == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+                    <i [ngStyle]="{'color':toggle.date == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+                    <!-- <i  [ngStyle]="{'color':toggle.date == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+                    <i  [ngStyle]="{'color':toggle.date == 0?'#fff':'#00000059'}" *ngIf="toggle.date == 0"  class="sort-by-asc"></i>
+                    <i  [ngStyle]="{'color':toggle.date == 1?'#fff':'#00000059'}" *ngIf="toggle.date == 1"   class="sort-by-desc"></i>
+                  </span>
+                </button>
+           </th>
+           <th>
+            <button (click)="sortByColumn('amount', toggle.amount)" class="header-btn" [disabled] = "orders?.length == 0">{{'common.amount' | translate}}
+              <span class="header-icons" *ngIf = "toggle.amount != 2">
+                <!-- <i [ngStyle]="{'color':toggle.amount == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+                <i [ngStyle]="{'color':toggle.amount == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+                <!-- <i  [ngStyle]="{'color':toggle.amount == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+                <i  [ngStyle]="{'color':toggle.amount == 0?'#fff':'#00000059'}" *ngIf="toggle.amount == 0"  class="sort-by-asc"></i>
+                <i  [ngStyle]="{'color':toggle.amount == 1?'#fff':'#00000059'}" *ngIf="toggle.amount == 1"   class="sort-by-desc"></i>
+              </span>
+              </button>
+          </th>
+          <th>
+              <button  class="header-btn" [disabled] = "true">{{'userhistory.pickup' | translate}}
+                </button> 
+          </th>
+          <th><button (click)="sortByColumn('status', toggle.status)" class="header-btn" [disabled] = "orders?.length == 0">{{'common.status' | translate}}
+              <span class="header-icons" *ngIf = "toggle.status != 2">
+                <!-- <i [ngStyle]="{'color':toggle.status == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i> -->
+                <!-- <i [ngStyle]="{'color':toggle.status == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+                <!-- <i  [ngStyle]="{'color':toggle.status == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+                <i  [ngStyle]="{'color':toggle.status == 0?'#fff':'#00000059'}" *ngIf="toggle.status == 0"  class="sort-by-asc"></i>
+                <i  [ngStyle]="{'color':toggle.status == 1?'#fff':'#00000059'}" *ngIf="toggle.status == 1"   class="sort-by-desc"></i>
+              </span>
+            </button></th>
+          <th><button (click)="sortByColumn('rewards',toggle.rewards)" class="header-btn" [disabled] = "orders?.length == 0">{{'userhistory.rewardpoint' | translate}}
+              <span class="header-icons" *ngIf = "toggle.rewards != 2">
+                <!-- <i [ngStyle]="{'color':toggle.rewards == 0?'#fff':'#00000059'}" class="mdi mdi-menu-up"></i>
+                <i [ngStyle]="{'color':toggle.rewards == 1?'#fff':'#00000059'}" class="mdi mdi-menu-down"></i> -->
+                <!-- <i  [ngStyle]="{'color':toggle.rewards == 0?'#fff':'#00000059'}"  class="fa fa-sort"></i> -->
+                <i  [ngStyle]="{'color':toggle.rewards == 0?'#fff':'#00000059'}" *ngIf="toggle.rewards == 0"  class="sort-by-asc"></i>
+                <i  [ngStyle]="{'color':toggle.rewards == 1?'#fff':'#00000059'}" *ngIf="toggle.rewards == 1"   class="sort-by-desc"></i>
+              </span>
+            </button></th>
+          <th>
+              <button class="header-btn" [disabled] = "true">
+                
+                </button>
+          </th>
+        </tr>
+      </thead>
+  
+      <tbody class="table-hover">
+      <tr  (click)="openDetailHistory(order.orderKey)" *ngFor="let order of orders | paginate: { itemsPerPage: 10, currentPage: p }; let i=index;">
+        <td class="first-col">{{order.orderNumber | uppercase}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.amount |  currency}}</td>
+        <td>{{order.pickup1}}</td>
+        <td>{{order.ordersStatus}}</td>
+        <td class="point">{{order.rewards}}</td>
+        <td class="last_img_sec">
+          <img class="" src="./assets/imgs/Group.png" >
+        </td>
+      </tr>
+    </table>
+  <div align="center" *ngIf="orders?.length == 0">
+      <span class="search_no_results">
+        <h4>{{noDataFound}}</h4>
+      </span>
+    </div>

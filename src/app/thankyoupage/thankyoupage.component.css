@@ -1,0 +1,25 @@
+.sing_butt {
+    background: #FF8203;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 28px;
+    font-family: roboto;
+    font-size: 1vw;
+    font-weight: 400;
+    margin-top: 20px;
+}
+.thankupage {
+    text-align: center;
+    padding: 18px;
+    width: 100%;
+    float: left
+}
+img.main_img {
+    width: 10%;
+}
+.thankupage h3 {
+    font-size: 1vw;
+    padding: 10px 78px;
+    font-family: roboto;
+    margin: 0;
+}

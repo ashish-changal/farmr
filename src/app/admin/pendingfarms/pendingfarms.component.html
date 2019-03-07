@@ -1,0 +1,32 @@
+<div  class="first-row">
+    <h3>
+      <pagination-controls class="pagination" (pageChange)="p = $event" directionLinks="true" maxSize=3 autoHide="true" previousLabel=""
+        nextLabel=""></pagination-controls>
+    </h3>
+    <div class="row col-md-12 col-md-offset-2 custyle">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="first-col">{{'farminformation.farmname' | translate}}</th>
+          <th>{{'farminformation.farmaddress' | translate}}</th>
+          <th>{{'common.zipcode' | translate}}</th>
+          <th>{{'common.action' | translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let farm of farms | paginate: { itemsPerPage: 15, currentPage: p }; let i=index;">
+          <td class="first-col">{{farm.name}}</td>
+          <td>{{farm.address1}} <br>{{farm.address2}}</td>
+          <td>{{farm.zipcode}}</td>
+          <td class="icon">
+            <a class="dashbardbtn pointer" (click)="approve(farm)">Approve</a> /
+            <a class="disapprove pointer" (click)="disApprove(farm)">Reject</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="search_no_results" *ngIf="farms?.length == 0">
+      <h4>{{noDataFound}}</h4>
+    </div>
+  </div>
+</div>
